@@ -39,7 +39,7 @@ const Footer = styled.footer`
 const Content = styled.div`
   color: ${ax("primary-color")};
   font-size: 20px;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
   position: relative;
   padding: 49px; // x = tan(angle)*width / 2
@@ -61,14 +61,11 @@ const SocIconWrapper = styled.div`
     width: 100% !important;
     height: 100%;
   }
-  :hover {
-    svg {
-      path {
-        fill: ${props => getFillColorForIcon(props.icon)};
-      }
+  svg:hover {
+    path {
+      fill: ${props => getFillColorForIcon(props.icon)};
     }
   }
-  transition: all 0.5s ease-out;
 `;
 
 const InstaGradient = () => {
@@ -85,23 +82,47 @@ const InstaGradient = () => {
   );
 };
 
-const FooterComponent = () => (
-  <Footer gradient="linear-gradient(45deg, #654ea3, #eaafc8)">
-    <Content>
-      <IconsWrapper>
-        <SocIconWrapper icon="linkedin">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SocIconWrapper>
-        <SocIconWrapper icon="github">
-          <FontAwesomeIcon icon={faGithubSquare} />
-        </SocIconWrapper>
-        <SocIconWrapper icon="instagram">
-          <FontAwesomeIcon icon={faInstagramSquare} />
-          <InstaGradient />
-        </SocIconWrapper>
-      </IconsWrapper>
-    </Content>
-  </Footer>
-);
+const FooterComponent = () => {
+  const socIconClickHandler = link => {
+    window.open(link, "_ blank");
+  };
+  return (
+    <Footer gradient="linear-gradient(45deg, #654ea3, #eaafc8)">
+      <Content>
+        <IconsWrapper>
+          <SocIconWrapper
+            icon="linkedin"
+            onClick={() =>
+              socIconClickHandler(
+                "https://www.linkedin.com/in/alexander-chernetsky/"
+              )
+            }
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
+          </SocIconWrapper>
+          <SocIconWrapper
+            icon="github"
+            onClick={() =>
+              socIconClickHandler("https://github.com/alexanderchernetsky")
+            }
+          >
+            <FontAwesomeIcon icon={faGithubSquare} />
+          </SocIconWrapper>
+          <SocIconWrapper icon="instagram">
+            <FontAwesomeIcon
+              icon={faInstagramSquare}
+              onClick={() =>
+                socIconClickHandler(
+                  "https://www.instagram.com/alexander_chernetsky/"
+                )
+              }
+            />
+            <InstaGradient />
+          </SocIconWrapper>
+        </IconsWrapper>
+      </Content>
+    </Footer>
+  );
+};
 
 export default FooterComponent;
