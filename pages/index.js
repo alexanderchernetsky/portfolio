@@ -14,6 +14,7 @@ const HomePageWrapper = styled.div`
 
 const DiagonalBox = styled.div`
   position: relative;
+  height: 450px;
   :before {
     content: "";
     position: absolute;
@@ -43,11 +44,13 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
   font-size: 28px;
   font-weight: 500;
+  margin-bottom: 0;
 `;
 
 const InfoBlock = styled.p`
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 `;
 
 const Info = styled.span``;
@@ -68,8 +71,8 @@ const Index = () => {
         <DiagonalBox gradient="linear-gradient(45deg, #6303B1, #ff0099)">
           <Content>
             <Title>
-              Hello! I'm Alexander, a frontend web developer based in Grodno,
-              Belarus.
+              Hello! I&apos;m Alexander, a frontend web developer based in
+              Grodno, Belarus.
             </Title>
           </Content>
         </DiagonalBox>
@@ -89,7 +92,6 @@ const Index = () => {
               <Info>CSS-in-JS (Styled Components)</Info>
               <Info>CSS, LESS, SASS, Stylus</Info>
               <Info>HTML</Info>
-              <Info>REST</Info>
               <Info>Algorithms & Data Structures</Info>
             </InfoBlock>
           </Content>
