@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import ax from "../styled-components/accessor";
-import alexander from "../images/alexander.jpg";
+import alex from "../images/alex.jpg";
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -53,6 +53,7 @@ const Title = styled.h1`
   font-size: 28px;
   font-weight: 500;
   margin: 0;
+  text-align: center;
 `;
 
 const Subtitle = styled.h2`
@@ -85,7 +86,7 @@ const Index = () => {
         <DiagonalBox gradient="linear-gradient(45deg, #6303B1, #ff0099)">
           <Content size="500">
             <PhotoWrapper>
-              <Photo src={alexander} alt="Alexander Chernetsky photo"/>
+              <Photo src={alex} alt="Alexander Chernetsky photo" />
             </PhotoWrapper>
             <Title>
               Hello! I&apos;m Alexander, a frontend web developer based in
