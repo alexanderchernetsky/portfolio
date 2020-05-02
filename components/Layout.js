@@ -5,6 +5,8 @@ import Footer from "./Footer";
 
 const LayoutWrapper = styled.div`
   overflow: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
 `;
 
 const MainContentWrapper = styled.main`
