@@ -4,6 +4,7 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import ax from "../styled-components/accessor";
 import alex from "../images/alex.jpg";
+import ButtonComponent from "../components/Button";
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -92,6 +93,7 @@ const Index = () => {
               Hello! I&apos;m Alexander, a frontend web developer based in
               Grodno, Belarus.
             </Title>
+            <ButtonComponent text="View my work" />
           </Content>
         </DiagonalBox>
         {/* second */}
