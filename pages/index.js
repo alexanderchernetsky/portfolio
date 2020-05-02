@@ -3,14 +3,13 @@ import styled from "styled-components";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import ax from "../styled-components/accessor";
+import alexander from "../images/alexander.jpg";
 
 const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 `;
-
-// background-image: linear-gradient(45deg, #6303B1, #ff0099);
 
 const DiagonalBox = styled.div`
   position: relative;
@@ -27,18 +26,33 @@ const DiagonalBox = styled.div`
   }
 `;
 
-const Content = styled.div`
+const Content = styled.section`
   color: ${ax("primary-color")};
   font-size: 20px;
-  max-width: 500px;
+  max-width: ${props => props.size || 400}px;
   margin: 0 auto;
   position: relative;
   padding: 49px; // x = tan(angle)*width / 2
+  display: flex;
+  flex-direction: column;
+`;
+
+const PhotoWrapper = styled.figure`
+  width: 200px;
+  height: 200px;
+  align-self: center;
+`;
+
+const Photo = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `;
 
 const Title = styled.h1`
   font-size: 28px;
   font-weight: 500;
+  margin: 0;
 `;
 
 const Subtitle = styled.h2`
@@ -69,7 +83,10 @@ const Index = () => {
       <HomePageWrapper>
         {/* first */}
         <DiagonalBox gradient="linear-gradient(45deg, #6303B1, #ff0099)">
-          <Content>
+          <Content size="500">
+            <PhotoWrapper>
+              <Photo src={alexander} alt="Alexander Chernetsky photo"/>
+            </PhotoWrapper>
             <Title>
               Hello! I&apos;m Alexander, a frontend web developer based in
               Grodno, Belarus.
