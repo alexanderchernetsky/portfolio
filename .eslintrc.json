@@ -17,6 +17,8 @@
     "react/jsx-props-no-spreading": "off",
     "react/jsx-curly-newline": "off",
     "react/no-array-index-key": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "prettier/prettier": "error",
     "react/prop-types": "warn"
   }
