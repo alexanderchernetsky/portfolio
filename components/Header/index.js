@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import ax from "../../styled-components/accessor";
 import { customMedia } from "../../styled-components/customMedia";
 
@@ -62,13 +63,18 @@ const ItemWrapper = styled.span`
       opacity: 1;
     }
   }
+  a {
+    text-decoration: none;
+    color: ${ax("primary-color")};
+  }
 `;
 
 const headerMenuItems = [
-  { name: "Home" },
-  { name: "Portfolio" },
-  { name: "Blog" },
-  { name: "Contact" }
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
+  { name: "Portfolio", link: "/portfolio" },
+  { name: "Blog", link: "/blog" },
+  { name: "Contact", link: "/contact" }
 ];
 
 const HeaderComponent = () => (
@@ -78,7 +84,11 @@ const HeaderComponent = () => (
         {headerMenuItems.map((item, index) => {
           return (
             <MenuItem key={index}>
-              <ItemWrapper>{item.name}</ItemWrapper>
+              <ItemWrapper>
+                <Link href={item.link}>
+                  <a>{item.name}</a>
+                </Link>
+              </ItemWrapper>
             </MenuItem>
           );
         })}
