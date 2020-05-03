@@ -22,6 +22,12 @@ export default class MyApp extends App {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/favicon-32x32.png"
+          />
         </Head>
         <GlobalStyles />
         <Component {...pageProps} />

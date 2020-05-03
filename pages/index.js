@@ -69,7 +69,10 @@ const Index = () => {
           name="description"
           content="Alexander Chernetsky - a frontend web developer from Grodno, Belarus"
         />
-        <meta name="google-site-verification" content="B_oyNY7Nj-cESbBvN-hrxgz1HsbKpTGLSGL-_YWf-vY" />
+        <meta
+          name="google-site-verification"
+          content="B_oyNY7Nj-cESbBvN-hrxgz1HsbKpTGLSGL-_YWf-vY"
+        />
       </Head>
 
       <HomePageWrapper id="home-page">
