@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import ax from "../../styled-components/accessor";
+import { customMedia } from "../../styled-components/customMedia";
 
 const Header = styled.header`
-  height: 100px;
+  height: 60px;
   width: 100%;
   color: ${ax("primary-color")};
   position: fixed;
   z-index: 2;
+  max-width: 1920px;
+  background-color: ${ax("overlay-color")};
 `;
 
 const MenuWrapper = styled.nav``;
@@ -27,6 +30,10 @@ const MenuItem = styled.li`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  ${customMedia.lessThan("mobile")`
+    font-size: 16px;
+    margin-right: 15px;
+  `};
 `;
 
 const ItemWrapper = styled.span`
