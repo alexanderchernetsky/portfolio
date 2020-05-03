@@ -33,7 +33,7 @@ export default createGlobalStyle`
   html, body {
     margin: 0;
     font-family: "Aldrin", sans-serif;
-    background-image: linear-gradient(45deg, #654ea3, #eaafc8);
+    min-width: 375px;
     /* Works on Chrome/Edge/Safari */
     ::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);

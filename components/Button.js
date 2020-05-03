@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import ax from "../styled-components/accessor";
+import { customMedia } from "../styled-components/customMedia";
 
 const Button = styled.button`
   margin-top: 10px;
@@ -18,6 +20,9 @@ const Button = styled.button`
   font-family: inherit;
   width: 13rem;
   height: auto;
+  ${customMedia.lessThan("mobile")`
+    font-size: 15px;
+  `};
   .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
@@ -25,7 +30,7 @@ const Button = styled.button`
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #282936;
+    background: ${ax("secondary-color")};
     border-radius: 1.625rem;
     .icon {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -63,11 +68,14 @@ const Button = styled.button`
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #282936;
+    color: ${ax("secondary-color")};
     font-weight: 700;
-    line-height: 1.6;
+    line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
+    ${customMedia.lessThan("mobile")`
+      line-height: 1.7;
+    `}
   }
 }
 &:hover {
@@ -81,7 +89,7 @@ const Button = styled.button`
     }
   }
   .button-text {
-    color: white;
+    color: ${ax("primary-color")};
     font-weight: 500;
   }
 `;
