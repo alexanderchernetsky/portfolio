@@ -1,61 +1,66 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
+import Trianglify from "trianglify";
 import Layout from "../components/Layout";
+import alex from "../images/alex.jpg";
+import ButtonComponent from "../components/Button";
 import ax from "../styled-components/accessor";
+import { customMedia } from "../styled-components/customMedia";
 
-const HomePageWrapper = styled.div`
+const HomePageWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 `;
 
-// background-image: linear-gradient(45deg, #6303B1, #ff0099);
-
-const DiagonalBox = styled.div`
-  position: relative;
-  height: 450px;
-  :before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-image: ${props => props.gradient};
-    transform: skewY(-11deg);
-  }
+const ContentWrapper = styled.div`
+  position: absolute;
+  max-width: 500px;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const Content = styled.div`
-  color: ${ax("primary-color")};
-  font-size: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-  position: relative;
-  padding: 49px; // x = tan(angle)*width / 2
+const PhotoWrapper = styled.figure`
+  width: 200px;
+  height: 200px;
+  align-self: center;
+`;
+
+const Photo = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 2px solid ${ax("primary-color")};
 `;
 
 const Title = styled.h1`
   font-size: 28px;
   font-weight: 500;
+  margin: 0;
+  text-align: center;
+  color: ${ax("secondary-color")};
+  ${customMedia.lessThan("mobile")`
+    font-size: 24px;
+  `};
 `;
-
-const Subtitle = styled.h2`
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 0;
-`;
-
-const InfoBlock = styled.p`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-`;
-
-const Info = styled.span``;
 
 const Index = () => {
+  useEffect(() => {
+    const pattern = Trianglify({
+      height: window.innerHeight,
+      width: window.innerWidth,
+      cell_size: 40
+    });
+
+    document.getElementById("home-page").appendChild(pattern.canvas());
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -66,53 +71,17 @@ const Index = () => {
         />
       </Head>
 
-      <HomePageWrapper>
-        {/* first */}
-        <DiagonalBox gradient="linear-gradient(45deg, #6303B1, #ff0099)">
-          <Content>
-            <Title>
-              Hello! I&apos;m Alexander, a frontend web developer based in
-              Grodno, Belarus.
-            </Title>
-          </Content>
-        </DiagonalBox>
-        {/* second */}
-        <DiagonalBox gradient="linear-gradient(45deg, #654ea3, #eaafc8)">
-          <Content>
-            <Subtitle>Programming skills:</Subtitle>
-            <InfoBlock>
-              <Info>React, React Hooks</Info>
-              <Info>Javascript</Info>
-              <Info>Next.js</Info>
-              <Info>Redux, Redux-Saga</Info>
-              <Info>Typescript</Info>
-              <Info>Jest, Enzyme</Info>
-              <Info>Bootstrap, Ant Design, Material-UI</Info>
-              <Info>Jest, Enzyme</Info>
-              <Info>CSS-in-JS (Styled Components)</Info>
-              <Info>CSS, LESS, SASS, Stylus</Info>
-              <Info>HTML</Info>
-              <Info>Algorithms & Data Structures</Info>
-            </InfoBlock>
-          </Content>
-        </DiagonalBox>
-        {/* third */}
-        <DiagonalBox gradient="linear-gradient(-135deg, #ff0084, #33001b);">
-          <Content>
-            <Subtitle>Tools:</Subtitle>
-            <InfoBlock>
-              <Info>Jira, Confluence</Info>
-              <Info>Postman</Info>
-              <Info>Swagger</Info>
-              <Info>Webpack</Info>
-              <Info>Npm, yarn</Info>
-              <Info>GIT</Info>
-              <Info>IDE WebStorm</Info>
-              <Info>Github, Bitbucket, GitLab</Info>
-              <Info>Adobe Photoshop</Info>
-            </InfoBlock>
-          </Content>
-        </DiagonalBox>
+      <HomePageWrapper id="home-page">
+        <ContentWrapper>
+          <PhotoWrapper>
+            <Photo src={alex} alt="Alexander Chernetsky photo" />
+          </PhotoWrapper>
+          <Title>
+            Hello! I&apos;m Alexander, a frontend web developer based in Grodno,
+            Belarus.
+          </Title>
+          <ButtonComponent text="View my work" />
+        </ContentWrapper>
       </HomePageWrapper>
     </Layout>
   );

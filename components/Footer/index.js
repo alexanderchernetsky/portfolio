@@ -22,53 +22,47 @@ function getFillColorForIcon(iconName) {
 }
 
 const Footer = styled.footer`
-  position: relative;
-  height: 450px;
-  :before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-image: ${props => props.gradient};
-    transform: skewY(-11deg);
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: ${ax("overlay-color")};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Content = styled.div`
   color: ${ax("primary-color")};
   font-size: 20px;
-  max-width: 500px;
+  max-width: 200px;
   margin: 0 auto;
-  position: relative;
-  padding: 49px; // x = tan(angle)*width / 2
 `;
 
 const IconsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 175px;
   justify-content: flex-start;
 `;
 
 const SocIconWrapper = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  margin-right: 50px;
+  :not(:last-of-type) {
+    margin-right: 50px;
+  }
   svg {
     width: 100% !important;
     height: 100%;
   }
-  :hover {
-    svg {
-      path {
-        fill: ${props => getFillColorForIcon(props.icon)};
-      }
+  svg:hover {
+    path {
+      fill: ${props => getFillColorForIcon(props.icon)};
     }
   }
-  transition: all 0.5s ease-out;
 `;
 
 const InstaGradient = () => {
@@ -85,23 +79,47 @@ const InstaGradient = () => {
   );
 };
 
-const FooterComponent = () => (
-  <Footer gradient="linear-gradient(45deg, #654ea3, #eaafc8)">
-    <Content>
-      <IconsWrapper>
-        <SocIconWrapper icon="linkedin">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SocIconWrapper>
-        <SocIconWrapper icon="github">
-          <FontAwesomeIcon icon={faGithubSquare} />
-        </SocIconWrapper>
-        <SocIconWrapper icon="instagram">
-          <FontAwesomeIcon icon={faInstagramSquare} />
-          <InstaGradient />
-        </SocIconWrapper>
-      </IconsWrapper>
-    </Content>
-  </Footer>
-);
+const FooterComponent = () => {
+  const socIconClickHandler = link => {
+    window.open(link, "_ blank");
+  };
+  return (
+    <Footer gradient="linear-gradient(45deg, #654ea3, #eaafc8)">
+      <Content>
+        <IconsWrapper>
+          <SocIconWrapper
+            icon="linkedin"
+            onClick={() =>
+              socIconClickHandler(
+                "https://www.linkedin.com/in/alexander-chernetsky/"
+              )
+            }
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
+          </SocIconWrapper>
+          <SocIconWrapper
+            icon="github"
+            onClick={() =>
+              socIconClickHandler("https://github.com/alexanderchernetsky")
+            }
+          >
+            <FontAwesomeIcon icon={faGithubSquare} />
+          </SocIconWrapper>
+          <SocIconWrapper icon="instagram">
+            <FontAwesomeIcon
+              icon={faInstagramSquare}
+              onClick={() =>
+                socIconClickHandler(
+                  "https://www.instagram.com/alexander_chernetsky/"
+                )
+              }
+            />
+            <InstaGradient />
+          </SocIconWrapper>
+        </IconsWrapper>
+      </Content>
+    </Footer>
+  );
+};
 
 export default FooterComponent;
