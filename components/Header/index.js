@@ -45,6 +45,9 @@ const MenuItem = styled.li`
   ${customMedia.lessThan("mobile")`
     font-size: 14px;
     margin-right: 15px;
+    :last-of-type {
+      margin-right: 0;
+    }
   `};
 `;
 
