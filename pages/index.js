@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Head from "next/head";
 import Trianglify from "trianglify";
 import Layout from "../components/Layout";
-import alex from "../images/alex.jpg";
 import ButtonComponent from "../components/Button";
 import ax from "../styled-components/accessor";
 import { customMedia } from "../styled-components/customMedia";
@@ -16,38 +15,36 @@ const HomePageWrapper = styled.section`
 
 const ContentWrapper = styled.div`
   position: absolute;
-  max-width: 500px;
+  width: 600px;
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const PhotoWrapper = styled.figure`
-  width: 200px;
-  height: 200px;
-  align-self: center;
-`;
-
-const Photo = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 5px;
-  border: 2px solid ${ax("primary-color")};
+  ${customMedia.lessThan("tablet")`
+    width: 360px;
+  `};
 `;
 
 const Title = styled.h1`
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 38px;
+  font-weight: 300;
   margin: 0;
   text-align: center;
-  color: ${ax("secondary-color")};
-  ${customMedia.lessThan("mobile")`
+  color: ${ax("primary-color")};
+  ${customMedia.lessThan("tablet")`
     font-size: 24px;
   `};
+`;
+
+const FullName = styled.span`
+  color: ${ax("highlight-color")};
+  font-weight: 400;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-top: 10px;
 `;
 
 const Index = () => {
@@ -55,7 +52,8 @@ const Index = () => {
     const pattern = Trianglify({
       height: window.innerHeight,
       width: window.innerWidth,
-      cell_size: 40
+      cell_size: 40,
+      x_colors: "Greys"
     });
 
     document.getElementById("home-page").appendChild(pattern.canvas());
@@ -64,7 +62,7 @@ const Index = () => {
   return (
     <Layout>
       <Head>
-        <title>Frontend Dev | Alexander Chernetsky</title>
+        <title>Frontend Developer | Alexander Chernetsky</title>
         <meta
           name="description"
           content="Alexander Chernetsky - a frontend web developer from Grodno, Belarus"
@@ -77,14 +75,13 @@ const Index = () => {
 
       <HomePageWrapper id="home-page">
         <ContentWrapper>
-          <PhotoWrapper>
-            <Photo src={alex} alt="Alexander Chernetsky photo" />
-          </PhotoWrapper>
           <Title>
-            Hello! I&apos;m Alexander, a frontend web developer based in Grodno,
-            Belarus.
+            Hello! I&apos;m <FullName>Alexander Chernetsky</FullName>,
+            <br /> a frontend web developer based in Grodno, Belarus.
           </Title>
-          <ButtonComponent text="View my work" />
+          <ButtonWrapper>
+            <ButtonComponent text="View my work" />
+          </ButtonWrapper>
         </ContentWrapper>
       </HomePageWrapper>
     </Layout>
