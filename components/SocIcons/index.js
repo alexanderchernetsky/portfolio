@@ -6,6 +6,7 @@ import {
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import ax from "../../styled-components/accessor";
+import { customMedia } from "../../styled-components/customMedia";
 
 function getFillColorForIcon(iconName) {
   switch (iconName) {
@@ -25,6 +26,9 @@ const IconsWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   margin-right: 40px;
+  ${customMedia.lessThan("desktop")`
+    margin-right: 0;
+  `};
 `;
 
 const SocIconWrapper = styled.a`
@@ -39,11 +43,13 @@ const SocIconWrapper = styled.a`
     width: 100% !important;
     height: 100%;
   }
-  svg:hover {
-    path {
-      fill: ${props => getFillColorForIcon(props.icon)};
+  ${customMedia.greaterThan("desktop")`
+    svg:hover {
+      path {
+        fill: ${props => getFillColorForIcon(props.icon)};
+      }
     }
-  }
+  `}
 `;
 
 const InstaGradient = () => {
