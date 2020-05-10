@@ -101,4 +101,7 @@ export default createGlobalStyle`
       background-color: rgba(0, 0, 0, .2);
     }
   }
+  * {
+    box-sizing: border-box;
+  }
 `;

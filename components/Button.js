@@ -70,13 +70,13 @@ const Button = styled.button`
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
     color: ${ax("highlight-color")};
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
     a {
       color: ${ax("primary-color")};
-      font-weight: 500;
+      font-weight: 400;
       text-decoration: none;
     }
     ${customMedia.lessThan("mobile")`
@@ -95,10 +95,10 @@ const Button = styled.button`
     }
     .button-text {
       color: ${ax("primary-color")};
-      font-weight: 500;
+      font-weight: 400;
       a {
         color: ${ax("primary-color")};
-        font-weight: 500;
+        font-weight: 400;
       }
     }
   }
