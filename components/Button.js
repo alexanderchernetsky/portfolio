@@ -22,7 +22,7 @@ const Button = styled.button`
   width: 13rem;
   height: auto;
   ${customMedia.lessThan("mobile")`
-    font-size: 15px;
+    font-size: 14px;
   `};
   .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -31,7 +31,7 @@ const Button = styled.button`
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: ${ax("secondary-color")};
+    background: ${ax("highlight-color")};
     border-radius: 1.625rem;
     .icon {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -69,33 +69,37 @@ const Button = styled.button`
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
+    color: ${ax("highlight-color")};
+    font-weight: 500;
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
     a {
-      color: ${ax("secondary-color")};
-      font-weight: 700;
+      color: ${ax("primary-color")};
+      font-weight: 500;
       text-decoration: none;
     }
     ${customMedia.lessThan("mobile")`
       line-height: 1.7;
     `}
   }
-}
-&:hover {
-  .circle {
-    width: 100%;
-    .icon {
-      &.arrow {
-        background: white;
-        transform: translate(1rem, 0);
+  &:hover {
+    .circle {
+      width: 100%;
+      .icon {
+        &.arrow {
+          background: white;
+          transform: translate(1rem, 0);
+        }
       }
     }
-  }
-  .button-text {
-    a {
+    .button-text {
       color: ${ax("primary-color")};
       font-weight: 500;
+      a {
+        color: ${ax("primary-color")};
+        font-weight: 500;
+      }
     }
   }
 `;
