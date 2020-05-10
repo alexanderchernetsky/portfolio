@@ -32,6 +32,8 @@ const ContentWrapper = styled.main`
   ${customMedia.lessThan("tablet")`
     padding: 20px;
     top: 50%;
+    height: 80%;
+    overflow-y: scroll;
   `};
 `;
 
@@ -68,6 +70,9 @@ const BlocksWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  ${customMedia.lessThan("tablet")`
+    margin-top: 10px;
+  `};
 `;
 
 const blocks = [
