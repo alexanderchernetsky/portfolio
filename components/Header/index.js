@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import ax from "../../styled-components/accessor";
 import { customMedia } from "../../styled-components/customMedia";
 import SocialIconsComponent from "../SocIcons";
@@ -73,6 +74,10 @@ const ItemWrapper = styled.span`
       opacity: 1;
     }
   }
+  a {
+    text-decoration: none;
+    color: ${ax("primary-color")};
+  }
 `;
 
 const SocIconsWrapper = styled.div`
@@ -82,32 +87,34 @@ const SocIconsWrapper = styled.div`
 `;
 
 const headerMenuItems = [
-  { name: "Home" },
-  { name: "About" },
-  { name: "Portfolio" },
-  { name: "Blog" },
-  { name: "Contact" }
+  { name: "Home", link: "/" },
+  { name: "About", link: "/about" },
+  { name: "Portfolio", link: "/portfolio" },
+  { name: "Blog", link: "/blog" },
+  { name: "Contact", link: "/contact" }
 ];
 
-const HeaderComponent = () => {
-  return (
-    <Header>
-      <MenuWrapper>
-        <Menu>
-          {headerMenuItems.map((item, index) => {
-            return (
-              <MenuItem key={index}>
-                <ItemWrapper>{item.name}</ItemWrapper>
-              </MenuItem>
-            );
-          })}
-        </Menu>
-      </MenuWrapper>
-      <SocIconsWrapper>
-        <SocialIconsComponent />
-      </SocIconsWrapper>
-    </Header>
-  );
-};
+const HeaderComponent = () => (
+  <Header>
+    <MenuWrapper>
+      <Menu>
+        {headerMenuItems.map((item, index) => {
+          return (
+            <MenuItem key={index}>
+              <ItemWrapper>
+                <Link href={item.link}>
+                  <a>{item.name}</a>
+                </Link>
+              </ItemWrapper>
+            </MenuItem>
+          );
+        })}
+      </Menu>
+    </MenuWrapper>
+    <SocIconsWrapper>
+      <SocialIconsComponent />
+    </SocIconsWrapper>
+  </Header>
+);
 
 export default HeaderComponent;

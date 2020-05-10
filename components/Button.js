@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import Link from "next/link";
 import ax from "../styled-components/accessor";
 import { customMedia } from "../styled-components/customMedia";
 
@@ -73,6 +74,11 @@ const Button = styled.button`
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
+    a {
+      color: ${ax("primary-color")};
+      font-weight: 500;
+      text-decoration: none;
+    }
     ${customMedia.lessThan("mobile")`
       line-height: 1.7;
     `}
@@ -90,6 +96,10 @@ const Button = styled.button`
     .button-text {
       color: ${ax("primary-color")};
       font-weight: 500;
+      a {
+        color: ${ax("primary-color")};
+        font-weight: 500;
+      }
     }
   }
 `;
@@ -100,7 +110,11 @@ const ButtonComponent = ({ className, text, disabled, onClick }) => {
       <span className="circle" aria-hidden="true">
         <span className="arrow icon" />
       </span>
-      <span className="button-text">{text}</span>
+      <span className="button-text">
+        <Link href="/portfolio">
+          <a>{text}</a>
+        </Link>
+      </span>
     </Button>
   );
 };
