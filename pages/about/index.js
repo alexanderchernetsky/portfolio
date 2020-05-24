@@ -32,6 +32,9 @@ const ContentWrapper = styled.main`
     padding: 20px 20px 80px;
     width: 90%;
   `};
+  ${customMedia.lessThan("mobile")`
+    padding: 10px 10px 80px;
+  `};
 `;
 
 const PageTitleWrapper = styled.div`
@@ -89,6 +92,9 @@ const AboutSection = styled.div`
   background-color: ax("primary-color");
   max-width: 590px;
   padding: 0 10px;
+  ${customMedia.lessThan("mobile")`
+    margin-top: 20px;
+  `};
 `;
 
 const PhotoWrapper = styled.div`
