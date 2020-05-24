@@ -17,7 +17,7 @@ const BlockWrapper = styled.div`
     height: 180px;
     margin: 10px;
   `};
-  ${customMedia.lessThan("phone")`
+  ${customMedia.lessThan("mobile")`
     height: unset;
   `};
 `;
