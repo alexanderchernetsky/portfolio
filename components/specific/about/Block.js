@@ -14,8 +14,11 @@ const BlockWrapper = styled.div`
   margin: 0 10px 20px 10px;
   ${customMedia.lessThan("tablet")`
     width: 200px;
+    height: 180px;
+    margin: 10px;
+  `};
+  ${customMedia.lessThan("phone")`
     height: unset;
-    margin: 10px 10px;
   `};
 `;
 

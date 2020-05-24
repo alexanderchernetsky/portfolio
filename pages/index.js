@@ -80,7 +80,7 @@ const Index = () => {
             <br /> a frontend web developer based in Grodno, Belarus.
           </Title>
           <ButtonWrapper>
-            <ButtonComponent text="View my work" />
+            <ButtonComponent text="View my work" href="/portfolio" />
           </ButtonWrapper>
         </ContentWrapper>
       </HomePageWrapper>

@@ -6,6 +6,7 @@ const highlightColor = "#e31b6d";
 const hoverColor = "#04c2c9";
 const pageTitleColor = "#444649";
 const blockTextColor = "#616161";
+const greenButtonBgColor = "#05C2C8";
 
 const theme = {
   // colors
@@ -15,7 +16,9 @@ const theme = {
   "highlight-color": highlightColor,
   "hover-color": hoverColor,
   "page-title-color": pageTitleColor,
-  "block-text-color": blockTextColor
+  "block-text-color": blockTextColor,
+  "link-color": greenButtonBgColor,
+  "green-button-bg-color": greenButtonBgColor
 };
 
 export default theme;
