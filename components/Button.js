@@ -5,6 +5,21 @@ import Link from "next/link";
 import ax from "../styled-components/accessor";
 import { customMedia } from "../styled-components/customMedia";
 
+function getStylesObjectForColorTheme(theme) {
+  switch (theme) {
+    case "green":
+      return {
+        circleBgColor: "green-button-bg-color",
+        btnTextColor: "green-button-bg-color"
+      };
+    default:
+      return {
+        circleBgColor: "highlight-color",
+        btnTextColor: "primary-color"
+      };
+  }
+}
+
 const Button = styled.button`
   margin-top: 10px;
   align-self: center;
@@ -31,7 +46,8 @@ const Button = styled.button`
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: ${ax("highlight-color")};
+    background: ${props =>
+      ax(getStylesObjectForColorTheme(props.colorTheme).circleBgColor)};
     border-radius: 1.625rem;
     .icon {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -75,7 +91,8 @@ const Button = styled.button`
     text-align: center;
     text-transform: uppercase;
     a {
-      color: ${ax("primary-color")};
+      color: ${props =>
+        ax(getStylesObjectForColorTheme(props.colorTheme).btnTextColor)};
       font-weight: 400;
       text-decoration: none;
     }
@@ -104,14 +121,26 @@ const Button = styled.button`
   }
 `;
 
-const ButtonComponent = ({ className, text, disabled, onClick }) => {
+const ButtonComponent = ({
+  className,
+  text,
+  disabled,
+  onClick,
+  href,
+  colorTheme
+}) => {
   return (
-    <Button className={className} disabled={disabled} onClick={onClick}>
+    <Button
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      colorTheme={colorTheme}
+    >
       <span className="circle" aria-hidden="true">
         <span className="arrow icon" />
       </span>
       <span className="button-text">
-        <Link href="/portfolio">
+        <Link href={href}>
           <a>{text}</a>
         </Link>
       </span>
@@ -123,14 +152,18 @@ ButtonComponent.defaultProps = {
   className: "",
   text: "Button",
   disabled: false,
-  onClick: () => {}
+  onClick: () => {},
+  href: "/",
+  colorTheme: "pink"
 };
 
 ButtonComponent.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  href: PropTypes.string,
+  colorTheme: PropTypes.oneOf(["pink", "green"])
 };
 
 export default ButtonComponent;
