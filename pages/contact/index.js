@@ -2,7 +2,7 @@ import Trianglify from "trianglify";
 import { useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import Layout from "../../components/common/Layout";
 
 const ContactPageWrapper = styled.section`
   display: flex;

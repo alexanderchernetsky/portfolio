@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import ax from "../../styled-components/accessor";
-import { customMedia } from "../../styled-components/customMedia";
+import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 import SocialIconsComponent from "../SocIcons";
 
 const Header = styled.header`

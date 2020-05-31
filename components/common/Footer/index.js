@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ax from "../../styled-components/accessor";
-import { customMedia } from "../../styled-components/customMedia";
+import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 import SocialIconsComponent from "../SocIcons";
 
 const Footer = styled.footer`

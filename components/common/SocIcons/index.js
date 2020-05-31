@@ -5,8 +5,8 @@ import {
   faInstagramSquare,
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
-import ax from "../../styled-components/accessor";
-import { customMedia } from "../../styled-components/customMedia";
+import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 
 function getFillColorForIcon(iconName) {
   switch (iconName) {
