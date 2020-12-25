@@ -6,7 +6,7 @@ import ax from "../../styled-components/accessor";
 import blocks from "../../constants/blocks";
 import Block from "../../components/specific/about/Block";
 import { customMedia } from "../../styled-components/customMedia";
-import alexander from "../../images/alexander-min.jpg";
+import alexander from "../../images/alex.jpg";
 import ButtonComponent from "../../components/common/Button";
 import SkillBlock from "../../components/specific/about/SkillBlock";
 import skills from "../../constants/skills";
@@ -32,7 +32,7 @@ const ContentWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   background-color: ${ax("primary-color")};
-  padding: 30px;
+  padding: 30px 0;
   margin-top: 60px;
   ${customMedia.lessThan("desktop")`
     padding: 20px 20px 80px;

@@ -5,7 +5,9 @@ import ax from "../../../styled-components/accessor";
 
 const CardWrapper = styled.div`
   background-image: url(${props => props.imageUrl});
-  width: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 390px;
   height: 300px;
   cursor: pointer;
   position: relative;

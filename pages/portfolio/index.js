@@ -27,6 +27,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
+  padding-top: 30px;
   ${customMedia.lessThan("desktop")`
     padding: 20px 20px 80px;
     width: 90%;
@@ -43,6 +44,10 @@ const Cards = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-top: 90px;
+  ${customMedia.lessThan("mediumScreen")`
+    justify-content: center;
+    padding: 0 30px;
+  `};
 `;
 
 const About = () => {

@@ -36,7 +36,7 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
   text-transform: uppercase;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   margin-right: 20px;
   cursor: pointer;
   display: flex;

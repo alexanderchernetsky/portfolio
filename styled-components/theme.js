@@ -8,7 +8,7 @@ const pageTitleColor = "#444649";
 const blockTextColor = "#616161";
 const greenButtonBgColor = "#05C2C8";
 const portfolioPageBgColor = "#F5F5F5";
-const cardOverlayColor = "rgba(245,245,245, 0.9)";
+const cardOverlayColor = "rgba(245,245,245, 1)";
 const cardTitleColor = "#1b242f";
 
 const theme = {
