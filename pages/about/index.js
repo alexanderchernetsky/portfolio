@@ -83,7 +83,7 @@ const PhotoWrapper = styled.div`
   clip-path: polygon(25% 0%, 75% 0%, 100% 45%, 75% 90%, 25% 90%, 0% 45%);
   img {
     width: 100%;
-    height: 100%;
+    height: 110%; // hack
     object-fit: cover;
   }
 `;

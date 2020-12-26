@@ -47,7 +47,7 @@ const Description = styled.p`
   margin-top: 0;
 `;
 
-const Button = styled.div`
+export const Button = styled.div`
   box-sizing: border-box;
   font-size: 18px;
   color: ${ax("card-title-color")};
@@ -67,13 +67,19 @@ const Button = styled.div`
   }
 `;
 
-const ProjectCard = ({ title, technologies, imageUrl }) => {
+const ProjectCard = ({
+  title,
+  slug,
+  onClickHandler,
+  technologies,
+  imageUrl
+}) => {
   return (
     <CardWrapper imageUrl={imageUrl}>
       <Overlay>
         <Title>{title}</Title>
         <Description>{technologies}</Description>
-        <Button>Learn More</Button>
+        <Button onClick={() => onClickHandler(slug)}>Learn More</Button>
       </Overlay>
     </CardWrapper>
   );
@@ -81,13 +87,16 @@ const ProjectCard = ({ title, technologies, imageUrl }) => {
 
 ProjectCard.defaultProps = {
   title: "Project",
+  slug: "default",
   technologies: "React"
 };
 
 ProjectCard.propTypes = {
   title: PropTypes.string,
+  slug: PropTypes.string,
   technologies: PropTypes.string,
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string.isRequired,
+  onClickHandler: PropTypes.func.isRequired
 };
 
 export default ProjectCard;

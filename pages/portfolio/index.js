@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import Layout from "../../components/common/Layout";
@@ -10,8 +11,11 @@ import {
 } from "../../styled-components/pageTitle";
 import projects from "../../constants/projects";
 import ProjectCard from "../../components/specific/portfolio/ProjectCard";
+import Slider from "../../components/specific/portfolio/Slider/Slider";
+import equitecitInfo from "../../constants/equitec-it";
 
 const PortfolioPageWrapper = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -50,7 +54,27 @@ const Cards = styled.div`
   `};
 `;
 
-const About = () => {
+const Portfolio = () => {
+  const [isSliderVisible, toggleSliderVisibility] = useState(false);
+  const [currentProject, setCurrentProject] = useState("default");
+
+  const onLearnMoreClickHandler = slug => {
+    setCurrentProject(slug);
+    toggleSliderVisibility(true);
+  };
+
+  const getProject = slug => {
+    switch (slug) {
+      case "equitec-it": {
+        return equitecitInfo;
+      }
+      default:
+        return equitecitInfo;
+    }
+  };
+
+  const project = getProject(currentProject);
+
   return (
     <Layout>
       <Head>
@@ -71,21 +95,32 @@ const About = () => {
             <Stripe />
           </PageTitleWrapper>
           <Cards>
-            {projects.map((project, index) => {
+            {projects.map((item, index) => {
               return (
                 <ProjectCard
                   key={index}
-                  title={project.title}
-                  technologies={project.technologies}
-                  imageUrl={project.image}
+                  title={item.title}
+                  slug={item.slug}
+                  technologies={item.technologies}
+                  imageUrl={item.image}
+                  onClickHandler={() => onLearnMoreClickHandler(item.slug)}
                 />
               );
             })}
           </Cards>
+          {/* slider */}
+          {isSliderVisible && (
+            <Slider
+              slides={project.slides}
+              title={project.title}
+              subtitle={project.subtitle}
+              description={project.description}
+            />
+          )}
         </ContentWrapper>
       </PortfolioPageWrapper>
     </Layout>
   );
 };
 
-export default About;
+export default Portfolio;
