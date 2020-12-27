@@ -49,7 +49,7 @@ const BlocksWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 80px;
   ${customMedia.lessThan("tablet")`
     margin-top: 10px;
   `};

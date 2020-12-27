@@ -4,6 +4,7 @@ import React from "react";
 import Slide from "./Slide";
 import ax from "../../../../styled-components/accessor";
 import sliderArrow from "../../../../images/icons/right-arrow.svg";
+import sliderCloseIcon from "../../../../images/icons/close.svg";
 import { customMedia } from "../../../../styled-components/customMedia";
 import { Button } from "../ProjectCard";
 
@@ -92,8 +93,6 @@ const Arrow = styled.img`
 
 const Close = styled.img`
   cursor: pointer;
-  position: absolute;
-  z-index: 1;
   width: 20px;
   height: 20px;
 `;
@@ -124,21 +123,22 @@ const InfoWrapper = styled.div`
 `;
 
 const InfoTitle = styled.h3`
-  font-size: 22px;
-  font-family: "Raleway-bold";
+  font-size: 30px;
+  font-family: "Raleway";
+  margin: 0 0 5px;
 `;
 
 const InfoSubtitle = styled.div`
-  font-size: 11px;
-  text-transform: capitalize;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 500;
   color: ${ax("slider-info-subtitle")};
   border-bottom: 1px solid ${ax("overlay-color")};
-  font-weight: 300;
   padding-bottom: 15px;
 `;
 
 const InfoDescription = styled.p`
-  font-size: 11px;
+  font-size: 15px;
   line-height: 18px;
   margin-top: 15px;
 `;
@@ -149,10 +149,20 @@ const InfoFooter = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
+  margin-top: 35px;
 `;
 
-const Slider = ({ slides, title, subtitle, description }) => {
+const ViewSiteButton = styled(Button)`
+  margin: 0;
+  cursor: pointer;
+`;
+
+const BtnText = styled.span`
+  font-size: 14px;
+`;
+
+const Slider = ({ slides, title, subtitle, description, onClose }) => {
   let currentScrollXPosition = 0; // this variable defines which slide should be shown in the slider
 
   const sliderControlClickHandler = type => {
@@ -177,6 +187,7 @@ const Slider = ({ slides, title, subtitle, description }) => {
       "slides-wrapper"
     ).scrollLeft = currentScrollXPosition;
   };
+
   return (
     <>
       <Overlay />
@@ -221,8 +232,14 @@ const Slider = ({ slides, title, subtitle, description }) => {
           <InfoSubtitle>{subtitle}</InfoSubtitle>
           <InfoDescription>{description}</InfoDescription>
           <InfoFooter>
-            <Button>View site</Button>
-            <Close src={sliderArrow} alt="slider-control-close" />
+            <ViewSiteButton>
+              <BtnText>View site</BtnText>
+            </ViewSiteButton>
+            <Close
+              src={sliderCloseIcon}
+              alt="slider-control-close"
+              onClick={() => onClose()}
+            />
           </InfoFooter>
         </InfoWrapper>
       </Modal>
@@ -239,7 +256,8 @@ Slider.propTypes = {
       imageUrl: PropTypes.string.isRequired,
       mobileImageUrl: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  onClose: PropTypes.func.isRequired
 };
 
 export default Slider;

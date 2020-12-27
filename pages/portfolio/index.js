@@ -25,7 +25,7 @@ const PortfolioPageWrapper = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  width: 1200px;
+  max-width: 1170px; // 390*3
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 90px;
+  margin-top: 80px;
   ${customMedia.lessThan("mediumScreen")`
     justify-content: center;
     padding: 0 30px;
@@ -62,6 +62,10 @@ const Portfolio = () => {
     setCurrentProject(slug);
     toggleSliderVisibility(true);
   };
+
+  const onSliderCloseBtnClick = () => {
+    toggleSliderVisibility(false);
+  }
 
   const getProject = slug => {
     switch (slug) {
@@ -115,6 +119,7 @@ const Portfolio = () => {
               title={project.title}
               subtitle={project.subtitle}
               description={project.description}
+              onClose={onSliderCloseBtnClick}
             />
           )}
         </ContentWrapper>
