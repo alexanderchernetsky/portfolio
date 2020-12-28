@@ -34,8 +34,7 @@ const SliderWrapper = styled.div`
   overflow-x: auto;
   ${customMedia.lessThan("1160px")`
     width: 950px;
-  `}
-  ${customMedia.lessThan("desktop")`
+  `} ${customMedia.lessThan("desktop")`
     width: 336px;
     height: 579px;
   `}
@@ -60,13 +59,11 @@ const SliderControl = styled.div`
     css`
       right: 0;
       left: unset;
-    `}
-  ${props =>
-    props.type === "previous" &&
-    css`
-      transform: rotate(180deg);
-    `}
-  ${customMedia.lessThan("desktop")`
+    `} ${props =>
+  props.type === "previous" &&
+  css`
+    transform: rotate(180deg);
+  `} ${customMedia.lessThan("desktop")`
     width: 50%;
     height: 39px;
     bottom: 0;
@@ -109,6 +106,7 @@ const Slides = styled.div`
   ${customMedia.lessThan("desktop")`
     overflow-x: scroll;
   `};
+
   div {
     scroll-snap-align: start;
     flex-shrink: 0;
@@ -124,7 +122,7 @@ const InfoWrapper = styled.div`
 
 const InfoTitle = styled.h3`
   font-size: 30px;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   margin: 0 0 5px;
 `;
 
@@ -156,13 +154,24 @@ const InfoFooter = styled.div`
 const ViewSiteButton = styled(Button)`
   margin: 0;
   cursor: pointer;
+
+  :hover {
+    a {
+      color: ${ax("primary-color")};
+    }
+  }
 `;
 
 const BtnText = styled.span`
   font-size: 14px;
+
+  a {
+    text-decoration: none;
+    color: ${ax("card-title-color")};
+  }
 `;
 
-const Slider = ({ slides, title, subtitle, description, onClose }) => {
+const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
   let currentScrollXPosition = 0; // this variable defines which slide should be shown in the slider
 
   const sliderControlClickHandler = type => {
@@ -188,9 +197,13 @@ const Slider = ({ slides, title, subtitle, description, onClose }) => {
     ).scrollLeft = currentScrollXPosition;
   };
 
+  const onViewSiteBtnClick = () => {
+    window.open(href, "_blank");
+  };
+
   return (
     <>
-      <Overlay />
+      <Overlay onClick={() => onClose()} />
       <Modal>
         <SliderWrapper>
           <SliderControl
@@ -232,8 +245,12 @@ const Slider = ({ slides, title, subtitle, description, onClose }) => {
           <InfoSubtitle>{subtitle}</InfoSubtitle>
           <InfoDescription>{description}</InfoDescription>
           <InfoFooter>
-            <ViewSiteButton>
-              <BtnText>View site</BtnText>
+            <ViewSiteButton onClick={onViewSiteBtnClick}>
+              <BtnText>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  View site
+                </a>
+              </BtnText>
             </ViewSiteButton>
             <Close
               src={sliderCloseIcon}
@@ -257,7 +274,8 @@ Slider.propTypes = {
       mobileImageUrl: PropTypes.string
     })
   ).isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  href: PropTypes.string.isRequired
 };
 
 export default Slider;

@@ -120,9 +120,11 @@ const HeaderComponent = () => {
         <Menu>
           {headerMenuItems.map((item, index) => {
             const isActivePage = item.name.toLowerCase() === activePage;
+            const isActiveHomePage = item.name === "Home" && activePage === "";
+
             return (
               <MenuItem key={index}>
-                <ItemWrapper activePage={isActivePage}>
+                <ItemWrapper activePage={isActivePage || isActiveHomePage}>
                   <Link href={item.link}>
                     <a>{item.name}</a>
                   </Link>

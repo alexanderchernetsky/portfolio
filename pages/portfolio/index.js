@@ -65,7 +65,7 @@ const Portfolio = () => {
 
   const onSliderCloseBtnClick = () => {
     toggleSliderVisibility(false);
-  }
+  };
 
   const getProject = slug => {
     switch (slug) {
@@ -120,6 +120,7 @@ const Portfolio = () => {
               subtitle={project.subtitle}
               description={project.description}
               onClose={onSliderCloseBtnClick}
+              href={project.href}
             />
           )}
         </ContentWrapper>

@@ -5,7 +5,8 @@ const equitecitInfo = {
   title: "Equitec IT",
   subtitle: "Finance",
   description: "One of the two landing websites for Equity Release Group.",
-  slides: [{ imageUrl: equitecitSlide1 }, { imageUrl: equitecitSlide2 }]
+  slides: [{ imageUrl: equitecitSlide1 }, { imageUrl: equitecitSlide2 }],
+  href: "https://equitec-it.demohoster.com/"
 };
 
 export default equitecitInfo;
