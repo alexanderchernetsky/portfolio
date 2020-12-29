@@ -1,15 +1,21 @@
+import React from "react";
 import Head from "next/head";
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import Layout from "../../components/common/Layout";
 import ax from "../../styled-components/accessor";
 import blocks from "../../constants/blocks";
 import Block from "../../components/specific/about/Block";
 import { customMedia } from "../../styled-components/customMedia";
-import alexander from "../../images/alexander-min.jpg";
-import ButtonComponent from "../../components/Button";
+import alexander from "../../images/alex.jpg";
+import ButtonComponent from "../../components/common/Button";
 import SkillBlock from "../../components/specific/about/SkillBlock";
 import skills from "../../constants/skills";
 import tools from "../../constants/tools";
+import {
+  Heading,
+  PageTitleWrapper,
+  Stripe
+} from "../../styled-components/pageTitle";
 
 const AboutPageWrapper = styled.div`
   display: flex;
@@ -26,7 +32,7 @@ const ContentWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   background-color: ${ax("primary-color")};
-  padding: 30px;
+  padding: 30px 0;
   margin-top: 60px;
   ${customMedia.lessThan("desktop")`
     padding: 20px 20px 80px;
@@ -37,39 +43,13 @@ const ContentWrapper = styled.main`
   `};
 `;
 
-const PageTitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Heading = styled.h1`
-  font-size: 34px;
-  text-transform: uppercase;
-  color: ${ax("page-title-color")};
-  margin: 0 0 25px;
-  ${customMedia.lessThan("tablet")`
-    font-size: 24px;
-    margin: 0 0 15px;
-  `};
-`;
-
-const Stripe = styled.div`
-  height: 4px;
-  width: 70px;
-  background-color: ${ax("page-title-color")};
-  ${customMedia.lessThan("tablet")`
-    width: 60px;
-  `};
-`;
-
 const BlocksWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 80px;
   ${customMedia.lessThan("tablet")`
     margin-top: 10px;
   `};
@@ -103,7 +83,7 @@ const PhotoWrapper = styled.div`
   clip-path: polygon(25% 0%, 75% 0%, 100% 45%, 75% 90%, 25% 90%, 0% 45%);
   img {
     width: 100%;
-    height: 100%;
+    height: 110%; // hack
     object-fit: cover;
   }
 `;

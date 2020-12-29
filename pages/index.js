@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Trianglify from "trianglify";
-import Layout from "../components/Layout";
-import ButtonComponent from "../components/Button";
+import Layout from "../components/common/Layout";
+import ButtonComponent from "../components/common/Button";
 import ax from "../styled-components/accessor";
 import { customMedia } from "../styled-components/customMedia";
 

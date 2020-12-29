@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import ax from "../../styled-components/accessor";
-import { customMedia } from "../../styled-components/customMedia";
+import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 import SocialIconsComponent from "../SocIcons";
 
 const Footer = styled.footer`
@@ -15,6 +15,7 @@ const Footer = styled.footer`
   align-items: center;
   justify-content: center;
   display: none;
+  z-index: 1; // should be less than z-index of the slider overlay
   ${customMedia.lessThan("desktop")`
     display: flex;
   `}

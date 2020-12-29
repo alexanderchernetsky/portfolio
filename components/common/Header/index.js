@@ -1,8 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import { useRouter } from "next/router";
+import styled, { css } from "styled-components";
 import Link from "next/link";
-import ax from "../../styled-components/accessor";
-import { customMedia } from "../../styled-components/customMedia";
+import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 import SocialIconsComponent from "../SocIcons";
 
 const Header = styled.header`
@@ -36,7 +37,7 @@ const Menu = styled.ul`
 const MenuItem = styled.li`
   text-transform: uppercase;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   margin-right: 20px;
   cursor: pointer;
   display: flex;
@@ -57,6 +58,7 @@ const ItemWrapper = styled.span`
   padding: 0;
   transition: all 0.2s ease-in-out;
   position: relative;
+
   &:before,
   &:after {
     content: "";
@@ -70,6 +72,7 @@ const ItemWrapper = styled.span`
     background-image: linear-gradient(45deg, #6303b1, #ff0099);
     left: 0;
   }
+
   :hover {
     &:before,
     &:after {
@@ -77,6 +80,17 @@ const ItemWrapper = styled.span`
       opacity: 1;
     }
   }
+
+  ${props =>
+    props.activePage &&
+    css`
+      &:before,
+      &:after {
+        width: 100%;
+        opacity: 1;
+      }
+    `};
+
   a {
     text-decoration: none;
     color: ${ax("primary-color")};
@@ -93,31 +107,38 @@ const headerMenuItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
   { name: "Portfolio", link: "/portfolio" },
-  { name: "Blog", link: "/blog" },
   { name: "Contact", link: "/contact" }
 ];
 
-const HeaderComponent = () => (
-  <Header>
-    <MenuWrapper>
-      <Menu>
-        {headerMenuItems.map((item, index) => {
-          return (
-            <MenuItem key={index}>
-              <ItemWrapper>
-                <Link href={item.link}>
-                  <a>{item.name}</a>
-                </Link>
-              </ItemWrapper>
-            </MenuItem>
-          );
-        })}
-      </Menu>
-    </MenuWrapper>
-    <SocIconsWrapper>
-      <SocialIconsComponent />
-    </SocIconsWrapper>
-  </Header>
-);
+const HeaderComponent = () => {
+  const router = useRouter();
+  const activePage = router.pathname.substring(1);
+
+  return (
+    <Header>
+      <MenuWrapper>
+        <Menu>
+          {headerMenuItems.map((item, index) => {
+            const isActivePage = item.name.toLowerCase() === activePage;
+            const isActiveHomePage = item.name === "Home" && activePage === "";
+
+            return (
+              <MenuItem key={index}>
+                <ItemWrapper activePage={isActivePage || isActiveHomePage}>
+                  <Link href={item.link}>
+                    <a>{item.name}</a>
+                  </Link>
+                </ItemWrapper>
+              </MenuItem>
+            );
+          })}
+        </Menu>
+      </MenuWrapper>
+      <SocIconsWrapper>
+        <SocialIconsComponent />
+      </SocIconsWrapper>
+    </Header>
+  );
+};
 
 export default HeaderComponent;

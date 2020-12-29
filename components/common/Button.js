@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import ax from "../styled-components/accessor";
-import { customMedia } from "../styled-components/customMedia";
+import ax from "../../styled-components/accessor";
+import { customMedia } from "../../styled-components/customMedia";
 
 function getStylesObjectForColorTheme(theme) {
   switch (theme) {
