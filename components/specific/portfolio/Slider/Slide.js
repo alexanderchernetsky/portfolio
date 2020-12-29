@@ -17,24 +17,18 @@ const SlideWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   box-sizing: border-box;
-  ${customMedia.lessThan("1160px")`
-    width: 950px;
-  `}
   ${customMedia.lessThan("desktop")`
-    width: 336px;
+    width: 375px;
     flex-direction: column;
-    padding: 0 0 39px;
   `}
 `;
 
 const ImageWrapper = styled.div`
   width: 100%;
   position: relative;
-  ${customMedia.lessThan("1160px")`
-    width: 400px;
-  `}
   ${customMedia.lessThan("desktop")`
-    width: 336px;
+    background-color: ${ax("card-overlay-color")};
+    width: 375px;
     height: 250px;
     padding-top: 0;
   `}

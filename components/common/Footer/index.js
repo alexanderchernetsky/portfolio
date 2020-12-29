@@ -15,6 +15,7 @@ const Footer = styled.footer`
   align-items: center;
   justify-content: center;
   display: none;
+  z-index: 1; // should be less than z-index of the slider overlay
   ${customMedia.lessThan("desktop")`
     display: flex;
   `}

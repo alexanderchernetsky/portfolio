@@ -52,6 +52,9 @@ const Cards = styled.div`
     justify-content: center;
     padding: 0 30px;
   `};
+  ${customMedia.lessThan("desktop")`
+    max-width: 435px;
+  `};
 `;
 
 const Portfolio = () => {

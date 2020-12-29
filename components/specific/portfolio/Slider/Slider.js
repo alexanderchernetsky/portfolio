@@ -24,6 +24,9 @@ const Modal = styled.div`
   width: 700px;
   position: absolute;
   z-index: 3;
+  ${customMedia.lessThan("desktop")`
+    width: 375px;
+  `}
 `;
 
 const SliderWrapper = styled.div`
@@ -32,11 +35,9 @@ const SliderWrapper = styled.div`
   height: 450px;
   display: flex;
   overflow-x: auto;
-  ${customMedia.lessThan("1160px")`
-    width: 950px;
-  `} ${customMedia.lessThan("desktop")`
-    width: 336px;
-    height: 579px;
+  ${customMedia.lessThan("desktop")`
+    width: 375px;
+    height: 250px;
   `}
 `;
 
@@ -60,15 +61,10 @@ const SliderControl = styled.div`
       right: 0;
       left: unset;
     `} ${props =>
-  props.type === "previous" &&
-  css`
-    transform: rotate(180deg);
-  `} ${customMedia.lessThan("desktop")`
-    width: 50%;
-    height: 39px;
-    bottom: 0;
-    top: unset;
-  `}
+    props.type === "previous" &&
+    css`
+      transform: rotate(180deg);
+    `}
 `;
 
 const Arrow = styled.img`
@@ -103,9 +99,6 @@ const Slides = styled.div`
   scroll-snap-type: x mandatory; // is a required property on any scrollable container
   // you want to add scroll snapping to
   -webkit-overflow-scrolling: touch;
-  ${customMedia.lessThan("desktop")`
-    overflow-x: scroll;
-  `};
 
   div {
     scroll-snap-align: start;
@@ -118,6 +111,9 @@ const InfoWrapper = styled.div`
   background-color: ${ax("card-overlay-color")};
   padding: 35px 25px 25px;
   border-top: 3px solid ${ax("slider-border")};
+  ${customMedia.lessThan("desktop")`
+    width: 375px;
+  `}
 `;
 
 const InfoTitle = styled.h3`
@@ -271,7 +267,7 @@ Slider.propTypes = {
   slides: PropTypes.arrayOf(
     PropTypes.shape({
       imageUrl: PropTypes.string.isRequired,
-      mobileImageUrl: PropTypes.string
+      mobileImageUrl: PropTypes.string.isRequired
     })
   ).isRequired,
   onClose: PropTypes.func.isRequired,

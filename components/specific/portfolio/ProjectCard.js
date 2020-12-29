@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import ax from "../../../styled-components/accessor";
+import { customMedia } from "../../../styled-components/customMedia";
 
 const CardWrapper = styled.div`
   background-image: url(${props => props.imageUrl});
@@ -16,6 +17,10 @@ const CardWrapper = styled.div`
       opacity: 1;
     }
   }
+  ${customMedia.lessThan("desktop")`
+    width: 375px;
+    height: 288px;
+  `};
 `;
 
 const Overlay = styled.div`
