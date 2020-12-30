@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Header from "./Header";
 import FooterComponent from "./Footer";
@@ -27,6 +28,15 @@ const Layout = ({ children, className }) => {
       <FooterComponent />
     </LayoutWrapper>
   );
+};
+
+Layout.defaultProps = {
+  className: ""
+};
+
+Layout.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;

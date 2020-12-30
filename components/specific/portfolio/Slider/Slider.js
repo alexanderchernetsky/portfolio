@@ -172,6 +172,7 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
 
   const sliderControlClickHandler = type => {
     const slidesCount = slides.length;
+    // eslint-disable-next-line no-undef
     const slidesWrapperElWidth = document.getElementById("slides-wrapper")
       .scrollWidth;
     const oneSlideWidth = slidesWrapperElWidth / slidesCount;
@@ -188,12 +189,14 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
         currentScrollXPosition = 0;
       }
     }
+    // eslint-disable-next-line no-undef
     document.getElementById(
       "slides-wrapper"
     ).scrollLeft = currentScrollXPosition;
   };
 
   const onViewSiteBtnClick = () => {
+    // eslint-disable-next-line no-undef
     window.open(href, "_blank");
   };
 
