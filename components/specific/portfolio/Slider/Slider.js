@@ -7,6 +7,7 @@ import sliderArrow from "../../../../images/icons/right-arrow.svg";
 import sliderCloseIcon from "../../../../images/icons/close.svg";
 import { customMedia } from "../../../../styled-components/customMedia";
 import { Button } from "../ProjectCard";
+import isUserAgentSignallingMobile from "../../../../utils/isUserAgentSignallingMobile";
 
 const Overlay = styled.div`
   background-color: ${ax("slider-overlay-color")};
@@ -22,11 +23,27 @@ const Overlay = styled.div`
 
 const Modal = styled.div`
   width: 700px;
-  position: absolute;
+  position: fixed;
   z-index: 3;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
   ${customMedia.lessThan("desktop")`
     width: 375px;
   `}
+  ${props =>
+    props.mobile &&
+    css`
+      width: unset !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transform: unset;
+    `};
 `;
 
 const SliderWrapper = styled.div`
@@ -39,6 +56,11 @@ const SliderWrapper = styled.div`
     width: 375px;
     height: 250px;
   `}
+  ${props =>
+    props.mobile &&
+    css`
+      flex-direction: column;
+    `};
 `;
 
 const SliderControl = styled.div`
@@ -73,15 +95,6 @@ const Arrow = styled.img`
   z-index: 1;
   width: 20px;
   height: 20px;
-  ${customMedia.lessThan("desktop")`
-    left: 16px;
-    ${props =>
-      props.type === "next" &&
-      css`
-        left: unset;
-        right: 16px;
-      `}
-  `}
 `;
 
 const Close = styled.img`
@@ -108,12 +121,19 @@ const Slides = styled.div`
 
 const InfoWrapper = styled.div`
   width: 100%;
-  background-color: ${ax("card-overlay-color")};
+  background-color: ${ax("primary-color")};
   padding: 35px 25px 25px;
   border-top: 3px solid ${ax("slider-border")};
   ${customMedia.lessThan("desktop")`
     width: 375px;
   `}
+  ${props =>
+    props.mobile &&
+    css`
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 250px);
+    `};
 `;
 
 const InfoTitle = styled.h3`
@@ -145,6 +165,11 @@ const InfoFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 35px;
+  ${props =>
+    props.mobile &&
+    css`
+      margin-top: auto;
+    `};
 `;
 
 const ViewSiteButton = styled(Button)`
@@ -200,11 +225,14 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
     window.open(href, "_blank");
   };
 
+  const isMobileDevice = isUserAgentSignallingMobile();
+
   return (
     <>
       <Overlay onClick={() => onClose()} />
-      <Modal>
-        <SliderWrapper>
+
+      <Modal mobile={isMobileDevice}>
+        <SliderWrapper mobile={isMobileDevice}>
           <SliderControl
             type="previous"
             onClick={() => sliderControlClickHandler("previous")}
@@ -239,11 +267,11 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
             />
           </SliderControl>
         </SliderWrapper>
-        <InfoWrapper>
+        <InfoWrapper mobile={isMobileDevice}>
           <InfoTitle>{title}</InfoTitle>
           <InfoSubtitle>{subtitle}</InfoSubtitle>
           <InfoDescription>{description}</InfoDescription>
-          <InfoFooter>
+          <InfoFooter mobile={isMobileDevice}>
             <ViewSiteButton onClick={onViewSiteBtnClick}>
               <BtnText>
                 <a href={href} target="_blank" rel="noopener noreferrer">
