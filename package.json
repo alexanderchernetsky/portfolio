@@ -8,8 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ./",
-    "postinstall": "husky install"
+    "lint": "eslint ./"
   },
   "husky": {
     "hooks": {
