@@ -46,13 +46,10 @@ const Slide = ({ imageUrl, mobileImageUrl, backupImageUrl }) => {
   );
 };
 
-Slide.defaultProps = {
-  mobileImageUrl: ""
-};
-
 Slide.propTypes = {
   imageUrl: PropTypes.string.isRequired,
-  mobileImageUrl: PropTypes.string
+  mobileImageUrl: PropTypes.string.isRequired,
+  backupImageUrl: PropTypes.string.isRequired
 };
 
 export default Slide;
