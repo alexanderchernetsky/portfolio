@@ -13,6 +13,7 @@ import projects from "../../constants/projects";
 import ProjectCard from "../../components/specific/portfolio/ProjectCard";
 import Slider from "../../components/specific/portfolio/Slider/Slider";
 import equitecitInfo from "../../constants/equitec-it";
+import isUserAgentSignallingMobile from "../../utils/isUserAgentSignallingMobile";
 
 const PortfolioPageWrapper = styled.section`
   position: relative;
@@ -64,29 +65,35 @@ const Portfolio = () => {
   const [isSliderVisible, toggleSliderVisibility] = useState(false);
   const [currentProject, setCurrentProject] = useState("default");
 
+  const isMobileDevice = isUserAgentSignallingMobile();
+
   const onLearnMoreClickHandler = slug => {
     // eslint-disable-next-line no-undef
     const { scrollY } = window;
     setCurrentProject(slug);
     toggleSliderVisibility(true);
-    // When the modal is shown, we want a fixed body to disable page scrolling
-    // eslint-disable-next-line no-undef
-    document.body.style.position = "fixed";
-    // eslint-disable-next-line no-undef
-    document.body.style.top = `-${scrollY}px`;
+    if (isMobileDevice) {
+      // When the modal is shown, we want a fixed body to disable page scrolling
+      // eslint-disable-next-line no-undef
+      document.body.style.position = "fixed";
+      // eslint-disable-next-line no-undef
+      document.body.style.top = `-${scrollY}px`;
+    }
   };
 
   const onSliderCloseBtnClick = () => {
     toggleSliderVisibility(false);
-    // When the modal is hidden we need to restore previous scroll position
-    // eslint-disable-next-line no-undef
-    const scrollY = document.body.style.top;
-    // eslint-disable-next-line no-undef
-    document.body.style.position = "";
-    // eslint-disable-next-line no-undef
-    document.body.style.top = "";
-    // eslint-disable-next-line no-undef
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    if (isMobileDevice) {
+      // When the modal is hidden we need to restore previous scroll position
+      // eslint-disable-next-line no-undef
+      const scrollY = document.body.style.top;
+      // eslint-disable-next-line no-undef
+      document.body.style.position = "";
+      // eslint-disable-next-line no-undef
+      document.body.style.top = "";
+      // eslint-disable-next-line no-undef
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
   };
 
   const getProject = slug => {
