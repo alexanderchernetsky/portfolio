@@ -1,12 +1,9 @@
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import React from "react";
-import noImage from "../../../../images/no_image.png";
 import ax from "../../../../styled-components/accessor";
-import {
-  customMedia,
-  screenDesktop
-} from "../../../../styled-components/customMedia";
+import { customMedia } from "../../../../styled-components/customMedia";
+import LoadImage from "../../../common/LoadImageWithLQIP";
 
 const SlideWrapper = styled.div`
   background-color: ${ax("slide-bg-color")};
@@ -34,58 +31,16 @@ const ImageWrapper = styled.div`
   `}
 `;
 
-const Image = styled.img`
-  // for desktop image
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  ${props =>
-    !props.imageUrl &&
-    !props.mobileImageUrl &&
-    css`
-      max-width: 250px;
-      bottom: unset;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    `};
-  // for mobile image
-  ${customMedia.lessThan("desktop")`
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    ${props =>
-      !props.imageUrl &&
-      !props.mobileImageUrl &&
-      css`
-        max-width: 150px;
-        bottom: unset;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      `};
-  `};
-`;
-
-const Slide = ({ imageUrl, mobileImageUrl }) => {
+const Slide = ({ imageUrl, mobileImageUrl, backupImageUrl }) => {
   return (
     <SlideWrapper>
       <ImageWrapper>
-        <picture>
-          <source
-            srcSet={imageUrl || noImage}
-            media={`(min-width: ${screenDesktop}px)`}
-          />
-          <Image
-            src={mobileImageUrl || noImage}
-            alt="project screenshot"
-            imageUrl={imageUrl}
-            mobileImageUrl={mobileImageUrl}
-          />
-        </picture>
+        <LoadImage
+          altText="project screenshot"
+          desktopImgSrc={imageUrl}
+          mobileImgSrc={mobileImageUrl}
+          backupImgSrc={backupImageUrl}
+        />
       </ImageWrapper>
     </SlideWrapper>
   );

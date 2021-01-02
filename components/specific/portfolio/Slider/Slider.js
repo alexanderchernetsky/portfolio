@@ -251,6 +251,7 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
                   key={index}
                   imageUrl={slide.imageUrl}
                   mobileImageUrl={slide.mobileImageUrl}
+                  backupImageUrl={slide.backupImageUrl}
                 />
               );
             })}
