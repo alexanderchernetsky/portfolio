@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { screenDesktop } from "../../../styled-components/customMedia";
+import {
+  customMedia,
+  screenDesktop
+} from "../../../styled-components/customMedia";
 
 const ImageContainer = styled.div`
   position: relative;
@@ -21,6 +24,9 @@ const ImageContainer = styled.div`
     top: 0;
     left: 0;
     object-fit: cover;
+    ${customMedia.lessThan("desktop")`
+      object-fit: unset;
+    `};
   }
 
   .blur {
