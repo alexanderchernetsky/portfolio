@@ -65,12 +65,28 @@ const Portfolio = () => {
   const [currentProject, setCurrentProject] = useState("default");
 
   const onLearnMoreClickHandler = slug => {
+    // eslint-disable-next-line no-undef
+    const { scrollY } = window;
     setCurrentProject(slug);
     toggleSliderVisibility(true);
+    // When the modal is shown, we want a fixed body to disable page scrolling
+    // eslint-disable-next-line no-undef
+    document.body.style.position = "fixed";
+    // eslint-disable-next-line no-undef
+    document.body.style.top = `-${scrollY}px`;
   };
 
   const onSliderCloseBtnClick = () => {
     toggleSliderVisibility(false);
+    // When the modal is hidden we need to restore previous scroll position
+    // eslint-disable-next-line no-undef
+    const scrollY = document.body.style.top;
+    // eslint-disable-next-line no-undef
+    document.body.style.position = "";
+    // eslint-disable-next-line no-undef
+    document.body.style.top = "";
+    // eslint-disable-next-line no-undef
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
   };
 
   const getProject = slug => {
