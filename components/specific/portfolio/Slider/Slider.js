@@ -133,6 +133,7 @@ const InfoWrapper = styled.div`
       display: flex;
       flex-direction: column;
       height: calc(100vh - 250px);
+      padding-bottom: 55px;
     `};
 `;
 
