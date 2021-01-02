@@ -50,12 +50,15 @@ const ButtonWrapper = styled.div`
 const Index = () => {
   useEffect(() => {
     const pattern = Trianglify({
+      // eslint-disable-next-line no-undef
       height: window.innerHeight,
+      // eslint-disable-next-line no-undef
       width: window.innerWidth,
       cell_size: 40,
       x_colors: "Greys"
     });
 
+    // eslint-disable-next-line no-undef
     document.getElementById("home-page").appendChild(pattern.canvas());
   }, []);
 

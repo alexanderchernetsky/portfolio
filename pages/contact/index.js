@@ -26,11 +26,14 @@ const ContentWrapper = styled.div`
 const Contacts = () => {
   useEffect(() => {
     const pattern = Trianglify({
+      // eslint-disable-next-line no-undef
       height: window.innerHeight,
+      // eslint-disable-next-line no-undef
       width: window.innerWidth,
       cell_size: 40
     });
 
+    // eslint-disable-next-line no-undef
     document.getElementById("contact-page").appendChild(pattern.canvas());
   }, []);
   return (

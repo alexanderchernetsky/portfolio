@@ -55,6 +55,9 @@ const Cards = styled.div`
   ${customMedia.lessThan("desktop")`
     max-width: 435px;
   `};
+  ${customMedia.lessThan("tablet")`
+    margin-top: 20px;
+  `};
 `;
 
 const Portfolio = () => {
