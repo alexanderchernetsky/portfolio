@@ -8,6 +8,7 @@ import sliderCloseIcon from "../../../../images/icons/close.svg";
 import { customMedia } from "../../../../styled-components/customMedia";
 import { Button } from "../ProjectCard";
 import isUserAgentSignallingMobile from "../../../../utils/isUserAgentSignallingMobile";
+import SLIDE_WIDTH from "../../../../constants/slide";
 
 const Overlay = styled.div`
   background-color: ${ax("slider-overlay-color")};
@@ -22,7 +23,7 @@ const Overlay = styled.div`
 `;
 
 const Modal = styled.div`
-  width: 700px;
+  width: ${SLIDE_WIDTH}px;
   position: fixed;
   z-index: 3;
   top: 50%;
@@ -48,7 +49,7 @@ const Modal = styled.div`
 
 const SliderWrapper = styled.div`
   position: relative;
-  width: 700px;
+  width: ${SLIDE_WIDTH}px;
   height: 450px;
   display: flex;
   overflow-x: auto;

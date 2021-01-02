@@ -4,10 +4,11 @@ import React from "react";
 import ax from "../../../../styled-components/accessor";
 import { customMedia } from "../../../../styled-components/customMedia";
 import LoadImage from "../../../common/LoadImageWithLQIP";
+import SLIDE_WIDTH from "../../../../constants/slide";
 
 const SlideWrapper = styled.div`
   background-color: ${ax("slide-bg-color")};
-  width: 700px;
+  width: ${SLIDE_WIDTH}px;
   flex-shrink: 0;
   height: 100%;
   display: flex;
@@ -46,10 +47,14 @@ const Slide = ({ imageUrl, mobileImageUrl, backupImageUrl }) => {
   );
 };
 
+Slide.defaultProps = {
+  backupImageUrl: ""
+};
+
 Slide.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   mobileImageUrl: PropTypes.string.isRequired,
-  backupImageUrl: PropTypes.string.isRequired
+  backupImageUrl: PropTypes.string
 };
 
 export default Slide;
