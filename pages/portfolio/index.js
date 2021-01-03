@@ -14,6 +14,8 @@ import ProjectCard from "../../components/specific/portfolio/ProjectCard";
 import Slider from "../../components/specific/portfolio/Slider/Slider";
 import equitecitInfo from "../../constants/equitec-it";
 import isUserAgentSignallingMobile from "../../utils/isUserAgentSignallingMobile";
+import storytrekInfo from "../../constants/storytrek";
+import ergInfo from "../../constants/erg";
 
 const PortfolioPageWrapper = styled.section`
   position: relative;
@@ -99,6 +101,18 @@ const Portfolio = () => {
   const getProject = slug => {
     switch (slug) {
       case "equitec-it": {
+        return equitecitInfo;
+      }
+      case "storytrek": {
+        return storytrekInfo;
+      }
+      case "erg": {
+        return ergInfo;
+      }
+      case "equitec": {
+        return equitecitInfo;
+      }
+      case "totepool": {
         return equitecitInfo;
       }
       default:
