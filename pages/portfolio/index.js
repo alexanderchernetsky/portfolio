@@ -9,13 +9,15 @@ import {
   PageTitleWrapper,
   Stripe
 } from "../../styled-components/pageTitle";
-import projects from "../../constants/projects";
+import projects from "../../constants/portfolio/projects";
 import ProjectCard from "../../components/specific/portfolio/ProjectCard";
 import Slider from "../../components/specific/portfolio/Slider/Slider";
-import equitecitInfo from "../../constants/equitec-it";
+import equitecitInfo from "../../constants/portfolio/equitec-it";
 import isUserAgentSignallingMobile from "../../utils/isUserAgentSignallingMobile";
-import storytrekInfo from "../../constants/storytrek";
-import ergInfo from "../../constants/erg";
+import storytrekInfo from "../../constants/portfolio/storytrek";
+import ergInfo from "../../constants/portfolio/erg";
+import totepoolInfo from "../../constants/portfolio/totepool";
+import equitecInfo from "../../constants/portfolio/equitec";
 
 const PortfolioPageWrapper = styled.section`
   position: relative;
@@ -110,10 +112,10 @@ const Portfolio = () => {
         return ergInfo;
       }
       case "equitec": {
-        return equitecitInfo;
+        return equitecInfo;
       }
       case "totepool": {
-        return equitecitInfo;
+        return totepoolInfo;
       }
       default:
         return equitecitInfo;

@@ -8,7 +8,7 @@ import sliderCloseIcon from "../../../../images/icons/close.svg";
 import { customMedia } from "../../../../styled-components/customMedia";
 import { Button } from "../ProjectCard";
 import isUserAgentSignallingMobile from "../../../../utils/isUserAgentSignallingMobile";
-import SLIDE_WIDTH from "../../../../constants/slide";
+import SLIDE_WIDTH from "../../../../constants/portfolio/slide";
 
 const Overlay = styled.div`
   background-color: ${ax("slider-overlay-color")};

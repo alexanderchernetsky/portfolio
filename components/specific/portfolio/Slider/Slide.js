@@ -4,7 +4,7 @@ import React from "react";
 import ax from "../../../../styled-components/accessor";
 import { customMedia } from "../../../../styled-components/customMedia";
 import LoadImage from "../../../common/LoadImageWithLQIP";
-import SLIDE_WIDTH from "../../../../constants/slide";
+import SLIDE_WIDTH from "../../../../constants/portfolio/slide";
 
 const SlideWrapper = styled.div`
   background-color: ${ax("slide-bg-color")};
