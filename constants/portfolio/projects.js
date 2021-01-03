@@ -1,8 +1,8 @@
-import storytrackCard from "../images/projects/storytrek/main.png";
-import equitecitCard from "../images/projects/equitec-it/main.png";
-import ergCard from "../images/projects/erg/main.png";
-import totepoolCard from "../images/projects/totepool/main.png";
-import equitecCard from "../images/projects/equitec/main.png";
+import storytrackCard from "../../images/projects/storytrek/main.png";
+import equitecitCard from "../../images/projects/equitec-it/main.png";
+import ergCard from "../../images/projects/erg/main.png";
+import totepoolCard from "../../images/projects/totepool/main.png";
+import equitecCard from "../../images/projects/equitec/main.png";
 
 const projects = [
   {

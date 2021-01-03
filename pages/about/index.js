@@ -3,14 +3,14 @@ import Head from "next/head";
 import styled from "styled-components";
 import Layout from "../../components/common/Layout";
 import ax from "../../styled-components/accessor";
-import blocks from "../../constants/blocks";
+import blocks from "../../constants/about/blocks";
 import Block from "../../components/specific/about/Block";
 import { customMedia } from "../../styled-components/customMedia";
 import alexander from "../../images/alex.jpg";
 import ButtonComponent from "../../components/common/Button";
 import SkillBlock from "../../components/specific/about/SkillBlock";
-import skills from "../../constants/skills";
-import tools from "../../constants/tools";
+import skills from "../../constants/about/skills";
+import tools from "../../constants/about/tools";
 import {
   Heading,
   PageTitleWrapper,
