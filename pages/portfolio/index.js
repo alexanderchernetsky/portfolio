@@ -8,7 +8,7 @@ import {
   Heading,
   PageTitleWrapper,
   Stripe
-} from "../../styled-components/pageTitle";
+} from "../../styled-components/PageTitle";
 import projects from "../../constants/portfolio/projects";
 import ProjectCard from "../../components/specific/portfolio/ProjectCard";
 import Slider from "../../components/specific/portfolio/Slider/Slider";
@@ -137,12 +137,14 @@ const Portfolio = () => {
           content="B_oyNY7Nj-cESbBvN-hrxgz1HsbKpTGLSGL-_YWf-vY"
         />
       </Head>
+
       <PortfolioPageWrapper>
         <ContentWrapper>
           <PageTitleWrapper>
             <Heading>Projects</Heading>
             <Stripe />
           </PageTitleWrapper>
+
           <Cards>
             {projects.map((item, index) => {
               return (

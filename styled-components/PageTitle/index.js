@@ -11,7 +11,8 @@ const PageTitleWrapper = styled.div`
 const Heading = styled.h1`
   font-size: 34px;
   text-transform: uppercase;
-  color: ${ax("page-title-color")};
+  color: ${props =>
+    props.bright ? ax("contact-page-title") : ax("page-title-color")};
   margin: 0 0 25px;
   ${customMedia.lessThan("tablet")`
     font-size: 24px;
@@ -22,7 +23,8 @@ const Heading = styled.h1`
 const Stripe = styled.div`
   height: 4px;
   width: 70px;
-  background-color: ${ax("page-title-color")};
+  background-color: ${props =>
+    props.bright ? ax("contact-page-title") : ax("page-title-color")};
   ${customMedia.lessThan("tablet")`
     width: 60px;
   `};

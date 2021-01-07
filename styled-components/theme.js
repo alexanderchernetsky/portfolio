@@ -12,6 +12,10 @@ const portfolioPageBgColor = "#F5F5F5";
 const cardOverlayColor = "rgba(245,245,245, 1)";
 const cardTitleColor = "#1b242f";
 const sliderInfoSubtitle = "#c0c0c0";
+const contactPageTitle = "#FEFEFE";
+const contactPageBg = "#252935";
+const inputBg = "#1e242c";
+const footnoteColor = "#8f9aa7";
 
 const theme = {
   // colors
@@ -29,7 +33,13 @@ const theme = {
   "card-overlay-color": cardOverlayColor,
   "slider-overlay-color": sliderOverlayColor,
   "slider-border": cardTitleColor,
-  "slider-info-subtitle": sliderInfoSubtitle
+  "slider-info-subtitle": sliderInfoSubtitle,
+  "contact-page-title": contactPageTitle,
+  "contact-page-bg": contactPageBg,
+  "contact-question-color": hoverColor,
+  "input-bg": inputBg,
+  "footer-bg": cardTitleColor,
+  "footnote-color": footnoteColor
 };
 
 export default theme;
