@@ -127,7 +127,8 @@ const ButtonComponent = ({
   disabled,
   onClick,
   href,
-  colorTheme
+  colorTheme,
+  type
 }) => {
   return (
     <Button
@@ -135,6 +136,7 @@ const ButtonComponent = ({
       disabled={disabled}
       onClick={onClick}
       colorTheme={colorTheme}
+      type={type}
     >
       <span className="circle" aria-hidden="true">
         <span className="arrow icon" />
@@ -154,7 +156,8 @@ ButtonComponent.defaultProps = {
   disabled: false,
   onClick: () => {},
   href: "/",
-  colorTheme: "pink"
+  colorTheme: "pink",
+  type: "button"
 };
 
 ButtonComponent.propTypes = {
@@ -163,7 +166,8 @@ ButtonComponent.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   href: PropTypes.string,
-  colorTheme: PropTypes.oneOf(["pink", "green"])
+  colorTheme: PropTypes.oneOf(["pink", "green"]),
+  type: PropTypes.string
 };
 
 export default ButtonComponent;

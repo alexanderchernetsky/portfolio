@@ -21,6 +21,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "prettier/prettier": "error",
     "react/prop-types": "warn",
-    "radix": "off"
+    "radix": "off",
+    "no-useless-escape": "warn"
   }
 }

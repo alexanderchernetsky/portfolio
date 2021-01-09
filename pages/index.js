@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import Head from "next/head";
 import Trianglify from "trianglify";
@@ -47,7 +48,9 @@ const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const Index = () => {
+const HomePage = () => {
+  const router = useRouter();
+
   useEffect(() => {
     const pattern = Trianglify({
       // eslint-disable-next-line no-undef
@@ -61,6 +64,10 @@ const Index = () => {
     // eslint-disable-next-line no-undef
     document.getElementById("home-page").appendChild(pattern.canvas());
   }, []);
+
+  const onBtnClickHandler = () => {
+    router.push("/portfolio");
+  };
 
   return (
     <Layout>
@@ -83,7 +90,11 @@ const Index = () => {
             <br /> a frontend web developer based in Grodno, Belarus.
           </Title>
           <ButtonWrapper>
-            <ButtonComponent text="View my work" href="/portfolio" />
+            <ButtonComponent
+              text="View my work"
+              href="/portfolio"
+              onClick={onBtnClickHandler}
+            />
           </ButtonWrapper>
         </ContentWrapper>
       </HomePageWrapper>
@@ -91,4 +102,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default HomePage;

@@ -15,7 +15,7 @@ import {
   Heading,
   PageTitleWrapper,
   Stripe
-} from "../../styled-components/pageTitle";
+} from "../../styled-components/PageTitle";
 
 const AboutPageWrapper = styled.div`
   display: flex;
@@ -26,13 +26,12 @@ const AboutPageWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.main`
-  width: 80%;
   max-width: 1440px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: ${ax("primary-color")};
-  padding: 30px 0;
+  padding: 30px 0 60px;
   margin-top: 60px;
   ${customMedia.lessThan("desktop")`
     padding: 20px 20px 80px;
