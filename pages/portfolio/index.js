@@ -155,6 +155,7 @@ const Portfolio = () => {
                   technologies={item.technologies}
                   imageUrl={item.image}
                   onClickHandler={() => onLearnMoreClickHandler(item.slug)}
+                  lowQualityImgUrl={item.lowQualityImage}
                 />
               );
             })}

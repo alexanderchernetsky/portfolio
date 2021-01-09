@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Header from "./Header";
-import FooterComponent from "./Footer";
 
 const LayoutWrapper = styled.div`
   overflow: hidden;
@@ -25,7 +24,6 @@ const Layout = ({ children, className }) => {
       <MainContentWrapper className="main-content-wrapper">
         {children}
       </MainContentWrapper>
-      <FooterComponent />
     </LayoutWrapper>
   );
 };

@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 import ax from "../../../styled-components/accessor";
 import { customMedia } from "../../../styled-components/customMedia";
-import SocialIconsComponent from "../SocIcons";
 
 const Header = styled.header`
   height: 60px;
   width: 100%;
-  color: ${ax("primary-color")};
   position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${ax("primary-color")};
   z-index: 2;
   max-width: 1920px;
   background-color: ${ax("overlay-color")};
@@ -18,6 +19,7 @@ const Header = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.5s ease-out;
   ${customMedia.lessThan("desktop")`
     justify-content: center;
   `};
@@ -97,12 +99,6 @@ const ItemWrapper = styled.span`
   }
 `;
 
-const SocIconsWrapper = styled.div`
-  ${customMedia.lessThan("desktop")`
-     display: none;  
-  `}
-`;
-
 const headerMenuItems = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
@@ -110,12 +106,41 @@ const headerMenuItems = [
   { name: "Contact", link: "/contact" }
 ];
 
+const HEADER_HEIGHT = 60;
+
 const HeaderComponent = () => {
   const router = useRouter();
   const activePage = router.pathname.substring(1);
 
+  let lastScrollTop = 0; // last scroll position
+
+  // the handler below hides and shows header on scroll down and up respectively
+  const onScrollHandler = () => {
+    // eslint-disable-next-line no-undef
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop && st > HEADER_HEIGHT) {
+      // eslint-disable-next-line no-undef
+      document.getElementById("header").style.transform =
+        "translateY(-100%) translateX(-50%)";
+    } else {
+      // eslint-disable-next-line no-undef
+      document.getElementById("header").style.transform =
+        "translateY(0) translateX(-50%)";
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // for Mobile or negative scrolling
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    window.addEventListener("scroll", () => onScrollHandler());
+    return function cleanup() {
+      // eslint-disable-next-line no-undef
+      window.removeEventListener("scroll", () => onScrollHandler());
+    };
+  }, []);
+
   return (
-    <Header>
+    <Header id="header">
       <MenuWrapper>
         <Menu>
           {headerMenuItems.map((item, index) => {
@@ -134,9 +159,6 @@ const HeaderComponent = () => {
           })}
         </Menu>
       </MenuWrapper>
-      <SocIconsWrapper>
-        <SocialIconsComponent />
-      </SocIconsWrapper>
     </Header>
   );
 };

@@ -3,11 +3,9 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import ax from "../../../styled-components/accessor";
 import { customMedia } from "../../../styled-components/customMedia";
+import LoadImageWithLQIP from "./LoadImageWithLQIP";
 
 const CardWrapper = styled.div`
-  background-image: url(${props => props.imageUrl});
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 390px;
   height: 300px;
   cursor: pointer;
@@ -77,10 +75,17 @@ const ProjectCard = ({
   slug,
   onClickHandler,
   technologies,
-  imageUrl
+  imageUrl,
+  lowQualityImgUrl
 }) => {
   return (
     <CardWrapper imageUrl={imageUrl}>
+      <LoadImageWithLQIP
+        mobileImgSrc={imageUrl}
+        desktopImgSrc={imageUrl}
+        altText="project-card"
+        backupImgSrc={lowQualityImgUrl}
+      />
       <Overlay>
         <Title>{title}</Title>
         <Description>{technologies}</Description>
@@ -101,6 +106,7 @@ ProjectCard.propTypes = {
   slug: PropTypes.string,
   technologies: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
+  lowQualityImgUrl: PropTypes.string.isRequired,
   onClickHandler: PropTypes.func.isRequired
 };
 
