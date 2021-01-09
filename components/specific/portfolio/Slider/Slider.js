@@ -98,6 +98,15 @@ const Arrow = styled.img`
   height: 20px;
 `;
 
+const CloseWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+`;
+
 const Close = styled.img`
   cursor: pointer;
   width: 20px;
@@ -123,7 +132,7 @@ const Slides = styled.div`
 const InfoWrapper = styled.div`
   width: 100%;
   background-color: ${ax("primary-color")};
-  padding: 35px 25px 25px;
+  padding: 35px 30px 25px;
   border-top: 3px solid ${ax("slider-border")};
   ${customMedia.lessThan("desktop")`
     width: 375px;
@@ -281,11 +290,9 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
                 </a>
               </BtnText>
             </ViewSiteButton>
-            <Close
-              src={sliderCloseIcon}
-              alt="slider-control-close"
-              onClick={() => onClose()}
-            />
+            <CloseWrapper onClick={() => onClose()}>
+              <Close src={sliderCloseIcon} alt="slider-control-close" />
+            </CloseWrapper>
           </InfoFooter>
         </InfoWrapper>
       </Modal>
