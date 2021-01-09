@@ -21,15 +21,15 @@ const ModalBackground = styled.div`
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  background-color: ${ax("modal-background")};
+  background-color: ${ax("overlay-color")};
 `;
 
 const ModalWindow = styled.div`
-  background-color: ${ax("secondary-color")};
+  background-color: ${ax("primary-color")};
   box-sizing: border-box;
   padding: 40px;
-  width: 670px;
-  height: 400px;
+  width: 500px;
+  height: 300px;
   ${customMedia.lessThan("desktop")`
     width: 335px;
     height: 366px;
@@ -47,27 +47,22 @@ const Close = styled.div`
   align-items: center;
   margin-left: auto;
   width: fit-content;
-  height: 55px;
+  height: 20px;
   border-radius: 30px;
 `;
 
 const Cross = styled.img`
-  width: 37px;
-  height: 37px;
-`;
-
-const CloseText = styled.span`
-  font-size: ${ax("extra-small-font-size")}rem;
-  font-weight: 300;
-  line-height: 17px;
+  width: 20px;
+  height: 20px;
 `;
 
 const ModalTitle = styled.div`
-  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
+  margin: 20px auto 0;
   width: fit-content;
-  color: ${ax("primary-color")};
-  font-size: ${ax("modal-title-font-size")}rem;
-  font-weight: 500;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 55px;
   ${customMedia.lessThan("desktop")`
     margin: 30px auto 0;
@@ -80,11 +75,12 @@ const ModalTitle = styled.div`
 `;
 
 const ModalContent = styled.div`
+  font-family: "Raleway", sans-serif;
   margin: 15px auto 0;
   width: fit-content;
   max-width: 505px;
-  color: ${ax("primary-color")};
-  font-size: ${ax("modal-content-font-size")}rem;
+  color: black;
+  font-size: 16px;
   font-weight: 300;
   line-height: 40px;
   text-align: center;
@@ -122,7 +118,6 @@ const ModalComponent = ({
       <ModalWindow>
         <Close onClick={onCloseHandler}>
           <Cross src={close} alt="close-icon" />
-          <CloseText>Close</CloseText>
         </Close>
         <ModalTitle isFooter={isFooter}>{title}</ModalTitle>
         <ModalContent>{children}</ModalContent>

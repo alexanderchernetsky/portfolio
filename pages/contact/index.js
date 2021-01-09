@@ -357,9 +357,7 @@ const Contacts = () => {
               title="That's an error!"
               visible={isErrorModalVisible}
             >
-              <p>
-                Sorry. Something went wrong. Please contact the support team.
-              </p>
+              <p>Sorry. Something went wrong.</p>
             </ModalComponent>
           </Form>
 
