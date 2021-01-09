@@ -18,7 +18,6 @@ const inputBg = "#1e242c";
 const footnoteColor = "#8f9aa7";
 
 const theme = {
-  // colors
   "primary-color": primaryColor,
   "secondary-color": secondaryColor,
   "overlay-color": overlayColor,

@@ -7,34 +7,31 @@ import ErrorLabel from "../../../styled-components/ErrorLabel";
 
 const TextareaWrapper = styled.div`
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const ContactFormTextarea = styled.textarea`
   height: 130px;
   font-family: Aldrin, sans-serif;
-  -webkit-appearance: none;
+  font-size: 13px;
   font-weight: 300;
-  font-size: ${ax("small-font-size")}rem;
+  -webkit-appearance: none;
   box-sizing: border-box;
+  margin: 0;
   background-color: ${ax("input-bg")};
   border-radius: 0;
   border: none;
   max-width: unset;
-  padding: 19px 0 0 25px;
-  margin: 0;
+  padding: 19px 19px 0 25px;
   color: ${ax("primary-color")};
   resize: none;
-  ::placeholder {
-    color: ${ax("input-placeholder-color")};
-  }
   ${props =>
     props.errorMessage &&
     css`
       margin-top: unset !important;
-      border: 2px solid ${ax("error-label-color")};
-      background-color: ${ax("error-input-background-color")};
+      border: 2px solid ${ax("highlight-color")};
     `}
   ${customMedia.lessThan("desktop")`
     width: 100%;
@@ -43,9 +40,10 @@ const ContactFormTextarea = styled.textarea`
 
 const TextareaComponent = props => {
   const { errorMessage } = props;
+
   return (
     <TextareaWrapper>
-      {errorMessage && <ErrorLabel>{errorMessage}</ErrorLabel>}
+      <ErrorLabel errorMessage={errorMessage}>{errorMessage}</ErrorLabel>
       <ContactFormTextarea {...props} />
     </TextareaWrapper>
   );
@@ -54,7 +52,7 @@ const TextareaComponent = props => {
 TextareaComponent.defaultProps = {
   placeholder: "Please input your message.",
   value: "",
-  errorMessage: false
+  errorMessage: "Error"
 };
 
 TextareaComponent.propTypes = {

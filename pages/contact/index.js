@@ -15,6 +15,8 @@ import ModalComponent from "../../components/specific/contact/Modal";
 import checkForEmptyField from "../../utils/validation/checkForEmptyField";
 import validateEmail from "../../utils/validation/validateEmail";
 import ButtonComponent from "../../components/common/Button";
+import getFieldsErrors from "../../utils/getFieldsErrors";
+import BackendManager from "../../services/Manager";
 
 const ContactPageWrapper = styled.section`
   position: relative;
@@ -68,7 +70,7 @@ const Form = styled.form`
 
 const RowWrapper = styled.div`
   width: 100%;
-  margin-top: 25px;
+  margin-top: 10px;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -104,16 +106,20 @@ const Footer = styled.footer`
 const SocIconsWrapper = styled.div``;
 
 const Footnote = styled.div`
-  font-family: "Raleway", sans-serif;
   margin-top: 35px;
   opacity: 0.6;
-  font-size: 14px;
+`;
+
+const Name = styled.span`
   text-transform: uppercase;
+  font-family: "Raleway", sans-serif;
   color: ${ax("footnote-color")};
+  font-size: 14px;
 `;
 
 const Year = styled.span`
   color: ${ax("highlight-color")};
+  font-size: 16px;
 `;
 
 const initialState = {
@@ -180,45 +186,42 @@ const Contacts = () => {
       fields.forEach((value, key) => {
         formData.append(key, value);
       });
-    }
-  });
 
-  // TODO: create an APi route.
-  //     ContactManager.sendCVForm(formData)
-  //       .then(() => {
-  //         dispatch({
-  //           type: "trigger_success",
-  //           payload: true
-  //         });
-  //       })
-  //       .catch(error => {
-  //         getFieldsErrors(error).forEach(fieldErrorItem => {
-  //           dispatch({
-  //             type: "field",
-  //             fieldName: `${fieldErrorItem[0]}Error`,
-  //             payload: fieldErrorItem[1]
-  //           });
-  //         });
-  //         dispatch({
-  //           type: "trigger_error",
-  //           payload: true
-  //         });
-  //       })
-  //       .finally(() => {
-  //         dispatch({
-  //           type: "field",
-  //           fieldName: "isSubmitting",
-  //           payload: false
-  //         });
-  //       });
-  //   } else {
-  //     dispatch({
-  //       type: "field",
-  //       fieldName: "isSubmitting",
-  //       payload: false
-  //     });
-  //   }
-  // }, [isSubmitting]);
+      BackendManager.sendContactUsRequest(formData)
+        .then(() => {
+          dispatch({
+            type: "trigger_success",
+            payload: true
+          });
+        })
+        .catch(error => {
+          getFieldsErrors(error).forEach(fieldErrorItem => {
+            dispatch({
+              type: "field",
+              fieldName: `${fieldErrorItem[0]}Error`,
+              payload: fieldErrorItem[1]
+            });
+          });
+          dispatch({
+            type: "trigger_error",
+            payload: true
+          });
+        })
+        .finally(() => {
+          dispatch({
+            type: "field",
+            fieldName: "isSubmitting",
+            payload: false
+          });
+        });
+    } else {
+      dispatch({
+        type: "field",
+        fieldName: "isSubmitting",
+        payload: false
+      });
+    }
+  }, [isSubmitting]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -290,7 +293,7 @@ const Contacts = () => {
             <RowWrapper>
               <InputComponent
                 placeholder="Full name"
-                errorMessage={emailError}
+                errorMessage={fullNameError}
                 onChange={event => inputChangeHandler("fullName", event)}
                 value={fullName}
                 type="fullName"
@@ -315,10 +318,10 @@ const Contacts = () => {
                 onChange={event => inputChangeHandler("message", event)}
               />
             </RowWrapper>
+            {/* Submit btn */}
             <ButtonsWrapper>
               <ButtonComponent
                 text="Submit"
-                href="/contact"
                 colorTheme="green"
                 type="submit"
                 disabled={isSubmitting}
@@ -340,9 +343,9 @@ const Contacts = () => {
               title="Thank you!"
               visible={isSuccessModalVisible}
             >
-              <p>Your application was submitted successfully.</p>
-              <p>One of our team will be in touch soon.</p>
+              <p>Your message was sent successfully.</p>
             </ModalComponent>
+
             {/* Error modal */}
             <ModalComponent
               onCloseHandler={() =>
@@ -354,9 +357,7 @@ const Contacts = () => {
               title="That's an error!"
               visible={isErrorModalVisible}
             >
-              <p>
-                Sorry. Something went wrong. Please contact the support team.
-              </p>
+              <p>Sorry. Something went wrong.</p>
             </ModalComponent>
           </Form>
 
@@ -364,7 +365,7 @@ const Contacts = () => {
           <Footer>
             <SocIconsWrapper />
             <Footnote>
-              Alexander Chernetsky
+              <Name>Alexander Chernetsky</Name>
               <Year>©2021</Year>
             </Footnote>
           </Footer>
