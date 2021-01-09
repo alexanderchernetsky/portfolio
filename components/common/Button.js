@@ -142,9 +142,13 @@ const ButtonComponent = ({
         <span className="arrow icon" />
       </span>
       <span className="button-text">
-        <Link href={href}>
+        {type === "submit" ? (
           <a>{text}</a>
-        </Link>
+        ) : (
+          <Link href={href}>
+            <a>{text}</a>
+          </Link>
+        )}
       </span>
     </Button>
   );
