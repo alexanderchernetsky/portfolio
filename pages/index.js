@@ -35,7 +35,8 @@ const Title = styled.h1`
   text-align: center;
   color: ${ax("primary-color")};
   ${customMedia.lessThan("tablet")`
-    font-size: 24px;
+    font-size: 23px;
+    padding: 0 5px;
   `};
 `;
 

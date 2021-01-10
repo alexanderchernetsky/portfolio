@@ -32,7 +32,7 @@ const ModalWindow = styled.div`
   height: 300px;
   ${customMedia.lessThan("desktop")`
     width: 335px;
-    height: 366px;
+    height: 230px;
     padding: 20px;
   `}
 `;
@@ -65,7 +65,7 @@ const ModalTitle = styled.div`
   font-weight: 600;
   line-height: 55px;
   ${customMedia.lessThan("desktop")`
-    margin: 30px auto 0;
+    margin: 15px auto 0;
     ${props =>
       props.isFooter &&
       css`
@@ -85,7 +85,7 @@ const ModalContent = styled.div`
   line-height: 40px;
   text-align: center;
   ${customMedia.lessThan("desktop")`
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     line-height: 32px;
     max-width: 275px;
   `}

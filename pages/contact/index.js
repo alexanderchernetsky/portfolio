@@ -51,6 +51,11 @@ const Question = styled.div`
   font-family: "Raleway", sans-serif;
   color: ${ax("contact-question-color")};
   margin-top: 80px;
+  ${customMedia.lessThan("desktop")`
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  `};
 `;
 
 const Form = styled.form`
@@ -62,9 +67,7 @@ const Form = styled.form`
   box-sizing: border-box;
   padding: 30px 50px;
   ${customMedia.lessThan("desktop")`
-    height: 924px;
-    padding: 20px;
-    margin: 0 auto;
+     padding: 10px 20px;
   `};
 `;
 
@@ -81,12 +84,8 @@ const ButtonsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   ${customMedia.lessThan("desktop")`
-    flex-wrap: wrap;
-    margin-top: 25px;
-    > button {
-      margin-top: 50px;
-      width: 100%;
-    }
+     margin-top: 20px;
+     margin-bottom: 50px; // otherwise submit btn might be hidden under footer on small screen devices
   `};
 `;
 
@@ -100,6 +99,9 @@ const Footer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${customMedia.lessThan("desktop")`
+     padding: 35px 0 25px 0;
+  `};
 `;
 
 // TODO
