@@ -39,6 +39,7 @@ const Button = styled.button`
   ${customMedia.lessThan("mobile")`
     font-size: 14px;
   `};
+
   .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
@@ -49,6 +50,7 @@ const Button = styled.button`
     background: ${props =>
       ax(getStylesObjectForColorTheme(props.colorTheme).circleBgColor)};
     border-radius: 1.625rem;
+
     .icon {
       transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
       position: absolute;
@@ -56,12 +58,14 @@ const Button = styled.button`
       bottom: 0;
       margin: auto;
       background: white;
+
       &.arrow {
         transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
         left: 0.625rem;
         width: 1.125rem;
         height: 0.125rem;
         background: none;
+
         &::before {
           position: absolute;
           content: "";
@@ -76,6 +80,7 @@ const Button = styled.button`
       }
     }
   }
+
   .button-text {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
@@ -90,19 +95,23 @@ const Button = styled.button`
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
+
     a {
       color: ${props =>
         ax(getStylesObjectForColorTheme(props.colorTheme).btnTextColor)};
       font-weight: 400;
       text-decoration: none;
     }
+
     ${customMedia.lessThan("mobile")`
       line-height: 1.7;
     `}
   }
+
   &:hover {
     .circle {
       width: 100%;
+
       .icon {
         &.arrow {
           background: white;
@@ -110,13 +119,52 @@ const Button = styled.button`
         }
       }
     }
+
     .button-text {
       color: ${ax("primary-color")};
       font-weight: 400;
+
       a {
         color: ${ax("primary-color")};
         font-weight: 400;
       }
+    }
+  }
+`;
+
+const LoaderWrapper = styled.div`
+  position: absolute;
+  left: 15px;
+  top: 14px;
+`;
+
+const Loader = styled.div`
+  border: 2px solid ${ax("primary-color")};
+  border-top: 2px solid ${ax("input-bg")};
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  ${customMedia.lessThan("desktop")`
+    width: 15px;
+    height: 15px;
+  `};
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 `;
@@ -128,18 +176,25 @@ const ButtonComponent = ({
   onClick,
   href,
   colorTheme,
-  type
+  type,
+  loading
 }) => {
   return (
     <Button
       className={className}
-      disabled={disabled}
+      disabled={disabled || loading}
       onClick={onClick}
       colorTheme={colorTheme}
       type={type}
     >
       <span className="circle" aria-hidden="true">
-        <span className="arrow icon" />
+        {loading ? (
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        ) : (
+          <span className="arrow icon" />
+        )}
       </span>
       <span className="button-text">
         {type === "submit" ? (
@@ -161,7 +216,8 @@ ButtonComponent.defaultProps = {
   onClick: () => {},
   href: "/",
   colorTheme: "pink",
-  type: "button"
+  type: "button",
+  loading: false
 };
 
 ButtonComponent.propTypes = {
@@ -171,7 +227,8 @@ ButtonComponent.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   colorTheme: PropTypes.oneOf(["pink", "green"]),
-  type: PropTypes.string
+  type: PropTypes.string,
+  loading: PropTypes.bool
 };
 
 export default ButtonComponent;

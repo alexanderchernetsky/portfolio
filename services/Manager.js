@@ -10,7 +10,7 @@ export class ApiBackendManager {
   sendContactUsRequest = async () => {
     // eslint-disable-next-line no-return-await
     return await new Promise(resolve => {
-      setTimeout(() => resolve(), 1000);
+      setTimeout(() => resolve(), 2000);
       // throw new Error("Uncaught Exception!");
     });
   };
