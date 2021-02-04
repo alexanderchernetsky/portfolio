@@ -69,13 +69,16 @@ const Form = styled.form`
   box-sizing: border-box;
   padding: 20px 50px 30px;
   ${customMedia.lessThan("desktop")`
-     padding: 10px 20px;
+     padding: 0 20px;
   `};
 `;
 
 const RowWrapper = styled.div`
   width: 100%;
   margin-top: 10px;
+  ${customMedia.lessThan("desktop")`
+     margin-top: 0;
+  `};
 `;
 
 const ButtonsWrapper = styled.div`
@@ -86,7 +89,7 @@ const ButtonsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   ${customMedia.lessThan("desktop")`
-     margin-top: 20px;
+     margin-top: 0;
      margin-bottom: 50px; // otherwise submit btn might be hidden under footer on small screen devices
   `};
 `;
@@ -102,7 +105,7 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
   ${customMedia.lessThan("desktop")`
-     padding: 35px 0 25px 0;
+     padding: 15px 0;
   `};
 `;
 
@@ -115,6 +118,9 @@ const SocIconsWrapper = styled.div`
 const Footnote = styled.div`
   margin-top: 35px;
   opacity: 0.6;
+  ${customMedia.lessThan("desktop")`
+     margin-top: 5px;
+  `};
 `;
 
 const Name = styled.span`
