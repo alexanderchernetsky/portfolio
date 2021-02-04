@@ -17,6 +17,8 @@ import validateEmail from "../../utils/validation/validateEmail";
 import ButtonComponent from "../../components/common/Button";
 import getFieldsErrors from "../../utils/getFieldsErrors";
 import BackendManager from "../../services/Manager";
+import socIcons from "../../constants/contact";
+import SocIconComponent from "../../components/specific/contact/SocIconComponent";
 
 const ContactPageWrapper = styled.section`
   position: relative;
@@ -65,7 +67,7 @@ const Form = styled.form`
   max-width: 786px;
   background-color: ${ax("form-bg-color")};
   box-sizing: border-box;
-  padding: 30px 50px;
+  padding: 20px 50px 30px;
   ${customMedia.lessThan("desktop")`
      padding: 10px 20px;
   `};
@@ -78,7 +80,7 @@ const RowWrapper = styled.div`
 
 const ButtonsWrapper = styled.div`
   width: 100%;
-  margin-top: 25px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -94,7 +96,7 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   background-color: ${ax("footer-bg")};
-  padding: 70px 0 50px 0;
+  padding: 50px 0 40px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -104,8 +106,11 @@ const Footer = styled.footer`
   `};
 `;
 
-// TODO
-const SocIconsWrapper = styled.div``;
+const SocIconsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Footnote = styled.div`
   margin-top: 35px;
@@ -363,9 +368,19 @@ const Contacts = () => {
             </ModalComponent>
           </Form>
 
-          {/* TODO: Footer */}
+          {/* Footer */}
           <Footer>
-            <SocIconsWrapper />
+            <SocIconsWrapper>
+              {socIcons.map(item => {
+                return (
+                  <SocIconComponent
+                    iconSrc={item.src}
+                    iconName={item.name}
+                    linkTo={item.linkTo}
+                  />
+                );
+              })}
+            </SocIconsWrapper>
             <Footnote>
               <Name>Alexander Chernetsky</Name>
               <Year>©2021</Year>
