@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Head from "next/head";
-import Trianglify from "trianglify";
 import Layout from "../components/common/Layout";
 import ButtonComponent from "../components/common/Button";
 import ax from "../styled-components/accessor";
@@ -53,17 +52,30 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const pattern = Trianglify({
-      // eslint-disable-next-line no-undef
-      height: window.innerHeight,
-      // eslint-disable-next-line no-undef
-      width: window.innerWidth,
-      cell_size: 40,
-      x_colors: "Greys"
-    });
-
     // eslint-disable-next-line no-undef
-    document.getElementById("home-page").appendChild(pattern.canvas());
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    // eslint-disable-next-line no-undef
+    ctx.canvas.width = window.innerWidth;
+    // eslint-disable-next-line no-undef
+    ctx.canvas.height = window.innerHeight;
+
+    // add background
+    ctx.fillStyle = "rgb(38,40,52)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // draw line
+    ctx.beginPath();
+    ctx.strokeStyle = "rgb(71,74,83)";
+    ctx.lineWidth = 1;
+    ctx.moveTo(250.5, 0);
+    ctx.rotate((45 * Math.PI) / 180);
+    ctx.lineTo(250.5, 100);
+    ctx.stroke();
+    // draw circle
+    ctx.beginPath();
+    ctx.arc(250.5, 100, 1.3, 0, Math.PI * 2);
+    ctx.fillStyle = "#e31b6d";
+    ctx.fill();
   }, []);
 
   const onBtnClickHandler = () => {
@@ -85,6 +97,7 @@ const HomePage = () => {
       </Head>
 
       <HomePageWrapper id="home-page">
+        <canvas id="canvas" />
         <ContentWrapper>
           <Title>
             Hello! I&apos;m <FullName>Alexander Chernetsky</FullName>,
