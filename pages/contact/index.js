@@ -377,12 +377,13 @@ const Contacts = () => {
           {/* Footer */}
           <Footer>
             <SocIconsWrapper>
-              {socIcons.map(item => {
+              {socIcons.map((item, index) => {
                 return (
                   <SocIconComponent
                     iconSrc={item.src}
                     iconName={item.name}
                     linkTo={item.linkTo}
+                    key={index}
                   />
                 );
               })}
