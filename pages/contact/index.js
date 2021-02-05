@@ -189,18 +189,7 @@ const Contacts = () => {
     const fieldErrors = [fullNameError, emailError, messageError];
     const hasError = !!fieldErrors.filter(Boolean).length;
     if (!hasError && isSubmitting) {
-      // eslint-disable-next-line no-undef
-      const formData = new FormData();
-      const fields = new Map([
-        ["fullName", fullName],
-        ["email", email],
-        ["message", message]
-      ]);
-      fields.forEach((value, key) => {
-        formData.append(key, value);
-      });
-
-      BackendManager.sendContactUsRequest(formData)
+      BackendManager.sendContactUsRequest(fullName, email, message)
         .then(() => {
           dispatch({
             type: "trigger_success",
