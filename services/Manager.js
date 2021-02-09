@@ -1,17 +1,26 @@
-export class ApiBackendManager {
-  // instance;
-  //
-  // constructor() {
-  //   this.instance = axios.create({
-  //     baseURL: process.env.REACT_APP_API_PATH_BACK
-  //   });
-  // }
+import axios from "axios";
 
-  sendContactUsRequest = async () => {
-    // eslint-disable-next-line no-return-await
-    return await new Promise(resolve => {
-      setTimeout(() => resolve(), 2000);
-      // throw new Error("Uncaught Exception!");
+export class ApiBackendManager {
+  sendContactUsRequest = async (
+    fullName,
+    email,
+    message,
+    recipientMail = "sashacherny@yandex.ru"
+  ) => {
+    const data = {
+      recipientMail,
+      fullName,
+      senderMail: email,
+      message
+    };
+
+    return axios({
+      method: "post",
+      url: "/api/contact",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      data
     });
   };
 }
