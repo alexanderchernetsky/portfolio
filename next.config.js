@@ -1,7 +1,11 @@
-const withVideos = require("next-videos");
-
 const withImages = require("next-images");
 
 const withFonts = require("next-fonts");
 
-module.exports = withFonts(withImages(withVideos()));
+module.exports = withFonts(
+  withImages({
+    env: {
+      GMAIL_PASSWORD: process.env.GMAIL_PASSWORD
+    }
+  })
+);
