@@ -1,15 +1,12 @@
 import nodemailer from "nodemailer";
 
-// TODO: nodemailer
-
-const emailPass = "yourPassword";
+const myGmailPass = process.env.GMAIL_PASSWORD;
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ionos.de",
-  port: 25,
+  service: "gmail",
   auth: {
-    user: "yourUser@example.com",
-    pass: emailPass
+    user: "alexvnderchernetsky@gmail.com",
+    pass: myGmailPass
   }
 });
 
