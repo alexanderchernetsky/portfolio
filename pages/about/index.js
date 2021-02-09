@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import styled from "styled-components";
 import Layout from "../../components/common/Layout";
@@ -141,6 +142,12 @@ const SkillsBlocksWrapper = styled.div`
 `;
 
 const About = () => {
+  const router = useRouter();
+
+  const onBtnClickHandler = () => {
+    router.push("/contact");
+  };
+
   return (
     <Layout>
       <Head>
@@ -203,6 +210,7 @@ const About = () => {
                 text="Contact me"
                 href="/contact"
                 colorTheme="green"
+                onClick={onBtnClickHandler}
               />
             </AboutSection>
             <Skills>
