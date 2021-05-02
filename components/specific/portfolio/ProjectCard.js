@@ -33,7 +33,7 @@ const Overlay = styled.div`
   z-index: 1;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   width: 100%;
   text-align: center;
   font-weight: 600;
@@ -90,7 +90,13 @@ const ProjectCard = ({
       <Overlay>
         <Title>{title}</Title>
         <Description>{technologies}</Description>
-        <Button onClick={() => onClickHandler(slug)}>Learn More</Button>
+        <Button
+          onClick={() => onClickHandler(slug)}
+          tabIndex={0}
+          onKeyPress={() => onClickHandler(slug)}
+        >
+          Learn More
+        </Button>
       </Overlay>
     </CardWrapper>
   );

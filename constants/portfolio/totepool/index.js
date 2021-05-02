@@ -20,7 +20,7 @@ const totepoolInfo = {
     { imageUrl: desktopSlide2, mobileImageUrl: mobileSlide2 },
     { imageUrl: desktopSlide3, mobileImageUrl: mobileSlide3 }
   ],
-  href: "https://dev.pools-host.trade-dev.betfred.com/"
+  href: "https://uat.pools-client.totepool-nonprod.sharpgaming.net/"
 };
 
 export default totepoolInfo;
