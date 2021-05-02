@@ -14,6 +14,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-300.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-300.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* raleway-regular - latin */
   @font-face {
@@ -27,6 +28,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* raleway-500 - latin */
   @font-face {
@@ -40,6 +42,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-500.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-500.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* raleway-600 - latin */
   @font-face {
@@ -53,6 +56,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-600.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-600.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* raleway-700 - latin */
   @font-face {
@@ -66,6 +70,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-700.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-700.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
   /* raleway-800 - latin */
   @font-face {
@@ -79,6 +84,7 @@ export default createGlobalStyle`
          url('/static/fonts/Raleway/raleway-v14-latin-800.woff') format('woff'), /* Modern Browsers */
          url('/static/fonts/Raleway/raleway-v14-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
          url('/static/fonts/Raleway/raleway-v14-latin-800.svg#Raleway') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 
   html, body {

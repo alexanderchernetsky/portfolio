@@ -36,7 +36,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 60px;
-  padding-top: 30px;
+  padding: 30px 0 60px;
   ${customMedia.lessThan("desktop")`
     padding: 20px 20px 80px;
     width: 90%;

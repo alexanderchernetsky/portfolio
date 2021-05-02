@@ -6,6 +6,11 @@ import ax from "../../../styled-components/accessor";
 import { customMedia } from "../../../styled-components/customMedia";
 
 const Header = styled.header`
+  ${props =>
+    props.isHomePage &&
+    css`
+      display: none !important;
+    `};
   height: 60px;
   width: 100%;
   position: fixed;
@@ -14,12 +19,13 @@ const Header = styled.header`
   color: ${ax("primary-color")};
   z-index: 2;
   max-width: 1920px;
-  background-color: ${ax("overlay-color")};
+  background-color: ${ax("header-bg")};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   transition: all 0.5s ease-out;
+  border-bottom: 3px solid ${ax("hover-color")};
   ${customMedia.lessThan("desktop")`
     justify-content: center;
   `};
@@ -139,8 +145,10 @@ const HeaderComponent = () => {
     };
   }, []);
 
+  const isHomePage = activePage === "";
+
   return (
-    <Header id="header">
+    <Header id="header" isHomePage={isHomePage}>
       <MenuWrapper>
         <Menu>
           {headerMenuItems.map((item, index) => {
