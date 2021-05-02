@@ -1,7 +1,7 @@
-import fast from "../../images/blocks/fast.jpg";
-import responsive from "../../images/blocks/responsive.jpg";
-import intuitive from "../../images/blocks/intuitive.jpg";
-import dynamic from "../../images/blocks/dynamic.jpg";
+import fast from "../../images/about/blocks/fast.jpg";
+import responsive from "../../images/about/blocks/responsive.jpg";
+import intuitive from "../../images/about/blocks/intuitive.jpg";
+import dynamic from "../../images/about/blocks/dynamic.jpg";
 
 const blocks = [
   {

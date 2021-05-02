@@ -11,8 +11,6 @@ import desktopSlide5 from "../../../images/projects/erg/slides/desktop/5.jpg";
 import mobileSlide5 from "../../../images/projects/erg/slides/mobile/5.jpg";
 import desktopSlide6 from "../../../images/projects/erg/slides/desktop/6.jpg";
 import mobileSlide6 from "../../../images/projects/erg/slides/mobile/6.jpg";
-import desktopSlide7 from "../../../images/projects/erg/slides/desktop/7.jpg";
-import mobileSlide7 from "../../../images/projects/erg/slides/mobile/7.jpg";
 
 const ergInfo = {
   title: "ERG",
@@ -28,8 +26,7 @@ const ergInfo = {
     { imageUrl: desktopSlide3, mobileImageUrl: mobileSlide3 },
     { imageUrl: desktopSlide4, mobileImageUrl: mobileSlide4 },
     { imageUrl: desktopSlide5, mobileImageUrl: mobileSlide5 },
-    { imageUrl: desktopSlide6, mobileImageUrl: mobileSlide6 },
-    { imageUrl: desktopSlide7, mobileImageUrl: mobileSlide7 }
+    { imageUrl: desktopSlide6, mobileImageUrl: mobileSlide6 }
   ],
   href: "https://equityreleasegroup.demohoster.com/"
 };

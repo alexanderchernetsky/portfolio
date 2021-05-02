@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import ax from "../../../styled-components/accessor";
 import { customMedia } from "../../../styled-components/customMedia";
-import LoadImageWithLQIP from "./LoadImageWithLQIP";
+import LoadImageWithLQIP from "../../common/LoadImageWithLQIP";
 
 const CardWrapper = styled.div`
   width: 390px;
