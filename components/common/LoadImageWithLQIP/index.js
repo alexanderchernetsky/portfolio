@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {
   customMedia,
   screenDesktop
-} from "../../../../styled-components/customMedia";
+} from "../../../styled-components/customMedia";
 
 const ImageContainer = styled.div`
   position: relative;

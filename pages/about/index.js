@@ -7,7 +7,8 @@ import ax from "../../styled-components/accessor";
 import blocks from "../../constants/about/blocks";
 import Block from "../../components/specific/about/Block";
 import { customMedia } from "../../styled-components/customMedia";
-import alexander from "../../images/alex.jpg";
+import alexander from "../../images/about/alex.jpg";
+import backupImageUrl from "../../images/about/alex_blured.jpg";
 import ButtonComponent from "../../components/common/Button";
 import SkillBlock from "../../components/specific/about/SkillBlock";
 import skills from "../../constants/about/skills";
@@ -17,6 +18,7 @@ import {
   PageTitleWrapper,
   Stripe
 } from "../../styled-components/PageTitle";
+import LoadImage from "../../components/common/LoadImageWithLQIP";
 
 const AboutPageWrapper = styled.div`
   display: flex;
@@ -81,7 +83,8 @@ const PhotoWrapper = styled.div`
   width: 300px;
   height: 300px;
   clip-path: polygon(25% 0%, 75% 0%, 100% 45%, 75% 90%, 25% 90%, 0% 45%);
-  img {
+  .real-image,
+  .placeholder-image {
     width: 100%;
     height: 110%; // hack
     object-fit: cover;
@@ -184,9 +187,11 @@ const About = () => {
           <MainInfoWrapper>
             <AboutSection>
               <PhotoWrapper>
-                <img
-                  src={alexander}
-                  alt="Alexander Chernetsky. Frontend developer from Grodno."
+                <LoadImage
+                  altText="Alexander Chernetsky. Frontend developer from Belarus."
+                  desktopImgSrc={alexander}
+                  mobileImgSrc={alexander}
+                  backupImgSrc={backupImageUrl}
                 />
               </PhotoWrapper>
               <Title>Alexander Chernetsky - Web Developer</Title>

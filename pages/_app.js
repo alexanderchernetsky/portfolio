@@ -26,7 +26,7 @@ export default class MyApp extends App {
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/favicon-32x32.png"
+            href="/static/favicon.ico"
           />
         </Head>
         <GlobalStyles />
