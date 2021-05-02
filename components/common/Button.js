@@ -96,7 +96,8 @@ const Button = styled.button`
     text-align: center;
     text-transform: uppercase;
 
-    a {
+    a,
+    span {
       color: ${props =>
         ax(getStylesObjectForColorTheme(props.colorTheme).btnTextColor)};
       font-weight: 400;
@@ -124,7 +125,8 @@ const Button = styled.button`
       color: ${ax("primary-color")};
       font-weight: 400;
 
-      a {
+      a,
+      span {
         color: ${ax("primary-color")};
         font-weight: 400;
       }
@@ -198,7 +200,7 @@ const ButtonComponent = ({
       </span>
       <span className="button-text">
         {type === "submit" ? (
-          <a>{text}</a>
+          <span>{text}</span>
         ) : (
           <Link href={href}>
             <a>{text}</a>

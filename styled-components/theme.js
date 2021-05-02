@@ -17,6 +17,7 @@ const contactPageBg = "#252935";
 const inputBg = "#1e242c";
 const footnoteColor = "#8f9aa7";
 const iconBg = "#262f38";
+const headerBg = "#1B242F";
 
 const theme = {
   "primary-color": primaryColor,
@@ -40,7 +41,8 @@ const theme = {
   "input-bg": inputBg,
   "footer-bg": cardTitleColor,
   "footnote-color": footnoteColor,
-  "icon-bg": iconBg
+  "icon-bg": iconBg,
+  "header-bg": headerBg
 };
 
 export default theme;
