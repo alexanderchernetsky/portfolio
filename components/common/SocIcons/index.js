@@ -73,6 +73,7 @@ const SocialIconsComponent = () => {
         icon="linkedin"
         href="https://www.linkedin.com/in/alexander-chernetsky/"
         target="_blank"
+        rel="noopener"
       >
         <FontAwesomeIcon icon={faLinkedin} />
       </SocIconWrapper>
@@ -80,6 +81,7 @@ const SocialIconsComponent = () => {
         icon="github"
         href="https://github.com/alexanderchernetsky"
         target="_blank"
+        rel="noopener"
       >
         <FontAwesomeIcon icon={faGithubSquare} />
       </SocIconWrapper>
@@ -87,6 +89,7 @@ const SocialIconsComponent = () => {
         icon="instagram"
         href="https://www.instagram.com/alexander_chernetsky/"
         target="_blank"
+        rel="noopener"
       >
         <FontAwesomeIcon icon={faInstagramSquare} />
         <InstaGradient />

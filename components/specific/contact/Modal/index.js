@@ -116,7 +116,11 @@ const ModalComponent = ({
       id="modal_background_id"
     >
       <ModalWindow>
-        <Close onClick={onCloseHandler}>
+        <Close
+          onClick={onCloseHandler}
+          tabIndex={0}
+          onKeyPress={onCloseHandler}
+        >
           <Cross src={close} alt="close-icon" />
         </Close>
         <ModalTitle isFooter={isFooter}>{title}</ModalTitle>

@@ -251,6 +251,8 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
               src={sliderArrow}
               alt="slider-control-arrow-previous"
               type="previous"
+              tabIndex={0}
+              onKeyPress={() => sliderControlClickHandler("previous")}
             />
           </SliderControl>
 
@@ -275,6 +277,8 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
               src={sliderArrow}
               alt="slider-control-arrow-next"
               type="next"
+              tabIndex={0}
+              onKeyPress={() => sliderControlClickHandler("next")}
             />
           </SliderControl>
         </SliderWrapper>
@@ -291,7 +295,12 @@ const Slider = ({ slides, title, subtitle, description, onClose, href }) => {
               </BtnText>
             </ViewSiteButton>
             <CloseWrapper onClick={() => onClose()}>
-              <Close src={sliderCloseIcon} alt="slider-control-close" />
+              <Close
+                src={sliderCloseIcon}
+                alt="slider-control-close"
+                tabIndex={0}
+                onKeyPress={() => onClose()}
+              />
             </CloseWrapper>
           </InfoFooter>
         </InfoWrapper>

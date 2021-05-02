@@ -188,6 +188,8 @@ const ButtonComponent = ({
       onClick={onClick}
       colorTheme={colorTheme}
       type={type}
+      tabIndex={0}
+      onKeyPress={onClick}
     >
       <span className="circle" aria-hidden="true">
         {loading ? (
