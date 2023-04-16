@@ -180,7 +180,7 @@ const About = () => {
                         <AboutSection>
                             <PhotoWrapper>
                                 <LoadImage
-                                    altText="Alexander Chernetsky. Frontend developer from Belarus."
+                                    altText="Alexander Chernetsky. Frontend developer."
                                     desktopImgSrc={alexander}
                                     mobileImgSrc={alexander}
                                     backupImgSrc={backupImageUrl}
