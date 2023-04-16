@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
+
 import Layout from '../../components/common/Layout';
 import ax from '../../styled-components/accessor';
 import {customMedia} from '../../styled-components/customMedia';
@@ -50,15 +51,16 @@ const Cards = styled.div`
     align-items: center;
     margin-top: 80px;
     ${customMedia.lessThan('mediumScreen')`
-    justify-content: center;
-    padding: 0 30px;
-  `};
+        justify-content: center;
+        padding: 0 30px;
+    `};
     ${customMedia.lessThan('desktop')`
-    max-width: 435px;
-  `};
+        max-width: 435px;
+    `};
     ${customMedia.lessThan('tablet')`
-    margin-top: 20px;
-  `};
+        margin-top: 20px;
+        padding: 0;
+    `};
 `;
 
 const Portfolio = () => {

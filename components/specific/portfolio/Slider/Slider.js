@@ -69,37 +69,42 @@ const Slider = ({slides, title, subtitle, description, onClose, href}) => {
             <Overlay onClick={() => onClose()} />
 
             <Modal mobile={isMobileDevice}>
-                <SliderWrapper mobile={isMobileDevice}>
-                    {!isFirstSlide && (
-                        <SliderControl type="previous" onClick={() => sliderControlClickHandler('previous')}>
-                            <Arrow
-                                src={sliderArrow}
-                                alt="slider-control-arrow-previous"
-                                type="previous"
-                                tabIndex={0}
-                                onKeyPress={() => sliderControlClickHandler('previous')}
-                            />
-                        </SliderControl>
-                    )}
+                {!isMobileDevice && (
+                    <SliderWrapper mobile={isMobileDevice}>
+                        {!isFirstSlide && (
+                            <SliderControl type="previous" onClick={() => sliderControlClickHandler('previous')}>
+                                <Arrow
+                                    src={sliderArrow}
+                                    alt="slider-control-arrow-previous"
+                                    type="previous"
+                                    tabIndex={0}
+                                    onKeyPress={() => sliderControlClickHandler('previous')}
+                                />
+                            </SliderControl>
+                        )}
 
-                    <Slides id="slides-wrapper">
-                        {slides.map((slide, index) => {
-                            return <Slide key={index} imageUrl={slide.imageUrl} mobileImageUrl={slide.mobileImageUrl} backupImageUrl={slide.backupImageUrl} />;
-                        })}
-                    </Slides>
+                        <Slides id="slides-wrapper">
+                            {slides.map((slide, index) => {
+                                return (
+                                    <Slide key={index} imageUrl={slide.imageUrl} mobileImageUrl={slide.mobileImageUrl} backupImageUrl={slide.backupImageUrl} />
+                                );
+                            })}
+                        </Slides>
 
-                    {!isLastSlide && (
-                        <SliderControl type="next" onClick={() => sliderControlClickHandler('next')}>
-                            <Arrow
-                                src={sliderArrow}
-                                alt="slider-control-arrow-next"
-                                type="next"
-                                tabIndex={0}
-                                onKeyPress={() => sliderControlClickHandler('next')}
-                            />
-                        </SliderControl>
-                    )}
-                </SliderWrapper>
+                        {!isLastSlide && (
+                            <SliderControl type="next" onClick={() => sliderControlClickHandler('next')}>
+                                <Arrow
+                                    src={sliderArrow}
+                                    alt="slider-control-arrow-next"
+                                    type="next"
+                                    tabIndex={0}
+                                    onKeyPress={() => sliderControlClickHandler('next')}
+                                />
+                            </SliderControl>
+                        )}
+                    </SliderWrapper>
+                )}
+
                 <InfoWrapper mobile={isMobileDevice}>
                     <InfoTitle>{title}</InfoTitle>
                     <InfoSubtitle>{subtitle}</InfoSubtitle>

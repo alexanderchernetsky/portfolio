@@ -2,6 +2,7 @@ import React from 'react';
 import {useRouter} from 'next/router';
 import Head from 'next/head';
 import styled from 'styled-components';
+
 import Layout from '../../components/common/Layout';
 import ax from '../../styled-components/accessor';
 import blocks from '../../constants/about/blocks';
@@ -15,6 +16,7 @@ import skills from '../../constants/about/skills';
 import tools from '../../constants/about/tools';
 import {Heading, PageTitleWrapper, Stripe} from '../../styled-components/PageTitle';
 import LoadImage from '../../components/common/LoadImageWithLQIP';
+import isUserAgentSignallingMobile from '../../utils/isUserAgentSignallingMobile';
 
 const AboutPageWrapper = styled.div`
     display: flex;
@@ -147,6 +149,8 @@ const About = () => {
         router.push('/contact');
     };
 
+    const isMobileDevice = isUserAgentSignallingMobile();
+
     return (
         <Layout>
             <Head>
@@ -165,11 +169,13 @@ const About = () => {
                         <Heading>About</Heading>
                         <Stripe />
                     </PageTitleWrapper>
-                    <BlocksWrapper>
-                        {blocks.map((item, index) => {
-                            return <Block key={index} src={item.src} title={item.title} text={item.text} />;
-                        })}
-                    </BlocksWrapper>
+                    {!isMobileDevice && (
+                        <BlocksWrapper>
+                            {blocks.map((item, index) => {
+                                return <Block key={index} src={item.src} title={item.title} text={item.text} />;
+                            })}
+                        </BlocksWrapper>
+                    )}
                     <MainInfoWrapper>
                         <AboutSection>
                             <PhotoWrapper>

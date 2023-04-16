@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import React, {useEffect, useReducer} from 'react';
+
 import Layout from '../../components/common/Layout';
 import {Heading, PageTitleWrapper, Stripe} from '../../styled-components/PageTitle';
 import ax from '../../styled-components/accessor';
@@ -12,7 +13,7 @@ import checkForEmptyField from '../../utils/validation/checkForEmptyField';
 import validateEmail from '../../utils/validation/validateEmail';
 import ButtonComponent from '../../components/common/Button';
 import getFieldsErrors from '../../utils/getFieldsErrors';
-import BackendManager from '../../services/Manager';
+import BackendManager from '../../services/ApiManager';
 import socIcons from '../../constants/contact';
 import SocIconComponent from '../../components/specific/contact/SocIconComponent';
 

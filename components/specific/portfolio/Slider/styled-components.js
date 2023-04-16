@@ -35,6 +35,7 @@ const Modal = styled.div`
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             top: 0;
             left: 0;
             bottom: 0;
@@ -137,14 +138,15 @@ const InfoWrapper = styled.div`
     padding: 35px 30px 25px;
     border-top: 3px solid ${ax('slider-border')};
     ${customMedia.lessThan('desktop')`
-    width: 375px;
-  `}
+        width: 375px;
+    `}
     ${props =>
         props.mobile &&
         css`
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 250px);
+            min-height: 460px;
+            height: calc(60vh);
         `};
 `;
 
