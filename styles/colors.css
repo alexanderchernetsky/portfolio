@@ -1,0 +1,102 @@
+:root {
+	/* Primary Colors */
+	--primary-color: white;
+	--secondary-color: #282936;
+
+	/* Overlay Colors */
+	--overlay-color: rgba(0, 0, 0, 0.2);
+	--slider-overlay-color: rgba(0, 0, 0, 0.5);
+	--card-overlay-color: rgba(245, 245, 245, 1);
+
+	/* Accent Colors */
+	--highlight-color: #e31b6d;
+	--hover-color: #04c2c9;
+
+	/* Text Colors */
+	--page-title-color: #444649;
+	--block-text-color: #616161;
+	--card-title-color: #1b242f;
+	--slider-info-subtitle: #c0c0c0;
+	--contact-page-title: #fefefe;
+	--footnote-color: #8f9aa7;
+
+	/* Background Colors */
+	--portfolio-bg-color: #f5f5f5;
+	--contact-page-bg: #252935;
+	--input-bg: #1e242c;
+	--icon-bg: #262f38;
+	--header-bg: #1b242f;
+	--footer-bg: #1b242f;
+
+	/* Button & Link Colors */
+	--green-button-bg-color: #05c2c8;
+	--link-color: #05c2c8;
+
+	/* Other */
+	--slider-border: #1b242f;
+	--contact-question-color: #04c2c9;
+}
+
+/* Utility classes for quick access */
+.bg-primary {
+	background-color: var(--primary-color);
+}
+.bg-secondary {
+	background-color: var(--secondary-color);
+}
+.bg-highlight {
+	background-color: var(--highlight-color);
+}
+.bg-hover {
+	background-color: var(--hover-color);
+}
+.bg-portfolio {
+	background-color: var(--portfolio-bg-color);
+}
+.bg-contact {
+	background-color: var(--contact-page-bg);
+}
+.bg-input {
+	background-color: var(--input-bg);
+}
+.bg-icon {
+	background-color: var(--icon-bg);
+}
+.bg-header {
+	background-color: var(--header-bg);
+}
+.bg-footer {
+	background-color: var(--footer-bg);
+}
+
+.text-primary {
+	color: var(--primary-color);
+}
+.text-secondary {
+	color: var(--secondary-color);
+}
+.text-highlight {
+	color: var(--highlight-color);
+}
+.text-hover {
+	color: var(--hover-color);
+}
+.text-page-title {
+	color: var(--page-title-color);
+}
+.text-block {
+	color: var(--block-text-color);
+}
+.text-card-title {
+	color: var(--card-title-color);
+}
+.text-subtitle {
+	color: var(--slider-info-subtitle);
+}
+.text-footnote {
+	color: var(--footnote-color);
+}
+
+.border-slider {
+	border-color: var(--slider-border);
+}
