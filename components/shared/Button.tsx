@@ -20,8 +20,8 @@ const getThemeClasses = (theme: ColorTheme) => {
 	switch (theme) {
 		case 'green':
 			return {
-				circleBg: 'bg-green-500',
-				textColor: 'text-green-500',
+				circleBg: 'bg-green-button',
+				textColor: 'text-green-button-link',
 			};
 		default:
 			return {
@@ -78,7 +78,7 @@ const Button: React.FC<ButtonProps> = ({
 			{/* Button text */}
 			<span
 				className={cn(
-					'absolute top-0 left-0 right-0 bottom-0 py-3 pl-8 text-center uppercase font-normal leading-tight transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
+					'text absolute top-0 left-0 right-0 bottom-0 py-3 pl-8 text-center uppercase font-normal leading-tight transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
 					theme.textColor,
 				)}
 			>
@@ -89,6 +89,9 @@ const Button: React.FC<ButtonProps> = ({
 			<style jsx>{`
                 button:hover .circle {
                     width: 100%;
+                }
+                button:hover .text {
+                    color: var(--primary-color);
                 }
             `}</style>
 		</button>

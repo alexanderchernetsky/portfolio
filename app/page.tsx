@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import HomePageContent from '@/components/home/HomePageContent';
+import Expertise from "@/components/Expertise/Expertise";
+import Intro from '@/components/Intro/Intro';
 import Layout from '@/components/shared/Layout';
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 export default function Page() {
 	return (
 		<Layout>
-			<HomePageContent />
+			<Intro />
+            {/* todo: portfolio */}
+            <Expertise />
+            {/* todo: contact */}
 		</Layout>
 	);
 }

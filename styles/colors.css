@@ -68,6 +68,10 @@
 .bg-footer {
 	background-color: var(--footer-bg);
 }
+.bg-green-button {
+    background-color: var(--green-button-bg-color);
+}
+
 
 .text-primary {
 	color: var(--primary-color);
@@ -95,6 +99,9 @@
 }
 .text-footnote {
 	color: var(--footnote-color);
+}
+.text-green-button-link {
+    color: var(--link-color);
 }
 
 .border-slider {
