@@ -71,7 +71,7 @@
 	background-color: var(--footer-bg);
 }
 .bg-green-button {
-    background-color: var(--green-button-bg-color);
+	background-color: var(--green-button-bg-color);
 }
 
 /* Text */
@@ -104,10 +104,10 @@
 	color: var(--footnote-color);
 }
 .text-green-button-link {
-    color: var(--link-color);
+	color: var(--link-color);
 }
 .text-contact-question {
-    color: var(--contact-question-color);
+	color: var(--contact-question-color);
 }
 
 /* Border */
@@ -116,5 +116,5 @@
 }
 
 .border-highlight {
-    color: var(--highlight-color);
+	color: var(--highlight-color);
 }

@@ -1,20 +1,20 @@
-import type {FC} from 'react';
+import type { FC } from 'react';
 
 type SkillBlockProps = {
-    title: string;
+	title: string;
 };
 
 const SkillBlock: FC<SkillBlockProps> = ({ title }) => {
-    return (
-        <div
-            className="flex flex-col items-center justify-center
+	return (
+		<div
+			className="flex flex-col items-center justify-center
                  bg-green-button
                  h-[24px] px-[15px] m-[5px]
                  rounded-md shadow-sm text-[16px] md:text-[14px] font-medium text-primary"
-        >
-            {title}
-        </div>
-    );
+		>
+			{title}
+		</div>
+	);
 };
 
 export default SkillBlock;

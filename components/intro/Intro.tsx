@@ -1,8 +1,13 @@
-import Link from 'next/link';
+'use client';
 import Button from '@/components/shared/Button';
 
 // todo: choose a better color for the background
 export default function HomePage() {
+	const handleViewWorkButtonClick = () => {
+		const contactSection = document.getElementById('projects');
+		contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	};
+
 	return (
 		<section className="diagonal-gradient relative flex flex-col justify-start min-h-screen">
 			<div className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 w-full lg:max-w-[600px] px-5 md:max-w-[360px]">
@@ -13,10 +18,8 @@ export default function HomePage() {
 					</h1>
 
 					<div className="mt-3">
-						<Button colorTheme="pink">
-							<Link href="/portfolio" className="font-raleway text-primary font-normal text-decoration-none">
-								View my work
-							</Link>
+						<Button colorTheme="pink" onClick={handleViewWorkButtonClick}>
+							<span className="font-raleway text-primary font-normal text-decoration-none">View my work</span>
 						</Button>
 					</div>
 				</div>
