@@ -38,6 +38,8 @@
 }
 
 /* Utility classes for quick access */
+
+/* Background */
 .bg-primary {
 	background-color: var(--primary-color);
 }
@@ -72,6 +74,7 @@
     background-color: var(--green-button-bg-color);
 }
 
+/* Text */
 
 .text-primary {
 	color: var(--primary-color);
@@ -103,7 +106,15 @@
 .text-green-button-link {
     color: var(--link-color);
 }
+.text-contact-question {
+    color: var(--contact-question-color);
+}
 
+/* Border */
 .border-slider {
 	border-color: var(--slider-border);
+}
+
+.border-highlight {
+    color: var(--highlight-color);
 }

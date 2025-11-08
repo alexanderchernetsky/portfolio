@@ -1,11 +1,10 @@
-'use client';
-import React from 'react';
+import type {FC} from 'react';
 
 type SkillBlockProps = {
     title: string;
 };
 
-const SkillBlock: React.FC<SkillBlockProps> = ({ title }) => {
+const SkillBlock: FC<SkillBlockProps> = ({ title }) => {
     return (
         <div
             className="flex flex-col items-center justify-center

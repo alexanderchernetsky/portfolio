@@ -8,42 +8,30 @@ import Button from '../shared/Button';
 import Block from './Block';
 import SkillBlock from './SkillBlock';
 
-// import isUserAgentSignallingMobile from '../../utils/isUserAgentSignallingMobile';
-
 
 
 const Expertise: React.FC = () => {
-    // todo: add mobile detection
-   // const isMobileDevice = isUserAgentSignallingMobile();
-    const isMobileDevice = false;
-
     const onBtnClickHandler = () => {
         // todo: scroll to contact section
     };
 
     return (
-            <div className="flex flex-col items-center justify-start bg-primary">
-                <main className="w-full max-w-[1440px] flex flex-col items-center bg-primary pt-[60px] pb-[60px] px-0 md:px-5">
-                    <div className="w-full px-6 sm:px-8 md:px-0">
-                        <div className="max-w-[1440px] mx-auto">
-                            <div className="flex flex-col items-center">
-                                <h1 className="text-[34px] font-bold uppercase text-page-title">EXPERTISE</h1>
-                                <div className="w-16 h-1 bg-secondary mt-3" />
-                            </div>
-                        </div>
+            <section className="min-h-screen flex flex-col items-center justify-start bg-primary">
+                <div className="w-full max-w-[1440px] flex flex-col items-center bg-primary pt-[60px] pb-[60px] px-0 md:px-5">
+                    <div className="w-full px-6 sm:px-8 md:px-0 max-w-[1440px] mx-auto flex flex-col items-center">
+                        <h1 className="text-[34px] font-bold uppercase text-page-title">EXPERTISE</h1>
+                        <div className="w-16 h-1 bg-secondary mt-3" />
                     </div>
 
                     {/* Blocks */}
-                    {!isMobileDevice && (
-                        <div className="flex flex-row flex-wrap justify-center items-center mt-20 gap-6 px-6">
-                            {blocks.map((item) => (
-                                <Block key={item.title} src={item.src} title={item.title} text={item.text} />
-                            ))}
-                        </div>
-                    )}
+                    <div className="flex flex-row flex-wrap justify-center items-center mt-20 gap-6 px-6">
+                        {blocks.map((item) => (
+                            <Block key={item.title} src={item.src} title={item.title} text={item.text} />
+                        ))}
+                    </div>
 
                     {/* Main info */}
-                    <section className="w-full px-6 lg:mt-8 mt-4">
+                    <div className="w-full px-6 lg:mt-8 mt-4">
                         <div className="grid grid-rows-1 grid-cols-2 items-start gap-8 md:flex-col">
                             {/* Left column - About Section */}
                             <div className="flex flex-col items-center max-w-[590px] w-full px-2">
@@ -110,9 +98,9 @@ const Expertise: React.FC = () => {
                                 </div>
                             </aside>
                         </div>
-                    </section>
-                </main>
-            </div>
+                    </div>
+                </div>
+            </section>
     );
 };
 

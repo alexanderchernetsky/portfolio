@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import Expertise from "@/components/Expertise/Expertise";
-import Intro from '@/components/Intro/Intro';
+import Contact from "@/components/contact/Contact";
+import Expertise from "@/components/expertise/Expertise";
+import Intro from '@/components/intro/Intro';
 import Layout from '@/components/shared/Layout';
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export default function Page() {
 			<Intro />
             {/* todo: portfolio */}
             <Expertise />
-            {/* todo: contact */}
+            <Contact />
 		</Layout>
 	);
 }

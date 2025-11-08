@@ -1,16 +1,11 @@
-import React from 'react';
-import cn from '@/utils/cn';
+import type {ReactNode} from 'react';
 
 interface LayoutProps {
-	children: React.ReactNode;
-	className?: string;
+	children: ReactNode;
 }
 
-export default function Layout({ children, className = '' }: LayoutProps) {
-	// todo: choose a better color for the background
+export default function Layout({ children }: LayoutProps) {
 	return (
-		<div className={cn('diagonal-gradient', className)}>
-			<main className="flex-auto min-w-[355px] max-w-[1920px] mx-auto">{children}</main>
-		</div>
+        <main>{children}</main>
 	);
 }
