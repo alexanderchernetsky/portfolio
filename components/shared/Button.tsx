@@ -63,7 +63,7 @@ const Button: React.FC<ButtonProps> = ({
 				)}
 			>
 				{loading ? (
-					<span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+					<span className="absolute top-[14px] left-[14px] w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
 				) : (
 					<span className="absolute top-[14px] left-[14px]">
 						<ArrowRight
