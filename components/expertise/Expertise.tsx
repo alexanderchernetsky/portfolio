@@ -11,8 +11,9 @@ import SkillBlock from './SkillBlock';
 
 
 const Expertise: React.FC = () => {
-    const onBtnClickHandler = () => {
-        // todo: scroll to contact section
+    const handleContactButtonClick = () => {
+        const contactSection = document.getElementById('contact');
+        contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     return (
@@ -60,7 +61,7 @@ const Expertise: React.FC = () => {
                                 <div className="mt-6">
                                     <Button
                                         colorTheme="green"
-                                        onClick={onBtnClickHandler}
+                                        onClick={handleContactButtonClick}
                                     >
                                         Contact me
                                     </Button>

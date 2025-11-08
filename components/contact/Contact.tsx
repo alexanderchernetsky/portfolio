@@ -19,7 +19,7 @@ function Contact() {
     const {
         register,
         handleSubmit,
-        formState: { errors, isSubmitting, touchedFields },
+        formState: { errors, isSubmitting },
         reset,
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
@@ -53,6 +53,7 @@ function Contact() {
 
     return (
         <section
+            id="contact"
             className="relative w-full min-h-screen flex flex-col items-center justify-start bg-contact"
         >
             <div className="w-full flex flex-col items-center justify-start">

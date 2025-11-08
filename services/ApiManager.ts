@@ -15,8 +15,7 @@ interface ContactUsParams {
 }
 
 class ApiManager {
-    // todo: change email to gmail and move it to .env
-    private readonly defaultRecipientMail = 'sashacherny@yandex.ru';
+    private readonly defaultRecipientMail = process.env.EMAIL_RECIPIENT;
 
     sendContactUsRequest = async ({
                                       fullName,
@@ -24,6 +23,10 @@ class ApiManager {
                                       message,
                                       recipientMail = this.defaultRecipientMail
                                   }: ContactUsParams): Promise<AxiosResponse> => {
+        if (!recipientMail) {
+            throw new Error('Error in ApiManager. Recipient email is not set!');
+        }
+
         const data: ContactUsRequest = {
             recipientMail,
             fullName,
