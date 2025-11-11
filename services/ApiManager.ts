@@ -15,7 +15,7 @@ interface ContactUsParams {
 }
 
 class ApiManager {
-	private readonly defaultRecipientMail = process.env.EMAIL_RECIPIENT;
+	private readonly defaultRecipientMail = 'alexvnderchernetsky@gmail.com';
 
 	sendContactUsRequest = async ({
 		fullName,

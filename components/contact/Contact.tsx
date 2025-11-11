@@ -94,6 +94,7 @@ function Contact() {
 					</div>
 				</form>
 
+                {/* Succes modal */}
 				<Modal
 					title="Thank you!"
 					visible={isSuccessModalVisible}
@@ -102,6 +103,7 @@ function Contact() {
 					<p>Your message was sent successfully.</p>
 				</Modal>
 
+                {/* Error modal */}
 				<Modal
 					title="That's an error!"
 					visible={isErrorModalVisible}

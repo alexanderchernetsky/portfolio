@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 	},
 };
 
+// todo: fix mobile UI
 export default function Page() {
 	return (
 		<Layout>

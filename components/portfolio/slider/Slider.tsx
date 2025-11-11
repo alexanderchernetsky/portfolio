@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowRight, XClose } from '@untitled-ui/icons-react';
+import {ArrowLeft, ArrowRight, LinkExternal01, XClose} from '@untitled-ui/icons-react';
 import type { StaticImageData } from 'next/image';
 import type { FC } from 'react';
 import { useRef, useState } from 'react';
 import Slide from './Slide';
+import {useDisablePageScrolling} from "@/hooks/useDisablePageScrolling";
 
 interface SlideData {
 	imageUrl: StaticImageData;
@@ -23,6 +24,8 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 	const currentScrollXPosition = useRef(0);
 	const [isFirstSlide, setIsFirstSlide] = useState(true);
 	const [isLastSlide, setIsLastSlide] = useState(false);
+
+    useDisablePageScrolling();
 
 	const sliderControlClickHandler = (type: 'next' | 'previous') => {
 		const slidesCount = slides.length;
@@ -185,8 +188,9 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 								href={href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-[14px] no-underline text-white hover:text-gray-900"
+								className="flex flex-row gap-2 items-center text-[14px] no-underline text-white hover:text-gray-900"
 							>
+                                <LinkExternal01 width={20} height={20} />
 								View site
 							</a>
 						</button>

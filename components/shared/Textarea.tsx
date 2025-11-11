@@ -8,7 +8,7 @@ export default function Textarea({ errorMessage, className = '', ...rest }: Text
 	return (
 		<div className={`w-full ${className}`}>
 			{showError && (
-				<div className="text-sm text-[color:var(--highlight-color)] mb-1">
+				<div className="text-sm text-highlight mb-1">
 					{typeof errorMessage === 'string' ? errorMessage : 'Error'}
 				</div>
 			)}

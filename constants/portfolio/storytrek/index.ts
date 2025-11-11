@@ -18,14 +18,9 @@ import mobileSlide8 from '../../../public/images/projects/storytrek/slides/mobil
 
 const storytrekInfo = {
 	title: 'Storytrek',
-	subtitle: 'Media',
+	subtitle: 'Content Lifecycle Management SaaS Application',
 	description:
-		'All in one cloud based solution. It provides the following features: ' +
-		'initiate the Story or Topic and add extra information to the story, such as Categories, Briefs & Content Type. ' +
-		'Assign tasks to all internal or external Story contributors. For any content with a payment, create the necessary ' +
-		'commission with costs & rights. Upload or receive any asset (text, image, video or audio) in a standardised way from all contributors.' +
-		' Once assembled, send the Story to downstream systems for production & publishing. Easily search & view content with ' +
-		'detailed metadata enabling easy re-use etc.',
+		'All in one cloud based solution. Enables companies to plan, repurpose, create, monetize, show and have a complete view & understanding of ALL their CONTENT by story. This helps companies  to  serve their audiences better. They can do this thanks to storytrek features that draw together the most up-to-date content data and provide insights that make teams participating in content’s lifecycle, more productive and efficient. ',
 	slides: [
 		{
 			imageUrl: desktopSlide1,

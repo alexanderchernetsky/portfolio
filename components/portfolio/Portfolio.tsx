@@ -61,8 +61,6 @@ const Portfolio: FC = () => {
 
 	const project = getProject(currentProject);
 
-
-    // todo: find more sophisticated grid layout for projects
 	return (
 		<section id="projects" className="relative w-full min-h-screen flex flex-col items-center justify-start bg-contact">
 			<div className="max-w-[1440px]">
@@ -73,7 +71,7 @@ const Portfolio: FC = () => {
 				</div>
 
 				{/* Cards Grid */}
-				<div className="grid grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,1fr)] gap-2 mt-20 ">
+				<div className="grid grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,1fr)] gap-4 mt-20 ">
 					{projects.map((item: ProjectItem) => (
 						<ProjectCard
 							key={item.title}
