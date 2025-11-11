@@ -4,7 +4,7 @@ import desktopSlide3 from '../../../public/images/projects/totepool/slides/deskt
 
 const totepoolInfo = {
 	title: 'Totepool',
-	subtitle: 'Gambling',
+	subtitle: 'Sports Betting',
 	description: 'Online gambling platform for horse races in the United Kingdom.',
 	slides: [
 		{
@@ -13,7 +13,7 @@ const totepoolInfo = {
 		{ imageUrl: desktopSlide2 },
 		{ imageUrl: desktopSlide3 },
 	],
-	href: 'https://www.oddsking.com/tote',
+	href: 'https://www.betfred.com/tote',
 };
 
 export default totepoolInfo;
