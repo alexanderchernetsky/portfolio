@@ -73,6 +73,10 @@
 .bg-green-button {
 	background-color: var(--green-button-bg-color);
 }
+.bg-slider-navigation {
+    background-color: var(--slider-overlay-color);
+}
+
 
 /* Text */
 
@@ -110,6 +114,7 @@
 	color: var(--contact-question-color);
 }
 
+
 /* Border */
 .border-slider {
 	border-color: var(--slider-border);
@@ -117,4 +122,8 @@
 
 .border-highlight {
 	color: var(--highlight-color);
+}
+
+.border-slider {
+    border-color: var(--link-color);
 }

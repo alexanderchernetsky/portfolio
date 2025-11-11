@@ -3,8 +3,6 @@ import type { FC } from 'react';
 
 interface SlideProps {
 	imageUrl: StaticImageData;
-	mobileImageUrl: StaticImageData;
-	backupImageUrl: StaticImageData;
 }
 
 const Slide: FC<SlideProps> = ({ imageUrl }) => {
