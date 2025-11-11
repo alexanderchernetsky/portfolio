@@ -2,6 +2,8 @@ import type { StaticImageData } from 'next/image';
 import equitecCard from '../../public/images/projects/equitec/main.png';
 import equitecitCard from '../../public/images/projects/equitec-it/main.png';
 import ergCard from '../../public/images/projects/erg/main.png';
+import fanstrikeCard from '../../public/images/projects/fanstrike/main.png';
+import fantiumCard from '../../public/images/projects/fantium/main.png';
 import storytrackCard from '../../public/images/projects/storytrek/main.png';
 import totepoolCard from '../../public/images/projects/totepool/main.png';
 
@@ -12,7 +14,6 @@ interface Project {
 	image: StaticImageData;
 }
 
-// todo: add FANtium and FANstrike
 const projects: Project[] = [
 	{
 		title: 'Storytrek',
@@ -44,6 +45,18 @@ const projects: Project[] = [
 		technologies: 'React, Typescript, Cypress, React Testing Library',
 		image: totepoolCard,
 	},
+    {
+        title: 'FANtium',
+        slug: 'fantium',
+        technologies: 'Next.js, React, Typescript, GraphQL, Strapi, React-query, Tailwind, Zustand, Solidity, Wagmi, View',
+        image: fantiumCard,
+    },
+    {
+        title: 'FANstrike',
+        slug: 'fanstrike',
+        technologies: 'Next.js, React, Typescript, GraphQL, Strapi, React-query, Tailwind, solana/web3.js, solana/spl-token',
+        image: fanstrikeCard,
+    }
 ];
 
 export default projects;

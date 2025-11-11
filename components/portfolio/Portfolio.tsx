@@ -2,6 +2,8 @@
 import type { StaticImageData } from 'next/image';
 import type {FC} from 'react';
 import { useCallback, useState } from 'react';
+import fanstrikeInfo from "@/constants/portfolio/fanstrike";
+import fantiumInfo from "@/constants/portfolio/fantium";
 import equitecInfo from '../../constants/portfolio/equitec';
 import equitecitInfo from '../../constants/portfolio/equitec-it';
 import ergInfo from '../../constants/portfolio/erg';
@@ -28,11 +30,9 @@ interface ProjectItem {
 	image: StaticImageData;
 }
 
-type ProjectSlug = 'equitec-it' | 'storytrek' | 'erg' | 'equitec' | 'totepool' | 'default';
+type ProjectSlug = 'equitec-it' | 'storytrek' | 'erg' | 'equitec' | 'totepool' | 'fantium' | 'fanstrike' | 'default';
 
 
-// todo: disable page scrolling when modal is open
-// todo: clean up unused low-quality and mobile images from projects data
 const Portfolio: FC = () => {
 	const [isSliderVisible, toggleSliderVisibility] = useState(false);
 	const [currentProject, setCurrentProject] = useState<ProjectSlug>('default');
@@ -53,6 +53,8 @@ const Portfolio: FC = () => {
 			erg: ergInfo,
 			equitec: equitecInfo,
 			totepool: totepoolInfo,
+            fantium: fantiumInfo,
+            fanstrike: fanstrikeInfo,
 			default: equitecitInfo,
 		};
 
@@ -61,11 +63,11 @@ const Portfolio: FC = () => {
 
 	const project = getProject(currentProject);
 
-	return (
+    return (
 		<section id="projects" className="relative w-full min-h-screen flex flex-col items-center justify-start bg-contact">
-			<div className="max-w-[1440px]">
+			<div className="py-16 max-w-[1440px]">
 				{/* Page Title */}
-				<div className="mt-16 w-full px-6 sm:px-8 md:px-0 mx-auto flex flex-col items-center">
+				<div className="w-full px-6 sm:px-8 md:px-0 mx-auto flex flex-col items-center">
 					<h1 className="text-[34px] font-bold uppercase text-primary">Projects</h1>
 					<div className="w-16 h-1 bg-primary mt-3" />
 				</div>
