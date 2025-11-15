@@ -4,7 +4,7 @@ import slide3 from '../../../public/images/projects/fantium/slides/3.png';
 
 // todo: compress images ?
 const fantiumInfo = {
-    title: 'FANtium',
+    title: 'Fantium',
     subtitle: 'Decentralised Finance (DeFi), NFT',
     description: 'FANtium is a platform, where fans can invest in athletes via NFT, connect with them through an exclusive community and share their financial success. Built on Polygon blockchain.',
     slides: [

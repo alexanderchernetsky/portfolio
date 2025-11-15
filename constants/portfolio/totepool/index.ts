@@ -7,11 +7,10 @@ const totepoolInfo = {
 	subtitle: 'Sports Betting',
 	description: 'Online gambling platform for horse races in the United Kingdom.',
 	slides: [
-		{
-			imageUrl: desktopSlide1,
+		{ id: 1, imageUrl: desktopSlide1,
 		},
-		{ imageUrl: desktopSlide2 },
-		{ imageUrl: desktopSlide3 },
+		{ id: 2, imageUrl: desktopSlide2 },
+		{ id: 3, imageUrl: desktopSlide3 },
 	],
 	href: 'https://www.betfred.com/tote',
 };

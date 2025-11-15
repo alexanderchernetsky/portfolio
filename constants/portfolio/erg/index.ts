@@ -6,20 +6,21 @@ import desktopSlide5 from '../../../public/images/projects/erg/slides/desktop/5.
 import desktopSlide6 from '../../../public/images/projects/erg/slides/desktop/6.jpg';
 
 const ergInfo = {
-	title: 'ERG',
-	subtitle: 'Finance',
-	description: 'One of the two landing websites for Equity Release Group.',
-	slides: [
-		{
-			imageUrl: desktopSlide1,
-		},
-		{ imageUrl: desktopSlide2 },
-		{ imageUrl: desktopSlide3 },
-		{ imageUrl: desktopSlide4 },
-		{ imageUrl: desktopSlide5 },
-		{ imageUrl: desktopSlide6 },
-	],
-	href: 'https://www.equityrelease.group/',
+    title: 'ERG',
+    subtitle: 'Finance',
+    description: 'One of the two landing websites for Equity Release Group.',
+    slides: [
+        {
+            id: 1,
+            imageUrl: desktopSlide1,
+        },
+        { id: 2, imageUrl: desktopSlide2 },
+        { id: 3, imageUrl: desktopSlide3 },
+        { id: 4, imageUrl: desktopSlide4 },
+        { id: 5, imageUrl: desktopSlide5 },
+        { id: 6, imageUrl: desktopSlide6 },
+    ],
+    href: 'https://www.equityrelease.group/',
 };
 
 export default ergInfo;

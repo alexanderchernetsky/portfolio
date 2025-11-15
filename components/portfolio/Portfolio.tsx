@@ -14,13 +14,14 @@ import ProjectCard from './ProjectCard';
 import Slider from './slider/Slider';
 
 interface ProjectInfo {
-	slides: Array<{
-		imageUrl: StaticImageData;
-	}>;
-	title: string;
-	subtitle: string;
-	description: string;
-	href: string;
+    slides: Array<{
+        id: number;
+        imageUrl: StaticImageData;
+    }>;
+    title: string;
+    subtitle: string;
+    description: string;
+    href: string;
 }
 
 interface ProjectItem {

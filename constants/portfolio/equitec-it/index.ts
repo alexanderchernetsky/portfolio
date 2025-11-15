@@ -8,22 +8,23 @@ import desktopSlide7 from '../../../public/images/projects/equitec-it/slides/des
 import desktopSlide8 from '../../../public/images/projects/equitec-it/slides/desktop/8.jpg';
 
 const equitecitInfo = {
-	title: 'Equitec IT',
-	subtitle: 'Finance',
-	description: 'One of the two landing websites for Equity Release Group.',
-	slides: [
-		{
-			imageUrl: desktopSlide1,
-		},
-		{ imageUrl: desktopSlide2 },
-		{ imageUrl: desktopSlide3 },
-		{ imageUrl: desktopSlide4 },
-		{ imageUrl: desktopSlide5 },
-		{ imageUrl: desktopSlide6 },
-		{ imageUrl: desktopSlide7 },
-		{ imageUrl: desktopSlide8 },
-	],
-	href: 'https://www.equitec.it/',
+    title: 'Equitec IT',
+    subtitle: 'Finance',
+    description: 'One of the two landing websites for Equity Release Group.',
+    slides: [
+        {
+            id: 1,
+            imageUrl: desktopSlide1,
+        },
+        { id: 2, imageUrl: desktopSlide2 },
+        { id: 3, imageUrl: desktopSlide3 },
+        { id: 4, imageUrl: desktopSlide4 },
+        { id: 5, imageUrl: desktopSlide5 },
+        { id: 6, imageUrl: desktopSlide6 },
+        { id: 7, imageUrl: desktopSlide7 },
+        { id: 8, imageUrl: desktopSlide8 },
+    ],
+    href: 'https://www.equitec.it/',
 };
 
 export default equitecitInfo;

@@ -46,13 +46,13 @@ const projects: Project[] = [
 		image: totepoolCard,
 	},
     {
-        title: 'FANtium',
+        title: 'Fantium',
         slug: 'fantium',
         technologies: 'Next.js, React, Typescript, GraphQL, Strapi, React-query, Tailwind, Zustand, Solidity, Wagmi, View',
         image: fantiumCard,
     },
     {
-        title: 'FANstrike',
+        title: 'Fanstrike',
         slug: 'fanstrike',
         technologies: 'Next.js, React, Typescript, GraphQL, Strapi, React-query, Tailwind, solana/web3.js, solana/spl-token',
         image: fanstrikeCard,

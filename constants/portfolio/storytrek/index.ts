@@ -8,23 +8,24 @@ import desktopSlide7 from '../../../public/images/projects/storytrek/slides/desk
 import desktopSlide8 from '../../../public/images/projects/storytrek/slides/desktop/8.jpg';
 
 const storytrekInfo = {
-	title: 'Storytrek',
-	subtitle: 'Content Lifecycle Management SaaS Application',
-	description:
-		'All in one cloud based solution. Enables companies to plan, repurpose, create, monetize, show and have a complete view & understanding of all their content by story. This helps companies  to  serve their audiences better. They can do this thanks to storytrek features that draw together the most up-to-date content data and provide insights that make teams participating in content’s lifecycle, more productive and efficient. ',
-	slides: [
-		{
-			imageUrl: desktopSlide1,
-		},
-		{ imageUrl: desktopSlide2 },
-		{ imageUrl: desktopSlide3 },
-		{ imageUrl: desktopSlide4 },
-		{ imageUrl: desktopSlide5 },
-		{ imageUrl: desktopSlide6 },
-		{ imageUrl: desktopSlide7 },
-		{ imageUrl: desktopSlide8 },
-	],
-	href: 'https://storytrek.media/',
+    title: 'Storytrek',
+    subtitle: 'Content Lifecycle Management SaaS Application',
+    description:
+        'All in one cloud based solution. Enables companies to plan, repurpose, create, monetize, show and have a complete view & understanding of all their content by story. This helps companies  to  serve their audiences better. They can do this thanks to storytrek features that draw together the most up-to-date content data and provide insights that make teams participating in content’s lifecycle, more productive and efficient. ',
+    slides: [
+        {
+            id: 1,
+            imageUrl: desktopSlide1,
+        },
+        { id: 2, imageUrl: desktopSlide2 },
+        { id: 3, imageUrl: desktopSlide3 },
+        { id: 4, imageUrl: desktopSlide4 },
+        { id: 5, imageUrl: desktopSlide5 },
+        { id: 6, imageUrl: desktopSlide6 },
+        { id: 7, imageUrl: desktopSlide7 },
+        { id: 8, imageUrl: desktopSlide8 },
+    ],
+    href: 'https://storytrek.media/',
 };
 
 export default storytrekInfo;

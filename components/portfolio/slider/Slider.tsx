@@ -6,6 +6,7 @@ import {useDisablePageScrolling} from "@/hooks/useDisablePageScrolling";
 import Slide from './Slide';
 
 interface SlideData {
+    id: number;
 	imageUrl: StaticImageData;
 }
 
@@ -116,7 +117,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 							style={{ WebkitOverflowScrolling: 'touch' }}
 						>
 							{slides.map((slide) => (
-								<div key={slide.imageUrl.toString()} className="snap-start flex-shrink-0">
+								<div key={slide.id} className="snap-start flex-shrink-0">
 									<Slide
 										imageUrl={slide.imageUrl}
 									/>

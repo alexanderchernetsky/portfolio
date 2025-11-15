@@ -6,7 +6,7 @@ import slide5 from '../../../public/images/projects/fanstrike/slides/5.png';
 
 // todo: compress images ?
 const fanstrikeInfo = {
-    title: 'FANstrike',
+    title: 'Fanstrike',
     subtitle: 'Decentralised Finance (DeFi), Crypto Launchpad',
     description: 'FANstrike is the sports capital markets launchpad — bringing athletes, clubs, teams, and their fans on-chain with verified coins, utilities, and active markets powered by Solana blockchain technology.',
     slides: [
