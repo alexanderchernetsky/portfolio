@@ -1,9 +1,9 @@
 'use client';
 
+import type {IOptions, RecursivePartial} from "@tsparticles/engine";
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { useEffect, useMemo, useState } from 'react';
-import type {IOptions, RecursivePartial} from "@tsparticles/engine";
 
 export default function AnimatedBackground() {
   const [engineReady, setEngineReady] = useState(false);
@@ -29,12 +29,12 @@ export default function AnimatedBackground() {
     fpsLimit: 60,
     background: { color: 'transparent' },
     detectRetina: true,
-    fullScreen: { enable: true },
+    fullScreen: { enable: false },
     particles: {
-      number: { value: reduced ? 30 : 65, density: { enable: true, area: 1200 } },
+      number: { value: reduced ? 40 : 80, density: { enable: true, area: 1200 } },
       color: { value: ['#ffffff', '#1b242f', '#05c2c8', '#e31b6d'] },
       opacity: { value: 0.18, animation: { enable: true, speed: 0.3, minimumValue: 0.05, sync: false } },
-      size: { value: { min: 1, max: 3 }, animation: { enable: true, speed: 2, minimumValue: 0.2, sync: false } },
+      size: { value: { min: 1, max: 4 }, animation: { enable: true, speed: 2, minimumValue: 0.2, sync: false } },
       move: {
         enable: true,
         speed: reduced ? 0.3 : 0.7,
@@ -71,7 +71,7 @@ export default function AnimatedBackground() {
       aria-hidden
       className="pointer-events-none absolute inset-0 z-0"
     >
-      <Particles id="intro-bg" options={options} />
+      <Particles id="intro-bg" className="min-h-screen" options={options} />
     </div>
   );
 }

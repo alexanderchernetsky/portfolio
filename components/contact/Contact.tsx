@@ -53,15 +53,15 @@ function Contact() {
 
 	return (
 		<section id="contact" className="relative w-full min-h-screen flex flex-col items-center justify-start bg-contact">
-			<div className="w-full flex flex-col items-center justify-start">
-				<div className="mt-16 w-full px-6 sm:px-8 md:px-0 max-w-[1440px] mx-auto flex flex-col items-center">
-					<h1 className="text-[34px] font-bold uppercase text-primary">Contact</h1>
+			<div className="py-12 lg:py-16 px-6 w-full flex flex-col items-center justify-start">
+				<div className=" w-full px-6 sm:px-8 md:px-0 max-w-[1440px] mx-auto flex flex-col items-center">
+					<h1 className="text-[24px] lg:text-[34px] font-bold uppercase text-primary">Contact</h1>
 					<div className="w-16 h-1 bg-primary mt-3" />
 				</div>
 
-				<p className="mt-20 font-semibold text-lg text-contact-question">Have a question or want to work together?</p>
+				<p className="mt-5 lg:mt-20 font-semibold text-base lg:text-lg text-center text-contact-question">Have a question or want to work together?</p>
 
-				<form onSubmit={handleSubmit(onSubmit)} className="mt-10 w-full max-w-[686px] p-6 md:p-3">
+				<form onSubmit={handleSubmit(onSubmit)} className="mt-2 lg:mt-10 w-full max-w-[686px] p-0 lg:p-6">
 					{/* Full name */}
 					<div className="mb-4">
 						<Input
@@ -83,7 +83,7 @@ function Contact() {
 					</div>
 
 					{/* Message */}
-					<div className="mb-6">
+					<div className="mb-2 lg:mb-6">
 						<Textarea placeholder="Your message" errorMessage={errors.message?.message} {...register('message')} />
 					</div>
 
@@ -113,16 +113,16 @@ function Contact() {
 				</Modal>
 			</div>
 
-			<footer className="absolute bottom-0 h-[200px] w-full flex flex-col justify-center items-center bg-footer py-10 md:py-4">
+			<footer className="absolute bottom-0 h-[100px] lg:h-[200px] w-full flex flex-col justify-center items-center bg-footer py-10 md:py-4">
 				<div className="flex gap-6 justify-center items-center">
 					{socIcons.map((item) => (
 						<SocIcon key={item.name} src={item.src} name={item.name} linkTo={item.linkTo} />
 					))}
 				</div>
 
-				<div className="mt-6 flex flex-row gap-2 text-center opacity-60">
-					<p className="font-medium text-footnote">Alexander Chernetsky</p>
-					<p className="text-highlight">©{currentYear}</p>
+				<div className="mt-1 lg:mt-6 flex flex-row gap-2 text-center opacity-60">
+					<p className="text-sm lg:text-base font-medium text-footnote">Alexander Chernetsky</p>
+					<p className="text-sm lg:text-base text-highlight">©{currentYear}</p>
 				</div>
 			</footer>
 		</section>

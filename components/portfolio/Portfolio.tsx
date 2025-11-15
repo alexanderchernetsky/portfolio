@@ -66,15 +66,15 @@ const Projects: FC = () => {
 
     return (
 		<section id="projects" className="relative w-full min-h-screen flex flex-col items-center justify-start bg-contact">
-			<div className="py-16 max-w-[1440px]">
+			<div className="w-full py-12 lg:py-16 px-6 lg:px-0 max-w-[1440px]">
 				{/* Page Title */}
 				<div className="w-full px-6 sm:px-8 md:px-0 mx-auto flex flex-col items-center">
-					<h1 className="text-[34px] font-bold uppercase text-primary">Projects</h1>
+					<h1 className="text-[24px] lg:text-[34px] font-bold uppercase text-primary">Projects</h1>
 					<div className="w-16 h-1 bg-primary mt-3" />
 				</div>
 
 				{/* Cards Grid */}
-				<div className="grid grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,1fr)] gap-4 mt-20 ">
+				<div className="max-w-[1440px] mt-5 lg:mt-20 flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
 					{projects.map((item: ProjectItem) => (
 						<ProjectCard
 							key={item.title}

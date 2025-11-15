@@ -1,8 +1,8 @@
 import {ChevronLeft, ChevronRight, LinkExternal01, XClose} from '@untitled-ui/icons-react';
 import type { StaticImageData } from 'next/image';
-import {FC, useCallback} from 'react';
-import { useEffect, useRef, useState } from 'react';
+import {type FC, useCallback, useEffect, useRef, useState } from 'react';
 import {useDisablePageScrolling} from "@/hooks/useDisablePageScrolling";
+import { useIsDesktop } from '@/hooks/useMediaQuery';
 import Slide from './Slide';
 
 interface SlideData {
@@ -83,8 +83,8 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 		}
 	};
 
-    // todo: implement mobile detection
-	const isMobileDevice = false;
+    const isDesktop = useIsDesktop();
+    const isMobileDevice = !isDesktop;
 
 	return (
 		<>
@@ -106,74 +106,70 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 					}
         `}
 			>
-				{!isMobileDevice && (
-					<div
-						className={`
+                <div
+                    className={`
               relative w-[800px] h-[450px] flex overflow-x-auto
               lg:w-[800px] lg:h-[450px]
               max-lg:w-[375px] max-lg:h-[250px]
-              ${isMobileDevice ? 'flex-col' : ''}
             `}
-					>
-						{/* Previous Button */}
-						{!isFirstSlide && (
-								<button
-                                    type="button"
-                                    onClick={() => sliderControlClickHandler('previous')}
-                                    className="cursor-pointer absolute bg-slider-navigation text-primary z-[1] bottom-0 left-0 px-4 py-5 flex flex-col items-center justify-center"
-									tabIndex={0}
-									onKeyPress={(e) => handleKeyPress(e, () => sliderControlClickHandler('previous'))}
-									aria-label="Previous slide"
-								>
-									<ChevronLeft />
-								</button>
-						)}
+                >
+                    {/* Previous Button */}
+                    {!isFirstSlide && (
+                        <button
+                            type="button"
+                            onClick={() => sliderControlClickHandler('previous')}
+                            className="cursor-pointer absolute bg-slider-navigation text-primary z-[1] bottom-0 left-0 px-4 py-5 flex flex-col items-center justify-center"
+                            tabIndex={0}
+                            onKeyPress={(e) => handleKeyPress(e, () => sliderControlClickHandler('previous'))}
+                            aria-label="Previous slide"
+                        >
+                            <ChevronLeft />
+                        </button>
+                    )}
 
-						{/* Slides */}
-						<div
-							id="slides-wrapper"
-							className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory overflow-scroll"
-							style={{ WebkitOverflowScrolling: 'touch' }}
-						>
-							{slides.map((slide) => (
-								<div key={slide.id} className="snap-start flex-shrink-0">
-									<Slide
-										imageUrl={slide.imageUrl}
-									/>
-								</div>
-							))}
-						</div>
+                    {/* Slides */}
+                    <div
+                        id="slides-wrapper"
+                        className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory overflow-scroll"
+                        style={{ WebkitOverflowScrolling: 'touch' }}
+                    >
+                        {slides.map((slide) => (
+                            <div key={slide.id} className="snap-start flex-shrink-0">
+                                <Slide
+                                    imageUrl={slide.imageUrl}
+                                />
+                            </div>
+                        ))}
+                    </div>
 
-						{/* Next Button */}
-						{!isLastSlide && (
-                            <button
-                                type="button"
-                                onClick={() => sliderControlClickHandler('next')}
-                                className="cursor-pointer absolute bg-slider-navigation text-primary z-[1] bottom-0 right-0 px-4 py-5 flex flex-col items-center justify-center"
-                                tabIndex={0}
-                                onKeyPress={(e) => handleKeyPress(e, () => sliderControlClickHandler('next'))}
-                                aria-label="Next slide"
-                            >
-                                <ChevronRight />
-                            </button>
-						)}
-					</div>
-				)}
+                    {/* Next Button */}
+                    {!isLastSlide && (
+                        <button
+                            type="button"
+                            onClick={() => sliderControlClickHandler('next')}
+                            className="cursor-pointer absolute bg-slider-navigation text-primary z-[1] bottom-0 right-0 px-4 py-5 flex flex-col items-center justify-center"
+                            tabIndex={0}
+                            onKeyPress={(e) => handleKeyPress(e, () => sliderControlClickHandler('next'))}
+                            aria-label="Next slide"
+                        >
+                            <ChevronRight />
+                        </button>
+                    )}
+                </div>
 
 				{/* Info Section */}
 				<div
 					className={`
-            w-full bg-gray-900 px-[30px] pt-[35px] pb-[25px] border-t-[3px] border-slider
+            w-full bg-gray-900 px-[30px] pt-[20px] lg:pt-[35px] pb-[25px] border-t-[3px] border-slider
             lg:w-full
             max-lg:w-[375px]
-            ${isMobileDevice ? 'flex flex-col min-h-[460px] h-[60vh]' : ''}
           `}
 				>
 					{/* Title */}
-					<h3 className="text-3xl font-raleway m-0 mb-[5px] text-white">{title}</h3>
+					<h3 className="text-2xl lg:text-3xl font-raleway m-0 mb-[5px] text-white">{title}</h3>
 
 					{/* Subtitle */}
-					<div className="text-[17px] uppercase font-medium text-gray-400 border-b border-gray-700 pb-[15px]">
+					<div className="text-sm lg:text-[17px] uppercase font-medium text-gray-400 border-b border-gray-700 pb-[15px]">
 						{subtitle}
 					</div>
 
@@ -182,10 +178,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 
 					{/* Footer */}
 					<div
-						className={`
-              w-full flex flex-row flex-nowrap justify-between items-center mt-[35px]
-              ${isMobileDevice ? 'mt-auto' : ''}
-            `}
+						className="w-full flex flex-row flex-nowrap justify-between items-center mt-[35px]"
 					>
 						{/* View Site Button */}
                         <a

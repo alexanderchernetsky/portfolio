@@ -21,7 +21,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ title = 'Project', slug = 'default'
 	return (
 		<button
 			type="button"
-			className="w-[390px] lg:w-[390px] max-lg:w-[375px] flex flex-col cursor-pointer bg-input rounded-sm"
+			className="w-full max-w-[calc(100vw-24px)] lg:max-w-none flex flex-col cursor-pointer bg-input rounded-sm"
 			onClick={handleClick}
 			onKeyPress={handleKeyPress}
 			tabIndex={0}

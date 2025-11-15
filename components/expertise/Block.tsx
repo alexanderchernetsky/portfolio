@@ -10,8 +10,8 @@ type BlockProps = {
 const Block: React.FC<BlockProps> = ({ title, text, src }) => {
 	return (
 		<div
-			className="lg:w-[240px] lg:h-[210px] flex flex-col items-center justify-start mx-[10px] mb-[20px]
-                    w-[200px] h-[180px] md:m-[10px] sm:h-auto"
+			className="lg:w-[240px] lg:h-[210px] flex flex-col items-center justify-start mx-[10px]
+                    w-[200px] md:m-[10px] sm:h-auto"
 		>
 			{/* Image */}
 			<div className="lg:w-[120px] lg:h-[100px] w-[100px] h-[80px]">

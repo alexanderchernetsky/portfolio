@@ -78,7 +78,7 @@ const Button: React.FC<ButtonProps> = ({
 			{/* Button text */}
 			<span
 				className={cn(
-					'text absolute top-0 left-0 right-0 bottom-0 py-3 pl-8 text-center uppercase font-normal leading-tight transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
+					'flex flex-row justify-center items-center text text-[16px] lg:text-lg absolute top-0 left-0 right-0 bottom-0 py-3 pl-8 text-center uppercase font-normal leading-tight transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
 					theme.textColor,
 				)}
 			>
