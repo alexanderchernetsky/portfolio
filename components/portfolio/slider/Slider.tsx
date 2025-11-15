@@ -1,7 +1,7 @@
 import {ChevronLeft, ChevronRight, LinkExternal01, XClose} from '@untitled-ui/icons-react';
 import type { StaticImageData } from 'next/image';
-import type { FC } from 'react';
-import { useRef, useState } from 'react';
+import {FC, useCallback} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {useDisablePageScrolling} from "@/hooks/useDisablePageScrolling";
 import Slide from './Slide';
 
@@ -27,7 +27,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 
     useDisablePageScrolling();
 
-	const sliderControlClickHandler = (type: 'next' | 'previous') => {
+	const sliderControlClickHandler = useCallback((type: 'next' | 'previous') => {
 		const slidesCount = slides.length;
 		const slidesWrapperEl = document.getElementById('slides-wrapper');
 
@@ -55,7 +55,26 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 		}
 
 		slidesWrapperEl.scrollLeft = currentScrollXPosition.current;
-	};
+	}, [slides]);
+
+	// Keyboard navigation: ArrowRight -> next, ArrowLeft -> previous, Escape -> close
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'ArrowRight') {
+				e.preventDefault();
+				sliderControlClickHandler('next');
+			} else if (e.key === 'ArrowLeft') {
+				e.preventDefault();
+				sliderControlClickHandler('previous');
+			} else if (e.key === 'Escape') {
+				e.preventDefault();
+				onClose();
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyDown);
+		return () => window.removeEventListener('keydown', handleKeyDown);
+	}, [onClose, sliderControlClickHandler]);
 
 	const handleKeyPress = (e: React.KeyboardEvent, callback: () => void) => {
 		if (e.key === 'Enter' || e.key === ' ') {

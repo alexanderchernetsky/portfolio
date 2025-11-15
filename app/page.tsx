@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Contact from '@/components/contact/Contact';
 import Expertise from '@/components/expertise/Expertise';
 import Intro from '@/components/intro/Intro';
-import Portfolio from '@/components/portfolio/Portfolio';
+import Projects from '@/components/portfolio/Portfolio';
 import Layout from '@/components/shared/Layout';
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function Page() {
 	return (
 		<Layout>
 			<Intro />
-			<Portfolio />
+			<Projects />
 			<Expertise />
 			<Contact />
 		</Layout>

@@ -34,7 +34,7 @@ interface ProjectItem {
 type ProjectSlug = 'equitec-it' | 'storytrek' | 'erg' | 'equitec' | 'totepool' | 'fantium' | 'fanstrike' | 'default';
 
 
-const Portfolio: FC = () => {
+const Projects: FC = () => {
 	const [isSliderVisible, toggleSliderVisibility] = useState(false);
 	const [currentProject, setCurrentProject] = useState<ProjectSlug>('default');
 
@@ -102,4 +102,4 @@ const Portfolio: FC = () => {
 	);
 };
 
-export default Portfolio;
+export default Projects;
