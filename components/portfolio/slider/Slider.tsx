@@ -27,6 +27,13 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 
     useDisablePageScrolling();
 
+    // Smooth enter animation state
+    const [isEntering, setIsEntering] = useState(false);
+    useEffect(() => {
+        const id = requestAnimationFrame(() => setIsEntering(true));
+        return () => cancelAnimationFrame(id);
+    }, []);
+
 	const sliderControlClickHandler = useCallback((type: 'next' | 'previous') => {
 		const slidesCount = slides.length;
 		const slidesWrapperEl = document.getElementById('slides-wrapper');
@@ -90,29 +97,33 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 		<>
             {/* Overlay */}
             <div
-                className="bg-black/80 h-full w-full opacity-100 fixed inset-0 transition-opacity duration-300 z-[2]"
+                className={`bg-black/80 backdrop-blur-sm h-full w-full fixed inset-0 transition-opacity duration-300 z-[2] ${
+                    isEntering ? 'opacity-100' : 'opacity-0'
+                }`}
                 onClick={onClose}
                 aria-hidden="true"
             />
 
-			{/* Modal */}
-			<div
-				className={`
-          fixed z-[3]
-          ${
-						isMobileDevice
-							? 'w-auto flex flex-col items-center justify-center inset-0'
-							: 'w-[800px] lg:w-[800px] max-lg:w-[375px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-					}
-        `}
-			>
-                <div
-                    className={`
-              relative w-[800px] h-[450px] flex overflow-x-auto
-              lg:w-[800px] lg:h-[450px]
-              max-lg:w-[375px] max-lg:h-[250px]
-            `}
-                >
+			{/* Modal container (always centered from first paint) */}
+			<div className="fixed inset-0 z-[3] flex items-center justify-center">
+				{/* Modal content with enter animation */}
+				<div
+					className={`
+					  transition-all duration-300 ease-out transform-gpu
+					  ${
+							isMobileDevice
+								? `${isEntering ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'} w-auto max-lg:w-[375px]`
+								: `${isEntering ? 'opacity-100 scale-100' : 'opacity-0 scale-95'} w-[800px] lg:w-[800px]`
+					  }
+					`}
+				>
+					<div
+						className={`
+					  relative w-[800px] h-[450px] flex overflow-x-auto
+					  lg:w-[800px] lg:h-[450px]
+					  max-lg:w-[375px] max-lg:h-[250px]
+					`}
+					>
                     {/* Previous Button */}
                     {!isFirstSlide && (
                         <button
@@ -155,15 +166,15 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
                             <ChevronRight />
                         </button>
                     )}
-                </div>
+            				</div>
 
 				{/* Info Section */}
 				<div
 					className={`
-            w-full bg-gray-900 px-[30px] pt-[20px] lg:pt-[35px] pb-[25px] border-t-[3px] border-slider
-            lg:w-full
-            max-lg:w-[375px]
-          `}
+					    w-full bg-gray-900 px-[30px] pt-[20px] lg:pt-[35px] pb-[25px] border-t-[3px] border-slider
+					    lg:w-full
+					    max-lg:w-[375px]
+					  `}
 				>
 					{/* Title */}
 					<h3 className="text-2xl lg:text-3xl font-raleway m-0 mb-[5px] text-white">{title}</h3>
@@ -203,6 +214,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
                             <XClose width={24} height={24} className="text-primary" />
                         </button>
 					</div>
+				</div>
 				</div>
 			</div>
 		</>
