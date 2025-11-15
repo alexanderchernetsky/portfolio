@@ -40,17 +40,12 @@ const Expertise: React.FC = () => {
 						<div className="flex flex-col items-center max-w-[590px] w-full px-2">
 							{/* Photo wrapper with hexagon-ish clipPath */}
   					<div
-  						className="relative w-[300px] h-[350px] overflow-hidden"
-  						style={
-  							isDesktop
-  								? { clipPath: 'polygon(25% 0%, 75% 0%, 100% 45%, 75% 90%, 25% 90%, 0% 45%)' }
-  								: undefined
-  						}
+  						className="relative w-[300px] h-[350px] overflow-hidden rounded-md"
   					>
 								<Image src={alexander} alt="Alexander Chernetsky" fill className="object-cover" />
 							</div>
 
-							<h2 className="mt-2 lg:mt-0 lg:text-xl text-lg font-semibold text-block text-center">
+							<h2 className="mt-2 lg:text-xl text-lg font-semibold text-block text-center">
 								Alex Chernetsky - Full-Stack Developer
 							</h2>
 
