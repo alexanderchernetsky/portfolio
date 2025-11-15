@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import '../styles/colors.css';
-import '../styles/backgrounds.css';
-import { raleway } from '@/fonts/fonts';
 import Script from 'next/script';
+import { raleway } from '@/fonts/fonts';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -16,7 +15,7 @@ const geistMono = Geist_Mono({
 	subsets: ['latin'],
 });
 
-// todo: set correct site URL
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {

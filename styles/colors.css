@@ -1,12 +1,12 @@
 :root {
 	/* Primary Colors */
-	--primary-color: white;
+	--primary-color: #ffffff;
 	--secondary-color: #282936;
 
 	/* Overlay Colors */
-	--overlay-color: rgba(0, 0, 0, 0.2);
-	--slider-overlay-color: rgba(0, 0, 0, 0.5);
-	--card-overlay-color: rgba(245, 245, 245, 1);
+	--overlay-color: #00000033;
+	--slider-overlay-color: #00000080;
+	--card-overlay-color: #f5f5f5;
 
 	/* Accent Colors */
 	--highlight-color: #e31b6d;

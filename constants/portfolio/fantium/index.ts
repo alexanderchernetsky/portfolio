@@ -2,7 +2,6 @@ import slide1 from '../../../public/images/projects/fantium/slides/1.png';
 import slide2 from '../../../public/images/projects/fantium/slides/2.png';
 import slide3 from '../../../public/images/projects/fantium/slides/3.png';
 
-// todo: compress images ?
 const fantiumInfo = {
     title: 'Fantium',
     subtitle: 'Decentralised Finance (DeFi), NFT',

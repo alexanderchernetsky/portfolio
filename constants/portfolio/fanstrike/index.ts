@@ -4,7 +4,7 @@ import slide3 from '../../../public/images/projects/fanstrike/slides/3.png';
 import slide4 from '../../../public/images/projects/fanstrike/slides/4.png';
 import slide5 from '../../../public/images/projects/fanstrike/slides/5.png';
 
-// todo: compress images ?
+
 const fanstrikeInfo = {
     title: 'Fanstrike',
     subtitle: 'Decentralised Finance (DeFi), Crypto Launchpad',
