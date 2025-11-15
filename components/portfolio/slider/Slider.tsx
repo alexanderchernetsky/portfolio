@@ -104,7 +104,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 		<>
             {/* Overlay */}
             <div
-                className={`bg-black/80 backdrop-blur-sm h-full w-full fixed inset-0 transition-opacity duration-300 z-[2] ${
+                className={`bg-black/80 backdrop-blur-sm fixed inset-0 min-h-[100dvh] transition-opacity duration-300 z-[2] ${
                     isEntering ? 'opacity-100' : 'opacity-0'
                 }`}
                 onClick={handleClose}
@@ -112,7 +112,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
             />
 
 			{/* Modal container (always centered from first paint) */}
-			<div className="fixed inset-0 z-[3] flex items-center justify-center">
+			<div className="fixed inset-0 min-h-[100dvh] z-[3] flex items-center justify-center">
 				{/* Modal content with enter animation */}
 				<div
 					className={`
