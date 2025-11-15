@@ -90,6 +90,13 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 		}
 	};
 
+    // More robust close handler for mobile devices where click can be swallowed after a slight drag
+    const handleClose = useCallback((e?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
+        e?.preventDefault?.();
+        e?.stopPropagation?.();
+        onClose();
+    }, [onClose]);
+
     const isDesktop = useIsDesktop();
     const isMobileDevice = !isDesktop;
 
@@ -100,7 +107,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
                 className={`bg-black/80 backdrop-blur-sm h-full w-full fixed inset-0 transition-opacity duration-300 z-[2] ${
                     isEntering ? 'opacity-100' : 'opacity-0'
                 }`}
-                onClick={onClose}
+                onClick={handleClose}
                 aria-hidden="true"
             />
 
@@ -205,11 +212,14 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 						{/* Close Button */}
                         <button
                             type="button"
-                            className="flex flex-row justify-center text-primary items-center w-[30px] h-[30px] cursor-pointer"
-                            onClick={onClose}
+                            className="flex flex-row justify-center text-primary items-center w-[44px] h-[44px] cursor-pointer rounded focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                            onClick={handleClose}
+                            onTouchEnd={handleClose}
+                            onPointerUp={handleClose}
                             tabIndex={0}
-                            onKeyPress={(e) => handleKeyPress(e, onClose)}
+                            onKeyPress={(e) => handleKeyPress(e, () => handleClose())}
                             aria-label="Close slider"
+                            style={{ touchAction: 'manipulation' }}
                         >
                             <XClose width={24} height={24} className="text-primary" />
                         </button>

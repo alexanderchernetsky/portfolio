@@ -1,7 +1,7 @@
 'use client';
 import type { StaticImageData } from 'next/image';
 import type {FC} from 'react';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import fanstrikeInfo from "@/constants/portfolio/fanstrike";
 import fantiumInfo from "@/constants/portfolio/fantium";
 import equitecInfo from '../../constants/portfolio/equitec';
@@ -35,17 +35,26 @@ type ProjectSlug = 'equitec-it' | 'storytrek' | 'erg' | 'equitec' | 'totepool' |
 
 
 const Projects: FC = () => {
-	const [isSliderVisible, toggleSliderVisibility] = useState(false);
-	const [currentProject, setCurrentProject] = useState<ProjectSlug>('default');
+    const [isSliderVisible, toggleSliderVisibility] = useState(false);
+    const [currentProject, setCurrentProject] = useState<ProjectSlug>('default');
+    // Prevent immediate reopen on mobile: ignore card clicks right after closing the slider
+    const lastCloseAtRef = useRef<number>(0);
 
-	const onLearnMoreClickHandler = useCallback((slug: string) => {
-		setCurrentProject(slug as ProjectSlug);
-		toggleSliderVisibility(true);
-	}, []);
+    const onLearnMoreClickHandler = useCallback((slug: string) => {
+        const now = Date.now();
+        // If the user just tapped Close, the underlying click can land on a card when the modal unmounts.
+        // Guard against reopening for a short cooldown period.
+        if (now - lastCloseAtRef.current < 600) {
+            return;
+        }
+        setCurrentProject(slug as ProjectSlug);
+        toggleSliderVisibility(true);
+    }, []);
 
-	const onSliderCloseBtnClick = () => {
-		toggleSliderVisibility(false);
-	};
+    const onSliderCloseBtnClick = () => {
+        lastCloseAtRef.current = Date.now();
+        toggleSliderVisibility(false);
+    };
 
 	const getProject = (slug: ProjectSlug): ProjectInfo => {
 		const projectMap: Record<ProjectSlug, ProjectInfo> = {
