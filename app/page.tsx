@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	title: 'Full-stack Developer | Alexander Chernetsky',
 	description: 'Alexander Chernetsky - a full-stack web developer from Warsaw, Poland',
 	verification: {
-		google: '', // todo: add google verification
+		google: 'FNubKiwZ4Bs9WdO_ExujOXcJ0pC5NxImc6EYTr9N_NY', // todo: add google verification
 	},
 };
 
