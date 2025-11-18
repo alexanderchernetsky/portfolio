@@ -15,12 +15,12 @@ interface Project {
 }
 
 const projects: Project[] = [
-	{
-		title: 'Storytrek',
-		slug: 'storytrek',
-		technologies: 'React, MST, Ant Design, Jest',
-		image: storytrackCard,
-	},
+	// {
+	// 	title: 'Storytrek',
+	// 	slug: 'storytrek',
+	// 	technologies: 'React, MST, Ant Design, Jest',
+	// 	image: storytrackCard,
+	// },
 	{
 		title: 'Equitec-it',
 		slug: 'equitec-it',
@@ -40,7 +40,7 @@ const projects: Project[] = [
 		image: equitecCard,
 	},
 	{
-		title: 'Totepool',
+		title: 'Betfred, Totepool',
 		slug: 'totepool',
 		technologies: 'React, Typescript, Cypress, React Testing Library',
 		image: totepoolCard,
