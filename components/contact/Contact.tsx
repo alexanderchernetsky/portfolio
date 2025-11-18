@@ -61,7 +61,7 @@ function Contact() {
 
 				<p className="mt-5 lg:mt-20 font-semibold text-base lg:text-lg text-center text-contact-question">Have a question or want to work together?</p>
 
-				<form onSubmit={handleSubmit(onSubmit)} className="mt-2 lg:mt-10 w-full max-w-[686px] p-0 lg:p-6">
+				<form onSubmit={handleSubmit(onSubmit)} className="mt-2 lg:mt-5 w-full max-w-[686px] p-0 lg:p-6">
 					{/* Full name */}
 					<div className="mb-4">
 						<Input
@@ -113,7 +113,7 @@ function Contact() {
 				</Modal>
 			</div>
 
-			<footer className="absolute bottom-0 h-[100px] lg:h-[200px] w-full flex flex-col justify-center items-center bg-footer py-10 md:py-4">
+			<footer className="mt-auto p-6 w-full flex flex-col justify-center items-center bg-footer">
 				<div className="flex gap-6 justify-center items-center">
 					{socIcons.map((item) => (
 						<SocIcon key={item.name} src={item.src} name={item.name} linkTo={item.linkTo} />

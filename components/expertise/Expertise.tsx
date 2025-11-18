@@ -35,7 +35,7 @@ const Expertise: React.FC = () => {
 
 				{/* Main info */}
 				<div className="w-full px-6 mt-8 flex flex-col items-center justify-start mx-auto">
-					<div className="flex flex-col justify-start items-center lg:grid lg:grid-rows-1 lg:grid-cols-2 items-start gap-8 md:flex-col">
+					<div className="flex flex-col justify-start lg:grid lg:grid-rows-1 lg:grid-cols-2 items-start gap-8 md:flex-col">
 						{/* Left column - About Section */}
 						<div className="flex flex-col items-center max-w-[590px] w-full px-2">
 							{/* Photo wrapper with hexagon-ish clipPath */}
