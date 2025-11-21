@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import type React from 'react';
 import { backendSkills, cloudAndDevOpsSkills, frontendSkills, web3skills } from '@/constants/about/skills';
-import { useIsDesktop } from '@/hooks/useMediaQuery';
 import blocks from '../../constants/about/blocks';
 import alexander from '../../public/images/about/alex.jpg';
 import Button from '../shared/Button';
@@ -10,9 +9,6 @@ import Block from './Block';
 import SkillBlock from './SkillBlock';
 
 const Expertise: React.FC = () => {
-	// Desktop detection aligned with Tailwind's lg breakpoint
-	const isDesktop = useIsDesktop();
-
 	const handleContactButtonClick = () => {
 		const contactSection = document.getElementById('contact');
 		contactSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
