@@ -1,16 +1,16 @@
 :root {
-	/* Primary Colors */
-	--primary-color: #ffffff;
-	--secondary-color: #282936;
+    /* Primary Colors */
+    --primary-color: #ffffff;
+    --secondary-color: #282936;
 
 	/* Overlay Colors */
 	--overlay-color: #00000033;
 	--slider-overlay-color: #00000080;
 	--card-overlay-color: #f5f5f5;
 
-	/* Accent Colors */
-	--highlight-color: #e31b6d;
-	--hover-color: #04c2c9;
+ /* Accent Colors (single dominant: cyan) */
+ --highlight-color: #06b6d4; /* cyan 500 */
+ --hover-color: #0891b2; /* cyan 600 */
 
 	/* Text Colors */
 	--page-title-color: #444649;
@@ -28,13 +28,19 @@
 	--header-bg: #1b242f;
 	--footer-bg: #1b242f;
 
-	/* Button & Link Colors */
-	--green-button-bg-color: #05c2c8;
-	--link-color: #05c2c8;
+ /* Button & Link Colors */
+ --green-button-bg-color: #06b6d4; /* cyan 500 */
+ --link-color: #06b6d4; /* cyan 500 */
 
-	/* Other */
-	--slider-border: #1b242f;
-	--contact-question-color: #04c2c9;
+    /* Validation Colors (keep errors in red/pink family) */
+    --error-color: #e31b6d; /* legacy pink for error text */
+    --error-border-color: #e31b6d; /* error border */
+    --error-bg-color: rgba(227, 27, 109, 0.08); /* subtle bg if needed */
+    --error-ring-color: #f472b6; /* focus ring for invalid fields (optional) */
+
+    /* Other */
+    --slider-border: #1b242f;
+    --contact-question-color: #06b6d4; /* cyan 500 */
 }
 
 /* Utility classes for quick access */
@@ -108,22 +114,36 @@
 	color: var(--footnote-color);
 }
 .text-green-button-link {
-	color: var(--link-color);
+    color: var(--link-color);
 }
 .text-contact-question {
-	color: var(--contact-question-color);
+    color: var(--contact-question-color);
+}
+/* Error text */
+.text-error {
+    color: var(--error-color);
 }
 
 
 /* Border */
 .border-slider {
-	border-color: var(--slider-border);
+    border-color: var(--slider-border);
 }
 
 .border-highlight {
-	color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
 .border-slider {
     border-color: var(--link-color);
+}
+
+/* Error border */
+.border-error {
+    border-color: var(--error-border-color);
+}
+
+/* Optional background helper for errors */
+.bg-error {
+    background-color: var(--error-bg-color);
 }

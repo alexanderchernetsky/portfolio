@@ -10,7 +10,7 @@ export default function Input({ errorMessage, className = '', ...rest }: InputPr
 	return (
 		<div className={`w-full ${className}`}>
 			{showError && (
-				<div className="text-xs lg:text-sm text-highlight m-0 lg:mb-1">
+				<div className="text-xs lg:text-sm text-error m-0 lg:mb-1">
 					{typeof errorMessage === 'string' ? errorMessage : 'Error'}
 				</div>
 			)}
@@ -18,7 +18,7 @@ export default function Input({ errorMessage, className = '', ...rest }: InputPr
 			<input
 				{...rest}
 				className={`w-full h-[65px] px-6 box-border bg-input text-primary text-sm font-normal placeholder:opacity-60 focus:outline-none ${
-					showError ? 'border-2 border-highlight' : 'border-none'
+					showError ? 'border-2 border-error' : 'border-none'
 				}`}
 			/>
 		</div>

@@ -14,7 +14,7 @@ const Block: React.FC<BlockProps> = ({ title, text, src }) => {
                     w-[200px] md:m-[10px] sm:h-auto"
 		>
 			{/* Image */}
-			<div className="lg:w-[120px] lg:h-[100px] w-[100px] h-[80px]">
+			<div className="w-[100px] h-[80px]">
 				<Image src={src} unoptimized alt={title} width={120} height={100} className="w-full h-full object-cover" />
 			</div>
 
