@@ -3,6 +3,7 @@ import type { StaticImageData } from 'next/image';
 import {type FC, useCallback, useEffect, useRef, useState } from 'react';
 import {useDisablePageScrolling} from "@/hooks/useDisablePageScrolling";
 import { useIsDesktop } from '@/hooks/useMediaQuery';
+import Button from '../../shared/Button';
 import Slide from './Slide';
 
 interface SlideData {
@@ -199,15 +200,14 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 						className="w-full flex flex-row flex-nowrap justify-between items-center mt-[35px]"
 					>
 						{/* View Site Button */}
-                        <a
+                        <Button
                             href={href}
                             target="_blank"
-                            rel="noopener noreferrer"
-                            className="box-border text-lg text-white px-[30px] h-[42px] w-fit border-2 border-slider flex flex-row gap-2 items-center justify-center uppercase m-0 cursor-pointer transition-all duration-500 ease-out hover:bg-cyan-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-400 no-underline"
+                            leadingIcon={<LinkExternal01 width={20} height={20} />}
+                            className="no-underline"
                         >
-                            <LinkExternal01 width={20} height={20} />
-                            <span className="text-[14px]">View site</span>
-                        </a>
+                            View site
+                        </Button>
 
 						{/* Close Button */}
                         <button

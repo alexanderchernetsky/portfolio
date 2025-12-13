@@ -52,11 +52,9 @@ const Expertise: React.FC = () => {
 								landing website or large and complicated web application.
 							</p>
 
-							<div className="mt-6">
-								<Button colorTheme="green" onClick={handleContactButtonClick}>
-									Contact me
-								</Button>
-							</div>
+       <div className="mt-6">
+                                <Button variant="reversed" onClick={handleContactButtonClick}>Contact me</Button>
+                            </div>
 						</div>
 
 						{/* Right column - Skills */}

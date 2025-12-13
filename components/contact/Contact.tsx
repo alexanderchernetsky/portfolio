@@ -87,11 +87,11 @@ function Contact() {
 						<Textarea placeholder="Your message" errorMessage={errors.message?.message} {...register('message')} />
 					</div>
 
-					<div className="w-full flex justify-center mb-6">
-						<Button colorTheme="green" type="submit" disabled={isSubmitting} loading={isSubmitting}>
-							Submit
-						</Button>
-					</div>
+     <div className="w-full flex justify-center mb-6">
+                        <Button type="submit" disabled={isSubmitting} loading={isSubmitting}>
+                            Submit
+                        </Button>
+                    </div>
 				</form>
 
                 {/* Succes modal */}

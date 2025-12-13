@@ -18,13 +18,11 @@ export default function Intro() {
 						<br /> a full-stack web developer based in Warsaw, Poland.
 					</h1>
 
-					<div className="mt-3">
-						<Button colorTheme="pink" onClick={handleViewWorkButtonClick}>
-							<span className="font-raleway text-primary font-normal text-decoration-none">View my work</span>
-						</Button>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+                    <div className="mt-3">
+                        <Button onClick={handleViewWorkButtonClick}>View my work</Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }

@@ -1,101 +1,120 @@
 'use client';
-import { ArrowRight } from '@untitled-ui/icons-react';
 import type React from 'react';
 import cn from '@/utils/cn';
 
-type ColorTheme = 'pink' | 'green';
 
-interface ButtonProps {
-	className?: string;
-	disabled?: boolean;
-	onClick?: () => void;
-	href?: string;
-	colorTheme?: ColorTheme;
-	type?: 'button' | 'submit';
-	loading?: boolean;
-	children: React.ReactNode;
+interface BaseProps {
+  className?: string;
+  disabled?: boolean;
+  loading?: boolean;
+  leadingIcon?: React.ReactNode;
+  children: React.ReactNode;
+  /**
+   * outlined (default): transparent bg, white text -> on hover cyan bg + dark text
+   * reversed: cyan bg + dark text -> on hover transparent bg + white text
+   */
+  variant?: 'outlined' | 'reversed';
 }
 
-const getThemeClasses = (theme: ColorTheme) => {
-	switch (theme) {
-		case 'green':
-			return {
-				circleBg: 'bg-green-button',
-				textColor: 'text-green-button-link',
-			};
-		default:
-			return {
-				circleBg: 'bg-highlight',
-				textColor: 'text-pink-500',
-			};
-	}
+interface AnchorProps extends BaseProps {
+  href: string;
+  target?: string;
+  rel?: string;
+  onClick?: never;
+  type?: never;
+}
+
+interface NativeButtonProps extends BaseProps {
+  href?: undefined;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  target?: never;
+  rel?: never;
+}
+
+type ButtonProps = AnchorProps | NativeButtonProps;
+
+const baseClasses =
+  'box-border text-lg px-[30px] h-[42px] w-fit border-2 border-slider flex flex-row gap-2 items-center justify-center uppercase m-0 transition-all duration-500 ease-out focus:outline-none focus:ring-2 focus:ring-cyan-400';
+
+const Content: React.FC<{ children: React.ReactNode; loading?: boolean; leadingIcon?: React.ReactNode }> = ({
+  children,
+  loading,
+  leadingIcon,
+}) => {
+  if (loading) {
+    return (
+      <span
+        aria-hidden
+        className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
+      />
+    );
+  }
+
+  return (
+    <>
+      {leadingIcon ? <span className="inline-flex items-center">{leadingIcon}</span> : null}
+      <span className="text-[14px]">{children}</span>
+    </>
+  );
 };
 
-const Button: React.FC<ButtonProps> = ({
-	type = 'button',
-	colorTheme = 'pink',
-	className = '',
-	disabled = false,
-	onClick,
-	loading = false,
-	children,
-}) => {
-	const theme = getThemeClasses(colorTheme);
+const Button: React.FC<ButtonProps> = (props) => {
+  const { className = '', disabled = false, loading = false, children, leadingIcon, variant = 'outlined' } = props;
 
-	return (
-		<button
-			type={type}
-			disabled={disabled || loading}
-			onClick={onClick}
-			tabIndex={0}
-			onKeyPress={onClick}
-			className={cn(
-				'relative inline-block w-52 align-middle bg-transparent text-lg cursor-pointer outline-none border-0 p-0 mt-2',
-				'transition-all duration-300 ease-in-out',
-				className,
-			)}
-		>
-			{/* Circle with icon or loader */}
-			<span
-				className={cn(
-					'circle relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
-					theme.circleBg,
-				)}
-			>
-				{loading ? (
-					<span className="absolute top-[14px] left-[14px] w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-				) : (
-					<span className="absolute top-[14px] left-[14px]">
-						<ArrowRight
-							className={cn(
-								'w-5 h-5 text-white transition-transform duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
-							)}
-						/>
-					</span>
-				)}
-			</span>
+  const disabledClasses = disabled || loading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer';
+  const hoverOutlined = 'hover:bg-cyan-400 hover:text-gray-900';
+  const hoverReversed = 'hover:bg-transparent';
+  const hoverClasses = disabled || loading ? '' : (variant === 'reversed' ? hoverReversed : hoverOutlined);
+  const baseVariantClasses =
+    variant === 'reversed'
+      ? 'bg-cyan-400 text-gray-900'
+      : 'text-white';
 
-			{/* Button text */}
-			<span
-				className={cn(
-					'flex flex-row justify-center items-center text text-[16px] lg:text-lg absolute top-0 left-0 right-0 bottom-0 py-3 pl-8 text-center uppercase font-normal leading-tight transition-all duration-[450ms] ease-[cubic-bezier(0.65,0,0.076,1)]',
-					theme.textColor,
-				)}
-			>
-				{children}
-			</span>
+  if ('href' in props && props.href) {
+    const { href, target, rel } = props;
+    const isExternal = target === '_blank' || /^https?:\/\//.test(href);
+    const relAttr = rel ?? (isExternal ? 'noopener noreferrer' : undefined);
 
-			{/* Hover animation */}
-			<style jsx>{`
-                button:hover .circle {
-                    width: 100%;
-                }
-                button:hover .text {
-                    color: var(--primary-color);
-                }
-            `}</style>
-		</button>
-	);
+    return (
+      <a
+        href={href}
+        target={target}
+        rel={relAttr}
+        aria-busy={loading || undefined}
+        className={cn(
+          baseClasses,
+          'no-underline',
+          baseVariantClasses,
+          hoverClasses,
+          disabledClasses,
+          className,
+        )}
+      >
+        <Content loading={loading} leadingIcon={leadingIcon}>{children}</Content>
+      </a>
+    );
+  }
+
+  const { onClick, type = 'button' } = props as NativeButtonProps;
+
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      className={cn(
+        baseClasses,
+        baseVariantClasses,
+        hoverClasses,
+        disabledClasses,
+        className,
+      )}
+    >
+      <Content loading={loading} leadingIcon={leadingIcon}>{children}</Content>
+    </button>
+  );
 };
 
 export default Button;
