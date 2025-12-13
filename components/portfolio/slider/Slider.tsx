@@ -111,8 +111,8 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
                 aria-hidden="true"
             />
 
-			{/* Modal container (always centered from first paint) */}
-			<div className="fixed inset-0 min-h-[100dvh] z-[3] flex items-center justify-center">
+			{/* Modal container (always centered from the first paint) */}
+			<div className="fixed inset-0 min-h-[100dvh] z-3 flex items-center justify-center">
 				{/* Modal content with enter animation */}
 				<div
 					className={`
@@ -124,19 +124,19 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
 					  }
 					`}
 				>
-					<div
-						className={`
-					  relative w-[800px] h-[450px] flex overflow-x-auto
-					  lg:w-[800px] lg:h-[450px]
-					  max-lg:w-[375px] max-lg:h-[250px]
-					`}
-					>
+ 				<div
+ 					className={`
+ 				  relative w-[800px] h-[450px] flex overflow-x-auto
+ 				  lg:w-[800px] lg:h-[450px]
+ 				  max-lg:w-[375px] max-lg:h-[250px]
+ 				`}
+ 				>
                     {/* Previous Button */}
                     {!isFirstSlide && (
                         <button
                             type="button"
                             onClick={() => sliderControlClickHandler('previous')}
-                            className="cursor-pointer absolute bg-slider-navigation text-primary z-[1] bottom-0 left-0 px-4 py-5 flex flex-col items-center justify-center"
+                            className="cursor-pointer absolute bg-slider-navigation text-primary z-1 bottom-0 left-0 px-4 py-5 flex flex-col items-center justify-center"
                             tabIndex={0}
                             onKeyPress={(e) => handleKeyPress(e, () => sliderControlClickHandler('previous'))}
                             aria-label="Previous slide"
@@ -148,7 +148,7 @@ const Slider: FC<SliderProps> = ({ slides, title, subtitle, description, onClose
                     {/* Slides */}
                     <div
                         id="slides-wrapper"
-                        className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory overflow-scroll"
+                        className="flex overflow-x-hidden scroll-smooth snap-x snap-mandatory overflow-y-hidden"
                         style={{ WebkitOverflowScrolling: 'touch' }}
                     >
                         {slides.map((slide) => (
