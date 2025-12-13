@@ -1,11 +1,11 @@
 import type { StaticImageData } from 'next/image';
-import equitecCard from '../../public/images/projects/equitec/main.png';
+import equitecCard from '../../public/images/projects/equitec/main.jpg';
 import equitecitCard from '../../public/images/projects/equitec-it/main.png';
 import ergCard from '../../public/images/projects/erg/main.png';
 import fanstrikeCard from '../../public/images/projects/fanstrike/main.png';
 import fantiumCard from '../../public/images/projects/fantium/main.png';
-import storytrackCard from '../../public/images/projects/storytrek/main.png';
-import totepoolCard from '../../public/images/projects/totepool/main.png';
+// import storytrackCard from '../../public/images/projects/storytrek/main.png';
+import totepoolCard from '../../public/images/projects/totepool/main.jpg';
 
 interface Project {
 	title: string;
