@@ -3,7 +3,7 @@ import Image from 'next/image';
 import type React from 'react';
 import { backendSkills, cloudAndDevOpsSkills, frontendSkills, web3skills } from '@/constants/about/skills';
 import blocks from '../../constants/about/blocks';
-import alexander from '../../public/images/about/alex.jpg';
+import alexander from '../../public/images/about/alex.jpeg';
 import Button from '../shared/Button';
 import Block from './Block';
 import SkillBlock from './SkillBlock';
